@@ -3,457 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Phoenix Business Readiness Snapshot</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
-
+  <title>Rising Phoenix Enterprises</title>
+  <link rel="stylesheet" href="shared.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      --bg:#050505;
-      --bg-soft:#0c0f13;
-      --text:#f3f4f6;
-      --muted:#a8afb8;
-      --muted-2:#7f8791;
-      --gold:#c9a227;
-      --line:#232831;
-      --blue-glow:rgba(49,95,188,0.22);
+    .entry-gate {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(circle at center, #020202 0%, #000000 100%);
     }
 
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
+    .entry-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(-2vh);
     }
 
-    html, body{
-      width:100%;
-      height:100%;
-      overflow:hidden;
-      background:var(--bg);
-      color:var(--text);
+    .entry-logo {
+      width: 220px;
+      max-width: 52vw;
+      height: auto;
+      margin-bottom: 22px;
+      opacity: 0.98;
+      filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.35));
     }
 
-    body{
-      font-family:"Source Sans 3", Arial, sans-serif;
-      background:
-        radial-gradient(circle at 50% 62%, rgba(201,162,39,0.08) 0%, rgba(201,162,39,0.02) 22%, rgba(0,0,0,0) 52%),
-        linear-gradient(180deg, #090909 0%, #060606 100%);
+    .entry-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(28px, 2.6vw, 42px);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      color: #f5f1e8;
+      margin: 0;
     }
 
-    .page{
-      position:relative;
-      width:100%;
-      height:100vh;
-      overflow:hidden;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.015) 0, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 100%),
-        linear-gradient(180deg, rgba(255,255,255,0.015) 0, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 100%);
-      background-size:120px 120px;
+    .entry-link {
+      margin-top: 54px;
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      letter-spacing: 0.18em;
+      color: #c6a96b;
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
     }
 
-    .page::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.00) 15%, rgba(255,255,255,0.00) 85%, rgba(255,255,255,0.02) 100%);
-      pointer-events:none;
+    .entry-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 1px;
+      background: #c6a96b;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 180ms ease;
     }
 
-    .page::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at center, var(--blue-glow) 0%, rgba(49,95,188,0.10) 26%, rgba(0,0,0,0) 66%);
-      pointer-events:none;
+    .entry-link:hover::after {
+      transform: scaleX(1);
     }
 
-    .seal{
-      position:absolute;
-      top:34px;
-      left:42px;
-      width:126px;
-      height:auto;
-      opacity:0.96;
-      filter:drop-shadow(0 0 14px rgba(201,162,39,0.10));
-      z-index:3;
-    }
-
-    .system-label{
-      position:absolute;
-      top:42px;
-      left:50%;
-      transform:translateX(-50%);
-      text-align:center;
-      pointer-events:none;
-      z-index:3;
-    }
-
-    .system-kicker{
-      font-family:"Cinzel", serif;
-      font-size:14px;
-      letter-spacing:0.28em;
-      text-transform:uppercase;
-      color:#cfd4da;
-      opacity:0.78;
-    }
-
-    .hero{
-      position:relative;
-      z-index:2;
-      min-height:100vh;
-      height:auto;
-      width:min(92vw, 1100px);
-      margin:0 auto;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding-top:140px;
-      padding-bottom:60px;
-      transform:none;
-    }
-
-    .headline{
-      font-family:"Cinzel", serif;
-      font-size:clamp(26px, 2.6vw, 46px);
-      line-height:1.06;
-      letter-spacing:0.04em;
-      text-transform:uppercase;
-      font-weight:600;
-      max-width:1120px;
-      margin-bottom:26px;
-      background:linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #eef2f6 28%,
-        #cfd6dd 48%,
-        #f5f7fa 68%,
-        #bfc6cd 100%
-      );
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      text-shadow:
-        0 1px 0 rgba(255,255,255,0.18),
-        0 10px 20px rgba(0,0,0,0.52),
-        0 0 28px rgba(70,120,200,0.08);
-      filter:drop-shadow(0 2px 2px rgba(255,255,255,0.03));
-    }
-
-    .subline{
-      font-size:clamp(17px, 1.5vw, 24px);
-      line-height:1.45;
-      color:var(--muted);
-      max-width:760px;
-      margin-bottom:34px;
-      font-weight:400;
-    }
-
-    .price{
-      font-family:"Cinzel", serif;
-      font-size:clamp(22px, 2vw, 34px);
-      line-height:1.1;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      color:var(--gold);
-      margin-bottom:36px;
-      font-weight:600;
-      text-shadow:0 0 18px rgba(201,162,39,0.14);
-    }
-
-    .cta{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:278px;
-      padding:17px 36px;
-      border:1px solid var(--gold);
-      color:var(--text);
-      text-decoration:none;
-      text-transform:uppercase;
-      font-family:"Cinzel", serif;
-      font-size:17px;
-      letter-spacing:0.12em;
-      background:rgba(255,255,255,0.01);
-      transition:background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
-      margin-bottom:20px;
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,0.02);
-    }
-
-    .cta:hover{
-      background:var(--gold);
-      color:#111;
-      border-color:var(--gold);
-      transform:translateY(-1px);
-      box-shadow:0 0 22px rgba(201,162,39,0.18);
-    }
-
-    .trust{
-      font-size:13px;
-      line-height:1.45;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      color:#8f9398;
-      max-width:760px;
-      margin-bottom:10px;
-    }
-
-    .trust strong{
-      color:#c7ccd2;
-      font-weight:600;
-    }
-
-    .disclaimer{
-      font-size:10px;
-      line-height:1.45;
-      color:#68707a;
-      max-width:760px;
-      margin-bottom:36px;
-    }
-
-    .stack-bar{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:16px;
-      padding:14px 24px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,0.02);
-      min-width:min(760px, 88vw);
-      backdrop-filter:blur(4px);
-    }
-
-    .stack-label{
-      font-size:11px;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      color:var(--muted-2);
-      white-space:nowrap;
-    }
-
-    .stack-flow{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      font-family:"Cinzel", serif;
-      font-size:14px;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      color:#8d949d;
-    }
-
-    .stack-flow .active{
-      color:var(--gold);
-    }
-
-    .stack-flow .arrow{
-      color:#525964;
-      font-family:"Source Sans 3", Arial, sans-serif;
-      font-size:15px;
-      letter-spacing:normal;
-    }
-
-    .footer{
-      position:absolute;
-      bottom:18px;
-      left:50%;
-      transform:translateX(-50%);
-      text-align:center;
-      font-size:11px;
-      color:#7b828c;
-      letter-spacing:0.06em;
-      width:90%;
-      z-index:3;
-    }
-
-    .footer a{
-      color:#9ba3ad;
-      text-decoration:none;
-    }
-
-    .footer a:hover{
-      color:#cfd4da;
-    }
-
-    @media (max-width: 900px){
-      html, body{
-        overflow:auto;
+    @media (max-width: 768px) {
+      .entry-logo {
+        width: 170px;
+        margin-bottom: 18px;
       }
 
-      .page{
-        min-height:100vh;
-        height:auto;
-      }
-
-      .seal{
-        top:24px;
-        left:24px;
-        width:96px;
-      }
-
-      .system-label{
-        top:28px;
-      }
-
-      .system-kicker{
-        font-size:12px;
-        letter-spacing:0.22em;
-      }
-
-      .hero{
-        min-height:100vh;
-        width:min(92vw, 1100px);
-        padding:138px 0 96px;
-      }
-
-      .cta{
-        min-width:240px;
-        width:min(340px, 82vw);
-      }
-
-      .stack-bar{
-        min-width:100%;
-        padding:14px 18px;
-      }
-
-      .footer{
-        position:relative;
-        bottom:auto;
-        left:auto;
-        transform:none;
-        padding:22px 0 24px;
-        width:100%;
-      }
-    }
-
-    @media (max-width: 640px){
-      .page{
-        padding-bottom:12px;
-      }
-
-      .seal{
-        top:26px;
-        left:18px;
-        width:92px;
-      }
-
-      .system-label{
-        top:30px;
-        width:100%;
-        padding:0 96px 0 112px;
-      }
-
-      .system-kicker{
-        font-size:10px;
-        letter-spacing:0.18em;
-      }
-
-      .hero{
-        padding-top:88px;
-      }
-
-      .headline{
-        font-size:clamp(24px, 7vw, 36px);
-        letter-spacing:0.03em;
-        margin-bottom:16px;
-      }
-
-      .subline{
-        font-size:16px;
-        line-height:1.5;
-        margin-bottom:24px;
-      }
-
-      .price{
-        font-size:22px;
-        margin-bottom:24px;
-      }
-
-      .cta{
-        font-size:16px;
-        padding:16px 22px;
-        margin-bottom:16px;
-      }
-
-      .trust{
-        font-size:11px;
-        margin-bottom:8px;
-      }
-
-      .disclaimer{
-        font-size:9px;
-        margin-bottom:24px;
-      }
-
-      .stack-bar{
-        flex-direction:column;
-        gap:8px;
-      }
-
-      .stack-label{
-        font-size:10px;
-      }
-
-      .stack-flow{
-        font-size:12px;
-        gap:8px;
+      .entry-link {
+        margin-top: 42px;
+        font-size: 16px;
       }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <img src="phoenix-os-logo.png" alt="Phoenix OS Seal" class="seal" />
+  <main class="entry-gate">
+    <div class="entry-wrap">
+      <img
+        src="phoenix-os-logo.png"
+        alt="Rising Phoenix Enterprises logo"
+        class="entry-logo"
+      />
 
-    <div class="system-label">
-      <div class="system-kicker">Phoenix Business System</div>
+      <h1 class="entry-title">Rising Phoenix Enterprises</h1>
+
+      <a href="institution.html" class="entry-link">ENTER</a>
     </div>
-
-    <section class="hero">
-      <h1 class="headline">Phoenix Business Readiness Snapshot</h1>
-
-      <p class="subline">
-        Private-access diagnostic for operators evaluating structure, stability, and execution readiness.
-      </p>
-
-      <div class="price">$99 · Private Release</div>
-
-      <a class="cta" href="https://buy.stripe.com/dRm00ja2k0E44HYeYZfY07">Enter System</a>
-
-      <p class="trust">
-        Access is granted after payment confirmation. <strong>NACE</strong> will guide your entry.
-      </p>
-
-      <p class="disclaimer">
-        PBRS is an informational modeling tool and does not constitute legal, financial, or professional advice.
-      </p>
-
-      <div class="stack-bar">
-        <div class="stack-label">System Flow</div>
-        <div class="stack-flow">
-          <span class="active">PBRS</span>
-          <span class="arrow">→</span>
-          <span>PBB</span>
-          <span class="arrow">→</span>
-          <span>PNC</span>
-          <span class="arrow">→</span>
-          <span>PBS</span>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      © Rising Phoenix Enterprises &nbsp; | &nbsp;
-      <a href="#">Terms</a>
-      &nbsp; | &nbsp;
-      <a href="#">Privacy</a>
-    </footer>
   </main>
 </body>
 </html> 
