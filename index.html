@@ -1,160 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rising Phoenix Enterprises</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 
-<title>Rising Phoenix Enterprises</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --ivory: #f5f1e8;
+      --gold: #c6a96b;
+      --gold-soft: #d7b97c;
+    }
 
-<!-- TYPEWRITER FONT -->
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      color: var(--ivory);
+      font-family: "IBM Plex Mono", "Courier New", monospace;
+    }
 
-:root{
---bg:#000;
---ivory:#f5f1e8;
---gold:#c6a96b;
-}
+    body {
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    /* BACKGROUND LAYER */
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      opacity: 0;
+      animation: bgFadeIn 1.8s ease forwards;
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0) 25%),
+        radial-gradient(circle at center, rgba(0,0,0,0.08), #000 70%),
+        url("phoenix-os-logo.png") center 32% / 540px no-repeat;
+    }
 
-html,body{
-height:100%;
-background:radial-gradient(circle at center,#020202 0%,#000 100%);
-color:var(--ivory);
-}
+    .bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, rgba(198,169,107,0.08) 0%, rgba(198,169,107,0.00) 35%);
+      mix-blend-mode: screen;
+      opacity: 0.55;
+      animation: glowPulse 4.8s ease-in-out infinite;
+      pointer-events: none;
+    }
 
-/* CENTER LAYOUT */
+    /* FOREGROUND CONTENT */
+    .foreground {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 260px;
+    }
 
-.wrap{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-}
+    .title {
+      font-size: clamp(14px, 1.05vw, 18px);
+      font-weight: 500;
+      letter-spacing: 0.30em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid rgba(198,169,107,0.9);
+      margin-bottom: 34px;
+      opacity: 0;
+      width: 0;
+      animation:
+        titleReveal 0.1s linear 1.4s forwards,
+        typing 2.4s steps(26, end) 1.4s forwards,
+        blink 0.8s step-end infinite 1.4s;
+    }
 
-.inner{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-}
+    .enter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 210px;
+      padding: 14px 40px;
+      border: 1px solid var(--gold);
+      color: var(--ivory);
+      text-decoration: none;
+      font-size: 15px;
+      letter-spacing: 0.22em;
+      opacity: 0;
+      transform: translateY(8px);
+      animation: enterFadeIn 0.8s ease 4s forwards;
+      transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
 
-/* LOGO (DOMINANT) */
+    .enter:hover {
+      background: rgba(198,169,107,0.08);
+      border-color: var(--gold-soft);
+    }
 
-.logo{
-width:clamp(320px,36vw,520px);
-margin-bottom:10px;
+    /* ANIMATIONS */
+    @keyframes bgFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-filter:
-drop-shadow(0 22px 48px rgba(0,0,0,.55))
-drop-shadow(0 2px 8px rgba(198,169,107,.22));
-}
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.38; }
+      50% { opacity: 0.62; }
+    }
 
-/* TYPED AUTHORITY TEXT */
+    @keyframes titleReveal {
+      to {
+        opacity: 0.92;
+      }
+    }
 
-.title{
-font-family:"IBM Plex Mono","Courier New",monospace;
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 26ch; }
+    }
 
-font-size:clamp(14px,1.05vw,18px);
-font-weight:500;
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: rgba(198,169,107,0.9); }
+    }
 
-letter-spacing:.28em;
-text-transform:uppercase;
+    @keyframes enterFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-opacity:.9;
-margin-bottom:34px;
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .bg {
+        background:
+          radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0) 25%),
+          radial-gradient(circle at center, rgba(0,0,0,0.10), #000 72%),
+          url("phoenix-os-logo.png") center 28% / 320px no-repeat;
+      }
 
-white-space:nowrap;
-overflow:hidden;
-border-right:2px solid rgba(198,169,107,.85);
+      .foreground {
+        padding-top: 210px;
+      }
 
-animation:
-typing 2.4s steps(26,end),
-blink .8s step-end infinite;
-}
+      .title {
+        font-size: clamp(12px, 3.4vw, 15px);
+        letter-spacing: 0.18em;
+        margin-bottom: 24px;
+      }
 
-/* TYPING EFFECT */
-
-@keyframes typing{
-from{width:0}
-to{width:26ch}
-}
-
-/* CURSOR BLINK */
-
-@keyframes blink{
-from,to{border-color:transparent}
-50%{border-color:rgba(198,169,107,.85)}
-}
-
-/* ENTER BUTTON */
-
-.enter{
-font-family:"IBM Plex Mono","Courier New",monospace;
-
-font-size:16px;
-letter-spacing:.22em;
-
-color:var(--ivory);
-text-decoration:none;
-
-border:1px solid var(--gold);
-padding:14px 38px;
-
-transition:.18s ease;
-}
-
-.enter:hover{
-background:rgba(198,169,107,.08);
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.logo{
-width:clamp(240px,55vw,340px);
-}
-
-.title{
-font-size:clamp(12px,3.5vw,16px);
-margin-bottom:26px;
-}
-
-.enter{
-font-size:14px;
-padding:12px 26px;
-}
-
-}
-
-</style>
-
+      .enter {
+        min-width: 180px;
+        padding: 12px 26px;
+        font-size: 14px;
+        letter-spacing: 0.16em;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="wrap">
-<div class="inner">
+  <div class="bg"></div>
 
-<img src="phoenix-os-logo.png" class="logo">
-
-<h1 class="title">Rising Phoenix Enterprises</h1>
-
-<a href="institution.html" class="enter">ENTER</a>
-
-</div>
-</div>
+  <main class="foreground">
+    <h1 class="title">Rising Phoenix Enterprises</h1>
+    <a href="institution.html" class="enter">ENTER</a>
+  </main>
 
 </body>
-
 </html> 
