@@ -1,109 +1,51 @@
-:root {
-  --bg: #000000;
-  --bg-deep: #020202;
-  --text: #f5f1e8;
-  --text-soft: #d8d3ca;
-  --text-micro: #9e9a93;
-  --gold: #c6a96b;
-  --line: rgba(198,169,107,0.24);
-}
-
-* { box-sizing: border-box; }
-
-html, body {
-  margin: 0;
-  padding: 0;
-  background: radial-gradient(circle at center,#000000 0%,#020202 100%);
-  color: var(--text);
-  font-family: Inter, Arial, sans-serif;
-}
-
-.serif {
-  font-family: "Playfair Display", Georgia, serif;
-}
-
-.section {
-  padding: 96px 0;
-}
-
-.text-shell {
-  width: min(720px, calc(100vw - 40px));
-  margin: 0 auto;
-}
-
-.system-shell {
-  width: min(520px, calc(100vw - 40px));
-  margin: 0 auto;
-  text-align: center;
-}
-
-.h1 {
-  font-size: 72px;
-  letter-spacing: -0.5px;
-  line-height: 1.25;
-}
-
-.h2 {
-  font-size: 34px;
-  margin-bottom: 18px;
-}
-
-.body-copy {
-  font-size: 18px;
-  line-height: 1.7;
-  color: var(--text-soft);
-}
-
-.micro {
-  font-size: 14px;
-  color: var(--text-micro);
-}
-
-.underline-link {
-  position: relative;
-}
-
-.underline-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 1px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .18s ease;
-}
-
-.underline-link:hover::after {
-  transform: scaleX(1);
-/* =========================
-   GOLD ENTER BUTTON (GLOBAL)
-========================= */
+/* ============================= */
+/* ENTER BUTTON — GOLD (LOCKED) */
+/* ============================= */
 
 .enter{
-border:1px solid var(--gold);
+  --gold:#c6a96b;
+  --gold-deep:#a8894f;
 
-padding:14px 42px;
-text-decoration:none;
-letter-spacing:.18em;
-font-size:15px;
+  display:inline-block;
+  margin-top:10px;
+  padding:14px 44px;
 
-color:#000;
+  font-family:"IBM Plex Mono","Courier New",monospace;
+  font-size:14px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  text-decoration:none;
 
-background:linear-gradient(
-180deg,
-#f3d48b 0%,
-#d7b97c 45%,
-#b89655 100%
-);
+  color:#000;                 /* 🔥 BLACK TEXT */
+  background:linear-gradient(145deg,var(--gold),var(--gold-deep));
+  border:1px solid var(--gold);
+  border-radius:2px;
 
-box-shadow:
-0 6px 18px rgba(198,169,107,.25),
-inset 0 1px 0 rgba(255,255,255,.35),
-inset 0 -2px 6px rgba(0,0,0,.25);
+  box-shadow:
+    0 0 18px rgba(198,169,107,.35),
+    inset 0 0 10px rgba(0,0,0,.25);
 
-transition:.22s ease;
-} 
+  transition:all .22s ease;
+}
+
+/* HOVER */
+
+.enter:hover{
+  color:#000;
+  background:linear-gradient(145deg,#d7ba79,#b99756);
+
+  box-shadow:
+    0 0 26px rgba(198,169,107,.55),
+    inset 0 0 12px rgba(0,0,0,.28);
+
+  transform:translateY(-1px);
+}
+
+/* ACTIVE (CLICK FEEL) */
+
+.enter:active{
+  transform:translateY(1px);
+  box-shadow:
+    0 0 10px rgba(198,169,107,.45),
+    inset 0 0 16px rgba(0,0,0,.35);
 } 
