@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rising Phoenix Enterprises | System Access</title>
+  <meta name="description" content="Rising Phoenix Enterprises System Access" />
+  <style>
+    :root {
+      --black: #000000;
+      --ivory: #F5F1E8;
+      --gold: #C6A96B;
+      --content-max: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--black);
+      color: var(--ivory);
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .page {
+      min-height: 100vh;
+      width: 100%;
+      padding: 120px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--content-max);
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0 0 48px 0;
+      color: var(--ivory);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    .access-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .access-link {
+      color: var(--ivory);
+      text-decoration: none;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .access-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      color: var(--gold);
+    }
+
+    @media (max-width: 1024px) {
+      .page {
+        padding: 96px 32px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 72px 16px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .access-link {
+        font-size: 18px;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="page">
+    <div class="wrap">
+      <h2>System Access</h2>
+
+      <div class="access-list">
+        <a class="access-link" href="https://pbrs.risingphoenixhq.com">Phoenix Business Readiness Snapshot</a>
+        <a class="access-link" href="#">Phoenix Business Builder</a>
+        <a class="access-link" href="#">Phoenix Nexus Capital</a>
+        <a class="access-link" href="#">Phoenix Business System</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html> 
