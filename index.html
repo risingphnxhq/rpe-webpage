@@ -1,297 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rising Phoenix Enterprises</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rising Phoenix Enterprises</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --ivory:#f5f1e8;
-      --bg:#000000;
-      --gold-1:#f6d37a;
-      --gold-2:#e6bf66;
-      --gold-3:#cfa44d;
-      --gold-4:#b88936;
-      --gold-5:#e2bc63;
-    }
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+:root{
+  --bg:#000;
+  --ivory:#f5f1e8;
+}
 
-    html,body{
-      height:100%;
-      background:var(--bg);
-      color:var(--ivory);
-      font-family:"IBM Plex Mono","Courier New",monospace;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      text-rendering:optimizeLegibility;
-    }
+/* RESET */
 
-    body{
-      overflow:hidden;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    /* HERO */
-    .hero{
-      position:relative;
-      height:70vh;
-      display:flex;
-      align-items:flex-end;
-      justify-content:center;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0) 24%),
-        radial-gradient(circle at center, rgba(0,0,0,.10), #000 72%);
-    }
+html,body{
+  height:100%;
+  background:var(--bg);
+  color:var(--ivory);
+  font-family:"IBM Plex Mono","Courier New",monospace;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
 
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:url("phoenix-os-logo.png") center 40% / 520px no-repeat;
-      opacity:0;
-      filter:
-        drop-shadow(0 22px 54px rgba(0,0,0,.60))
-        drop-shadow(0 0 22px rgba(207,164,77,.12));
-      animation:heroFade 1.4s ease forwards;
-    }
+/* HERO */
 
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at center, rgba(207,164,77,.10) 0%, rgba(207,164,77,0) 36%);
-      mix-blend-mode:screen;
-      opacity:.42;
-      animation:glowPulse 4.8s ease-in-out infinite;
-      pointer-events:none;
-    }
+.hero{
+  position:relative;
+  height:70vh;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0) 24%),
+    radial-gradient(circle at center, rgba(0,0,0,.10), #000 72%);
+}
 
-    /* CONTENT */
-    .content{
-      height:30vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:flex-start;
-      padding-top:30px;
-      text-align:center;
-      position:relative;
-      z-index:2;
-    }
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("phoenix-os-logo.png") center 40% / 520px no-repeat;
+  opacity:0;
+  filter:
+    drop-shadow(0 22px 54px rgba(0,0,0,.60))
+    drop-shadow(0 0 22px rgba(168,116,34,.15));
+  animation:heroFade 1.4s ease forwards;
+}
 
-    /* TITLE */
-    .title{
-      font-size:clamp(14px,1.05vw,18px);
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      margin-bottom:28px;
-      min-height:1.5em;
-      opacity:0;
-      animation:titleFade .7s ease .9s forwards;
-    }
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at center, rgba(168,116,34,.10) 0%, rgba(168,116,34,0) 36%);
+  mix-blend-mode:screen;
+  opacity:.42;
+  animation:glowPulse 4.8s ease-in-out infinite;
+}
 
-    .typed-text{
-      display:inline-block;
-      color:var(--ivory);
-    }
+/* CONTENT */
 
-    .cursor{
-      display:inline-block;
-      width:2px;
-      height:1em;
-      background:var(--gold-3);
-      margin-left:5px;
-      vertical-align:-0.12em;
-      animation:blink .9s infinite;
-    }
+.content{
+  height:30vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding-top:30px;
+  text-align:center;
+}
 
-    /* ENTER BUTTON */
-    .enter{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:210px;
-      margin-top:10px;
-      padding:14px 44px;
+/* TITLE */
 
-      font-family:"IBM Plex Mono","Courier New",monospace;
-      font-size:14px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      text-decoration:none;
+.title{
+  font-size:clamp(14px,1.05vw,18px);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  margin-bottom:28px;
+  min-height:1.5em;
+  opacity:0;
+  animation:titleFade .7s ease .9s forwards;
+}
 
-      color:#000;
+.cursor{
+  display:inline-block;
+  width:2px;
+  height:1em;
+  background:#a87422;
+  margin-left:5px;
+  animation:blink .9s infinite;
+}
 
-      background:linear-gradient(
-        145deg,
-        var(--gold-1) 0%,
-        var(--gold-2) 18%,
-        var(--gold-3) 38%,
-        var(--gold-4) 52%,
-        var(--gold-5) 70%,
-        var(--gold-1) 100%
-      );
+/* ENTER BUTTON — HERO MATCH */
 
-      border:1px solid var(--gold-3);
-      border-radius:2px;
+.enter{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:210px;
+  margin-top:10px;
+  padding:14px 44px;
 
-      box-shadow:
-        0 0 12px rgba(207,164,77,.35),
-        inset 0 1px 0 rgba(255,255,255,.28),
-        inset 0 0 10px rgba(0,0,0,.28);
+  font-size:14px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:#000;
 
-      opacity:0;
-      transform:translateY(8px);
-      animation:enterFade .8s ease 2.5s forwards;
-      transition:all .22s ease;
-    }
+  background:linear-gradient(
+    145deg,
+    #e4bb5c 0%,
+    #c9973e 18%,
+    #a87422 40%,
+    #8f6119 52%,
+    #c9973e 70%,
+    #e4bb5c 100%
+  );
 
-    .enter:hover{
-      color:#000;
+  border:1px solid #a87422;
+  border-radius:2px;
 
-      background:linear-gradient(
-        145deg,
-        #ffe08a 0%,
-        #eac86f 20%,
-        #cfa44d 42%,
-        #b88936 56%,
-        #eac86f 78%,
-        #ffe08a 100%
-      );
+  box-shadow:
+    0 0 10px rgba(168,116,34,.35),
+    inset 0 1px 0 rgba(255,255,255,.18),
+    inset 0 -2px 6px rgba(0,0,0,.45);
 
-      box-shadow:
-        0 0 22px rgba(207,164,77,.55),
-        inset 0 1px 0 rgba(255,255,255,.38),
-        inset 0 0 12px rgba(0,0,0,.32);
+  opacity:0;
+  transform:translateY(8px);
+  animation:enterFade .8s ease 2.5s forwards;
+  transition:all .22s ease;
+}
 
-      transform:translateY(-1px);
-    }
+.enter:hover{
+  background:linear-gradient(
+    145deg,
+    #f0c86a,
+    #d3a64b,
+    #a87422,
+    #8f6119,
+    #d3a64b
+  );
 
-    .enter:active{
-      transform:translateY(1px);
+  box-shadow:
+    0 0 18px rgba(168,116,34,.55),
+    inset 0 1px 0 rgba(255,255,255,.25),
+    inset 0 -2px 8px rgba(0,0,0,.55);
 
-      box-shadow:
-        0 0 8px rgba(207,164,77,.45),
-        inset 0 0 14px rgba(0,0,0,.35);
-    }
+  transform:translateY(-1px);
+}
 
-    /* ANIMATIONS */
-    @keyframes heroFade{
-      from{
-        opacity:0;
-        transform:scale(.985);
-      }
-      to{
-        opacity:1;
-        transform:scale(1);
-      }
-    }
+.enter:active{
+  transform:translateY(1px);
+  box-shadow:inset 0 2px 10px rgba(0,0,0,.65);
+}
 
-    @keyframes glowPulse{
-      0%,100%{ opacity:.34; }
-      50%{ opacity:.58; }
-    }
+/* ANIMATIONS */
 
-    @keyframes titleFade{
-      from{
-        opacity:0;
-        transform:translateY(6px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
+@keyframes heroFade{
+  from{opacity:0; transform:scale(.985);}
+  to{opacity:1; transform:scale(1);}
+}
 
-    @keyframes enterFade{
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
+@keyframes glowPulse{
+  0%,100%{opacity:.34;}
+  50%{opacity:.58;}
+}
 
-    @keyframes blink{
-      0%,50%,100%{ opacity:1; }
-      25%,75%{ opacity:0; }
-    }
+@keyframes titleFade{
+  from{opacity:0; transform:translateY(6px);}
+  to{opacity:1; transform:translateY(0);}
+}
 
-    /* MOBILE */
-    @media(max-width:768px){
-      .hero{
-        height:65vh;
-      }
+@keyframes enterFade{
+  to{opacity:1; transform:translateY(0);}
+}
 
-      .hero::before{
-        background:url("phoenix-os-logo.png") center 38% / 320px no-repeat;
-      }
+@keyframes blink{
+  0%,50%,100%{opacity:1;}
+  25%,75%{opacity:0;}
+}
 
-      .content{
-        height:35vh;
-        padding-top:22px;
-      }
+/* MOBILE */
 
-      .title{
-        font-size:14px;
-        letter-spacing:.16em;
-        padding:0 16px;
-        min-height:2.6em;
-      }
+@media(max-width:768px){
 
-      .enter{
-        min-width:180px;
-        padding:12px 28px;
-        font-size:14px;
-      }
-    }
-  </style>
+.hero{height:65vh;}
+
+.hero::before{
+background:url("phoenix-os-logo.png") center 38% / 320px no-repeat;
+}
+
+.content{height:35vh; padding-top:22px;}
+
+.enter{
+min-width:180px;
+padding:12px 28px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <section class="hero"></section>
+<section class="hero"></section>
 
-  <section class="content">
-    <h1 class="title">
-      <span id="typed" class="typed-text"></span><span id="cursor" class="cursor"></span>
-    </h1>
+<section class="content">
 
-    <a href="institution.html" class="enter">ENTER</a>
-  </section>
+<h1 class="title">
+<span id="typed"></span><span class="cursor"></span>
+</h1>
 
-  <script>
-    const text = "Rising Phoenix Enterprises";
-    const typedEl = document.getElementById("typed");
-    const cursorEl = document.getElementById("cursor");
+<a href="institution.html" class="enter">ENTER</a>
 
-    let i = 0;
-    const speed = 55;
+</section>
 
-    function typeEffect() {
-      if (i < text.length) {
-        typedEl.textContent += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, speed);
-      } else {
-        setTimeout(() => {
-          cursorEl.style.display = "none";
-        }, 700);
-      }
-    }
+<script>
 
-    window.addEventListener("load", () => {
-      setTimeout(typeEffect, 850);
-    });
-  </script>
+const text="Rising Phoenix Enterprises";
+const typed=document.getElementById("typed");
+
+let i=0;
+
+function typeEffect(){
+if(i<text.length){
+typed.textContent+=text.charAt(i);
+i++;
+setTimeout(typeEffect,55);
+}
+}
+
+window.addEventListener("load",()=>{
+setTimeout(typeEffect,850);
+});
+
+</script>
 
 </body>
 </html> 
