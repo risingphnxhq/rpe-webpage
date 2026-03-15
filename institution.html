@@ -235,7 +235,6 @@
       font-size:16px;
       line-height:1.9;
       margin-bottom:30px;
-      font-family:"Inter", Arial, sans-serif;
     }
 
     .hero-meta{
@@ -274,7 +273,6 @@
       color:var(--text-mute);
       font-size:13px;
       line-height:1.8;
-      font-family:"Inter", Arial, sans-serif;
     }
 
     .grid{
@@ -333,7 +331,6 @@
       color:var(--text-soft);
       font-size:15px;
       line-height:1.95;
-      font-family:"Inter", Arial, sans-serif;
     }
 
     .list{
@@ -372,7 +369,6 @@
       color:var(--text-mute);
       font-size:14px;
       line-height:1.85;
-      font-family:"Inter", Arial, sans-serif;
     }
 
     .domain-grid{
@@ -401,7 +397,6 @@
       color:var(--text-mute);
       font-size:14px;
       line-height:1.8;
-      font-family:"Inter", Arial, sans-serif;
     }
 
     .rail{
@@ -421,4 +416,327 @@
       font-size:28px;
       font-weight:600;
       margin-bottom:12px;
-      color:var(--text 
+      color:var(--text);
+    }
+
+    .mini-card p{
+      color:var(--text-soft);
+      font-size:14px;
+      line-height:1.85;
+    }
+
+    .signal-box{
+      margin-top:18px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      background:linear-gradient(180deg, rgba(214,168,76,.06), rgba(255,255,255,.02));
+    }
+
+    .signal-label{
+      color:var(--gold-2);
+      font-size:10px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
+
+    .signal-value{
+      color:var(--text);
+      font-size:14px;
+      line-height:1.85;
+    }
+
+    .cta{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:180px;
+      padding:14px 24px;
+      border-radius:14px;
+      text-decoration:none;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      transition:.22s ease;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
+
+    .btn-primary{
+      color:#140d05;
+      background:linear-gradient(145deg, #f1c766 0%, #d79d3a 12%, #a8641f 32%, #6e3f12 48%, #4e2b0b 56%, #8a5118 70%, #d89e3a 86%, #f3cd73 100%);
+      border:1px solid #7a4514;
+      box-shadow:
+        0 0 10px rgba(168,100,31,.22),
+        inset 0 1px 0 rgba(255,245,210,.18),
+        inset 0 -3px 10px rgba(0,0,0,.78);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-1px);
+      box-shadow:
+        0 0 16px rgba(168,100,31,.34),
+        inset 0 1px 0 rgba(255,245,210,.24),
+        inset 0 -3px 12px rgba(0,0,0,.82);
+    }
+
+    .btn-ghost{
+      color:var(--text);
+      background:rgba(255,255,255,.025);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .btn-ghost:hover{
+      background:rgba(255,255,255,.05);
+      border-color:var(--line-strong);
+    }
+
+    .footer{
+      padding:0 0 60px;
+      color:var(--text-mute);
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
+
+    @media (max-width: 980px){
+      .hero-meta,
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .topbar-inner{
+        min-height:auto;
+        padding:18px 0;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+    }
+
+    @media (max-width: 640px){
+      .wrap,
+      .topbar-inner{
+        width:min(calc(100% - 24px), var(--max));
+      }
+
+      .hero{
+        padding:42px 0 24px;
+      }
+
+      .hero-panel,
+      .card,
+      .mini-card{
+        padding:22px 18px;
+        border-radius:22px;
+      }
+
+      h1{
+        font-size:38px;
+      }
+
+      .card h2{
+        font-size:30px;
+      }
+
+      .brand-copy strong{
+        font-size:20px;
+      }
+
+      .topnav{
+        gap:14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <div class="brand-mark">
+          <img src="phoenix-os-logo.png" alt="RPE Mark">
+        </div>
+        <div class="brand-copy">
+          <small>Rising Phoenix Enterprises</small>
+          <strong>Institution</strong>
+        </div>
+      </a>
+
+      <nav class="topnav">
+        <a href="#statement">Statement</a>
+        <a href="#posture">Posture</a>
+        <a href="#domains">Domains</a>
+        <a href="#standard">Standard</a>
+        <a href="pbrs.html">PBRS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-panel">
+        <div class="eyebrow">Institutional Surface</div>
+        <h1>Structured systems for disciplined enterprise growth.</h1>
+        <p class="hero-sub">
+          Rising Phoenix Enterprises is a multi-division holding and operating firm focused on building scalable systems,
+          infrastructure, and execution frameworks across business services, capital readiness, media, sports, real estate,
+          and education.
+        </p>
+
+        <div class="hero-meta">
+          <div class="meta-card">
+            <div class="meta-label">Operating Position</div>
+            <div class="meta-value">Institution First</div>
+            <div class="meta-copy">A controlled public front built to signal durability, seriousness, and long-horizon execution.</div>
+          </div>
+
+          <div class="meta-card">
+            <div class="meta-label">Primary System Surface</div>
+            <div class="meta-value">Phoenix Business System</div>
+            <div class="meta-copy">PBS is the main monetization-facing pathway, organized for readiness, progression, and capital alignment.</div>
+          </div>
+
+          <div class="meta-card">
+            <div class="meta-label">Executive Frame</div>
+            <div class="meta-value">Order · Precision · Control</div>
+            <div class="meta-copy">Every outward layer is intended to reflect stability, selectivity, and disciplined institutional build logic.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="stack">
+
+        <article class="card" id="statement">
+          <div class="section-tag">01 · Institutional Statement</div>
+          <h2>Institutional Statement</h2>
+          <p>
+            Rising Phoenix Enterprises is a structured enterprise system built to develop, govern, and scale disciplined
+            business infrastructure across multiple operational lanes. The enterprise is designed around durable architecture,
+            not casual expansion, with emphasis on ordered growth, infrastructure maturity, and controlled system execution.
+          </p>
+        </article>
+
+        <article class="card" id="posture">
+          <div class="section-tag">02 · Executive Posture</div>
+          <h2>Executive Posture</h2>
+          <p>
+            The enterprise operates with a bias toward order, precision, and controlled execution. Every outward layer is
+            intended to reflect stability, seriousness, and long-horizon design rather than speed, noise, or improvised
+            market posture.
+          </p>
+
+          <div class="list">
+            <div class="list-item">
+              <div class="dot"></div>
+              <div>
+                <strong>Controlled Communication</strong>
+                <span>Public-facing language remains disciplined, institutional, and strategically restrained.</span>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="dot"></div>
+              <div>
+                <strong>Structural Execution</strong>
+                <span>Priority is given to systems that create repeatable results, operational clarity, and scalable control.</span>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="dot"></div>
+              <div>
+                <strong>Long-Horizon Build Logic</strong>
+                <span>RPE is organized for permanence, not short-cycle appearance or transactional positioning.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" id="domains">
+          <div class="section-tag">03 · Core Domains</div>
+          <h2>Core Domains</h2>
+          <p>
+            Current public-facing pathways are organized around readiness, business progression, capital routing, and broader
+            system architecture. Each layer is designed to serve a distinct function within the enterprise frame.
+          </p>
+
+          <div class="domain-grid">
+            <div class="domain">
+              <h3>Business Systems</h3>
+              <p>PBS and its related execution pathways are designed to create operational clarity, structured progression, and durable growth systems.</p>
+            </div>
+
+            <div class="domain">
+              <h3>Capital Readiness</h3>
+              <p>RPE supports pathways that align businesses toward cleaner structure, stronger readiness posture, and better routing conditions.</p>
+            </div>
+
+            <div class="domain">
+              <h3>Media Infrastructure</h3>
+              <p>Brand, signal, publishing, and distribution layers are built to reinforce authority, consistency, and ecosystem cohesion.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" id="standard">
+          <div class="section-tag">04 · Enterprise Standard</div>
+          <h2>Enterprise Standard</h2>
+          <p>
+            Access is structured. Presentation is intentional. Movement through the system occurs by design rather than by
+            noise, haste, or drift. The outward enterprise standard is built to feel modern, stable, and institutionally credible.
+          </p>
+        </article>
+
+      </div>
+
+      <aside class="rail">
+
+        <div class="mini-card">
+          <h3>Operating Signal</h3>
+          <p>
+            This surface is not intended to explain everything. It exists to create the correct frame: enterprise authority,
+            disciplined scope, and visible structural seriousness.
+          </p>
+
+          <div class="signal-box">
+            <div class="signal-label">Signal State</div>
+            <div class="signal-value">
+              Quiet authority. Controlled access. Institutional presentation before product exposure.
+            </div>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <h3>Primary Traffic Direction</h3>
+          <p>
+            The main public monetization focus remains the Phoenix Business System and its related product pathways, beginning
+            with Phoenix Business Readiness Snapshot.
+          </p>
+
+          <div class="cta">
+            <a class="btn btn-primary" href="pbrs.html">Enter PBRS</a>
+            <a class="btn btn-ghost" href="index.html">Return to Gate</a>
+          </div>
+        </div>
+
+      </aside>
+    </section>
+
+    <div class="footer">
+      Rising Phoenix Enterprises · Institutional Surface
+    </div>
+  </main>
+
+</body>
+</html> 
