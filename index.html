@@ -13,8 +13,10 @@
 
 :root{
   --bg:#000;
-  --ivory:#f5f1e8;
+  --ivory:#f1e6d2;
 }
+
+/* RESET */
 
 *{
   margin:0;
@@ -80,14 +82,22 @@ html,body{
   text-align:center;
 }
 
-/* TITLE */
+/* 🔥 TITLE FINAL */
 
 .title{
-  font-size:clamp(14px,1.05vw,18px);
-  letter-spacing:.22em;
+  font-size:clamp(18px,1.45vw,22px);
+  letter-spacing:.26em;
   text-transform:uppercase;
-  margin-bottom:28px;
+  margin-bottom:30px;
   min-height:1.5em;
+
+  color:#f1e6d2;
+
+  text-shadow:
+    0 0 2px rgba(255,255,255,.25),
+    0 0 10px rgba(168,116,34,.18),
+    0 2px 6px rgba(0,0,0,.85);
+
   opacity:0;
   animation:titleFade .7s ease .9s forwards;
 }
@@ -101,7 +111,7 @@ html,body{
   animation:blink .9s infinite;
 }
 
-/* 🔥 METALLIC HERO MATCH ENTER BUTTON */
+/* 🔥 METALLIC HERO ENTER */
 
 .enter{
   position:relative;
