@@ -16,8 +16,6 @@
   --ivory:#f5f1e8;
 }
 
-/* RESET */
-
 *{
   margin:0;
   padding:0;
@@ -30,7 +28,6 @@ html,body{
   color:var(--ivory);
   font-family:"IBM Plex Mono","Courier New",monospace;
   -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
   text-rendering:optimizeLegibility;
 }
 
@@ -104,9 +101,12 @@ html,body{
   animation:blink .9s infinite;
 }
 
-/* 🔥 DARK METALLIC ENTER BUTTON */
+/* 🔥 METALLIC HERO MATCH ENTER BUTTON */
 
 .enter{
+  position:relative;
+  overflow:hidden;
+
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -123,48 +123,61 @@ html,body{
   background:linear-gradient(
     145deg,
     #c9973e 0%,
-    #a87422 25%,
-    #7a5216 48%,
-    #5e3e10 60%,
+    #a87422 28%,
+    #6f4a14 50%,
+    #5e3e10 62%,
     #a87422 78%,
-    #c9973e 100%
+    #e0b85a 100%
   );
 
   border:1px solid #6b4714;
   border-radius:2px;
 
   box-shadow:
-    0 0 8px rgba(168,116,34,.28),
-    inset 0 1px 0 rgba(255,255,255,.08),
-    inset 0 -3px 8px rgba(0,0,0,.65);
+    0 0 10px rgba(168,116,34,.35),
+    inset 0 1px 0 rgba(255,255,255,.15),
+    inset 0 -3px 10px rgba(0,0,0,.7);
 
   opacity:0;
   transform:translateY(8px);
   animation:enterFade .8s ease 2.5s forwards;
-  transition:all .22s ease;
+  transition:all .25s ease;
+}
+
+/* SHINE SWEEP */
+
+.enter::after{
+  content:"";
+  position:absolute;
+  top:-40%;
+  left:-60%;
+  width:60%;
+  height:180%;
+
+  background:linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.35) 40%,
+    rgba(255,255,255,.75) 50%,
+    rgba(255,255,255,.35) 60%,
+    rgba(255,255,255,0) 100%
+  );
+
+  transform:rotate(18deg);
+  opacity:.25;
+  animation:shineSweep 4.8s linear infinite;
 }
 
 .enter:hover{
-  background:linear-gradient(
-    145deg,
-    #d3a64b,
-    #a87422,
-    #6a4612,
-    #5e3e10,
-    #a87422
-  );
-
   box-shadow:
-    0 0 16px rgba(168,116,34,.45),
-    inset 0 1px 0 rgba(255,255,255,.12),
-    inset 0 -3px 10px rgba(0,0,0,.75);
-
-  transform:translateY(-1px);
+    0 0 18px rgba(168,116,34,.55),
+    inset 0 1px 0 rgba(255,255,255,.25),
+    inset 0 -3px 12px rgba(0,0,0,.8);
 }
 
 .enter:active{
   transform:translateY(1px);
-  box-shadow:inset 0 3px 12px rgba(0,0,0,.8);
+  box-shadow:inset 0 4px 14px rgba(0,0,0,.9);
 }
 
 /* ANIMATIONS */
@@ -191,6 +204,11 @@ html,body{
 @keyframes blink{
   0%,50%,100%{opacity:1;}
   25%,75%{opacity:0;}
+}
+
+@keyframes shineSweep{
+  from{left:-60%;}
+  to{left:140%;}
 }
 
 /* MOBILE */
