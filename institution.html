@@ -1,651 +1,782 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rising Phoenix Enterprises | Institution</title>
-  <meta name="description" content="Rising Phoenix Enterprises operates the Phoenix Business System (PBS) — institutional execution infrastructure for serious operators building durable businesses." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --bg: #0a0e13;
-      --bg-2: #0f151c;
-      --surface: rgba(255,255,255,0.035);
-      --surface-2: rgba(255,255,255,0.02);
-      --line: rgba(255,255,255,0.08);
-      --line-strong: rgba(255,255,255,0.14);
-      --text: #f5efe6;
-      --text-soft: rgba(245,239,230,0.8);
-      --text-muted: rgba(245,239,230,0.56);
-      --gold-1: #f3cd7c;
-      --gold-2: #d79d3a;
-      --gold-3: #8a5118;
-      --shadow-lg: 0 24px 70px rgba(0,0,0,0.38);
-      --blur: 14px;
-      --container: 1240px;
-    }* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+    :root{
+      --bg:#050505;
+      --bg-2:#0b0b0b;
+      --panel:rgba(255,255,255,.03);
+      --panel-2:rgba(255,255,255,.045);
+      --line:rgba(214,168,76,.18);
+      --line-strong:rgba(214,168,76,.38);
+      --gold:#d6a84c;
+      --gold-2:#f0c76a;
+      --gold-deep:#8f6119;
+      --text:#f2e8d7;
+      --text-soft:#d7ccba;
+      --text-mute:#9f9484;
+      --max:1220px;
+      --blur:18px;
+    }
 
-body {
-  margin: 0;
-  color: var(--text);
-  background:
-    radial-gradient(circle at 12% 10%, rgba(214,168,76,0.08), transparent 22%),
-    radial-gradient(circle at 82% 8%, rgba(138,81,24,0.12), transparent 18%),
-    linear-gradient(180deg, #090d12 0%, #0d1218 45%, #0a1016 100%);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-a { color: inherit; text-decoration: none; }
+    html,body{
+      min-height:100%;
+      background:
+        radial-gradient(circle at 50% 15%, rgba(214,168,76,.08), transparent 26%),
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.035), transparent 20%),
+        linear-gradient(180deg, #090909 0%, #040404 100%);
+      color:var(--text);
+      font-family:"Inter", Arial, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      scroll-behavior:smooth;
+    }
 
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(18px);
-  background: linear-gradient(180deg, rgba(10,14,19,0.88), rgba(10,14,19,0.66));
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size:40px 40px;
+      mask-image:radial-gradient(circle at center, black 38%, transparent 90%);
+      opacity:.16;
+    }
 
-.topbar-inner,
-.shell {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
-}
+    .wrap{
+      position:relative;
+      width:min(calc(100% - 48px), var(--max));
+      margin:0 auto;
+    }
 
-.topbar-inner {
-  min-height: 78px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(16px);
+      background:linear-gradient(180deg, rgba(5,5,5,.86), rgba(5,5,5,.55));
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-}
+    .topbar-inner{
+      width:min(calc(100% - 48px), var(--max));
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      min-height:72px;
+      gap:20px;
+    }
 
-.brand-mark {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.12);
-  background:
-    radial-gradient(circle at 34% 34%, rgba(243,205,124,0.24), transparent 42%),
-    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.05),
-    0 8px 24px rgba(0,0,0,0.22);
-  flex: 0 0 auto;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      text-decoration:none;
+      color:var(--text);
+    }
 
-.brand-overline {
-  font-family: "IBM Plex Mono", "Courier New", monospace;
-  font-size: 10px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-  white-space: nowrap;
-}
+    .brand-mark{
+      width:38px;
+      height:38px;
+      border:1px solid var(--line);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:radial-gradient(circle at 35% 30%, rgba(240,199,106,.18), rgba(214,168,76,.04) 45%, rgba(255,255,255,0) 70%);
+      box-shadow:0 0 24px rgba(214,168,76,.12);
+      overflow:hidden;
+      flex-shrink:0;
+    }
 
-.brand-title {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 18px;
-  line-height: 1;
-  color: var(--text);
-  white-space: nowrap;
-}
+    .brand-mark img{
+      width:26px;
+      height:26px;
+      object-fit:contain;
+      filter:drop-shadow(0 0 10px rgba(214,168,76,.25));
+    }
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 26px;
-  flex-wrap: wrap;
-}
+    .brand-copy small{
+      display:block;
+      color:var(--text-mute);
+      letter-spacing:.22em;
+      font-size:10px;
+      text-transform:uppercase;
+      margin-bottom:3px;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
 
-.nav a {
-  font-family: "IBM Plex Mono", "Courier New", monospace;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-soft);
-  opacity: 0.84;
-  transition: opacity 0.2s ease, color 0.2s ease;
-}
+    .brand-copy strong{
+      display:block;
+      font-family:"Cormorant Garamond", serif;
+      font-size:22px;
+      font-weight:600;
+      letter-spacing:.01em;
+      color:var(--text);
+      line-height:1;
+    }
 
-.nav a:hover,
-.nav a.active { opacity: 1; color: var(--text); }
+    .topnav{
+      display:flex;
+      gap:22px;
+      flex-wrap:wrap;
+    }
 
-.shell { padding-top: 28px; padding-bottom: 72px; }
+    .topnav a{
+      color:var(--text-soft);
+      text-decoration:none;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      position:relative;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
 
-.glass-panel,
-.meta-card,
-.card,
-.signal-card,
-.process-card,
-.traffic-card,
-.footer-panel {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
-  backdrop-filter: blur(var(--blur));
-  box-shadow:
-    0 10px 28px rgba(0,0,0,0.38),
-    inset 0 1px 0 rgba(255,255,255,0.05);
-}
+    .topnav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:100%;
+      height:1px;
+      background:linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform:scaleX(0);
+      transform-origin:center;
+      transition:transform .22s ease;
+    }
 
-.glass-panel::before,
-.meta-card::before,
-.card::before,
-.signal-card::before,
-.process-card::before,
-.traffic-card::before,
-.footer-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at top right, rgba(214,168,76,0.10), transparent 26%);
-  opacity: 0.8;
-}
+    .topnav a:hover{
+      color:var(--text);
+    }
 
-.hero { padding: 40px 0 34px; }
-.hero-panel { border-radius: 28px; padding: 56px 40px 34px; }
+    .topnav a:hover::after{
+      transform:scaleX(1);
+    }
 
-.eyebrow,
-.section-tag,
-.micro-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-family: "IBM Plex Mono", "Courier New", monospace;
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold-2);
-}
+    .hero{
+      padding:76px 0 42px;
+    }
 
-.eyebrow::before,
-.section-tag::before {
-  content: "";
-  width: 24px;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(243,205,124,0.9), rgba(243,205,124,0.15));
-  display: inline-block;
-}
+    .hero-panel{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.06);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02)),
+        radial-gradient(circle at 50% 0%, rgba(214,168,76,.12), transparent 38%);
+      backdrop-filter:blur(var(--blur));
+      border-radius:28px;
+      padding:52px 42px 34px;
+      box-shadow:
+        0 20px 70px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.05);
+    }
 
-h1, h2, h3, h4, p { margin: 0; }
+    .hero-panel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(120deg, transparent 0%, rgba(255,255,255,.03) 48%, transparent 52%);
+      opacity:.6;
+    }
 
-.hero-title,
-.display-title,
-.meta-value,
-.signal-card h3,
-.traffic-card h3,
-.footer-title {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 600;
-  color: var(--text);
-}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:var(--gold-2);
+      font-size:11px;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
 
-.hero-title {
-  margin-top: 18px;
-  max-width: 980px;
-  font-size: clamp(48px, 7vw, 80px);
-  line-height: 0.96;
-  letter-spacing: -0.03em;
-}
+    .eyebrow::before{
+      content:"";
+      width:42px;
+      height:1px;
+      background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
 
-.hero-sub {
-  margin-top: 24px;
-  max-width: 980px;
-  color: var(--text-soft);
-  font-size: 18px;
-  line-height: 1.7;
-}
+    h1{
+      font-family:"Cormorant Garamond", serif;
+      font-weight:600;
+      font-size:clamp(40px, 5.2vw, 64px);
+      letter-spacing:.015em;
+      line-height:.96;
+      margin-bottom:18px;
+      color:var(--text);
+      text-shadow:0 8px 30px rgba(0,0,0,.45);
+      max-width:900px;
+    }
 
-.hero-actions {
-  margin-top: 28px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
+    .hero-sub{
+      max-width:900px;
+      color:var(--text-soft);
+      font-size:16px;
+      line-height:1.9;
+      margin-bottom:30px;
+    }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 188px;
-  padding: 14px 24px;
-  border-radius: 14px;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, border-color 0.22s ease;
-  font-family: "IBM Plex Mono", "Courier New", monospace;
-  cursor: pointer;
-}
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
 
-.btn-primary {
-  color: #111111;
-  background: linear-gradient(145deg, #f1c766 0%, #d79d3a 12%, #a8641f 32%, #6e3f12 48%, #4e2b06 56%, #8a5118 70%, #d89e3a 86%, #f3cd7c 100%);
-  border: 1px solid #7a4514;
-  box-shadow:
-    0 0 10px rgba(168,100,31,0.22),
-    inset 0 1px 0 rgba(255,245,210,0.18),
-    inset 0 -3px 10px rgba(0,0,0,0.78);
-}
+    .hero-meta{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:18px;
+      margin-top:8px;
+    }
 
-.btn-primary:hover {
-  background: linear-gradient(145deg, #ffe08a 0%, #f7c955 45%, #edae2a 100%);
-  transform: translateY(-1px);
-  box-shadow:
-    0 6px 16px rgba(0,0,0,0.35),
-    inset 0 1px 0 rgba(255,255,255,0.35);
-}
+    .meta-card{
+      border:1px solid rgba(255,255,255,.06);
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border-radius:20px;
+      padding:20px 20px 18px;
+      min-height:130px;
+    }
 
-.btn-ghost {
-  color: var(--text);
-  background: rgba(255,255,255,0.025);
-  border: 1px solid rgba(255,255,255,0.08);
-}
+    .meta-label{
+      color:var(--gold-2);
+      font-size:10px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
 
-.btn-ghost:hover {
-  background: rgba(255,255,255,0.05);
-  border-color: var(--line-strong);
-  transform: translateY(-1px);
-}
+    .meta-value{
+      font-family:"Cormorant Garamond", serif;
+      font-size:28px;
+      line-height:1;
+      margin-bottom:10px;
+      color:var(--text);
+    }
 
-.meta-grid {
-  margin-top: 28px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
+    .meta-copy{
+      color:var(--text-mute);
+      font-size:13px;
+      line-height:1.8;
+    }
 
-.meta-card,
-.card,
-.signal-card,
-.process-card,
-.traffic-card,
-.footer-panel {
-  border-radius: 22px;
-  padding: 28px 28px 26px;
-}
+    .grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:24px;
+      padding:18px 0 84px;
+    }
 
-.meta-label,
-.step-title {
-  font-family: "IBM Plex Mono", "Courier New", monospace;
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold-2);
-  margin-bottom: 12px;
-}
+    .stack{
+      display:grid;
+      gap:24px;
+    }
 
-.meta-value,
-.display-title,
-.signal-card h3,
-.traffic-card h3,
-.footer-title {
-  font-size: clamp(28px, 3.4vw, 38px);
-  line-height: 1.04;
-  margin-bottom: 10px;
-}
+    .card{
+      position:relative;
+      border:1px solid rgba(255,255,255,.06);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+      backdrop-filter:blur(var(--blur));
+      border-radius:26px;
+      padding:28px 26px;
+      overflow:hidden;
+      box-shadow:0 14px 50px rgba(0,0,0,.28);
+    }
 
-.meta-copy,
-.card p,
-.signal-card p,
-.traffic-card p,
-.process-card > p,
-.body-copy,
-.bullet-copy,
-.footer-copy {
-  color: var(--text-soft);
-  font-size: 16px;
-  line-height: 1.78;
-  max-width: 58ch;
-}
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at top right, rgba(214,168,76,.10), transparent 28%);
+      opacity:.8;
+    }
 
-.section { padding: 32px 0 0; }
+    .section-tag{
+      color:var(--gold-2);
+      font-size:10px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
 
-.two-col {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.9fr);
-  gap: 18px;
-  align-items: start;
-}
+    .card h2{
+      font-family:"Cormorant Garamond", serif;
+      font-size:34px;
+      font-weight:600;
+      line-height:1;
+      margin-bottom:14px;
+      color:var(--text);
+    }
 
-.split-section {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(330px, 0.85fr);
-  gap: 18px;
-  align-items: start;
-}
+    .card p{
+      color:var(--text-soft);
+      font-size:15px;
+      line-height:1.95;
+    }
 
-.signal-state {
-  margin-top: 20px;
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
-  padding: 18px 18px 16px;
-  background: rgba(255,255,255,0.015);
-}
+    .list{
+      display:grid;
+      gap:16px;
+      margin-top:20px;
+    }
 
-.signal-state .micro-label { margin-bottom: 10px; display: block; }
+    .list-item{
+      display:grid;
+      grid-template-columns:18px 1fr;
+      gap:14px;
+      align-items:start;
+    }
 
-.bullet-stack,
-.process-stack {
-  margin-top: 22px;
-  display: grid;
-  gap: 18px;
-}
+    .list-item .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:radial-gradient(circle at 35% 35%, var(--gold-2), var(--gold-deep));
+      margin-top:9px;
+      box-shadow:0 0 12px rgba(214,168,76,.35);
+    }
 
-.bullet-item,
-.process-step {
-  display: grid;
-  grid-template-columns: 14px 1fr;
-  gap: 14px;
-  align-items: start;
-}
+    .list-item strong{
+      display:block;
+      color:var(--text);
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
 
-.bullet-dot,
-.step-dot {
-  width: 8px;
-  height: 8px;
-  margin-top: 10px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #f3cd7c, #c88920 70%);
-  box-shadow: 0 0 0 3px rgba(214,168,76,0.08);
-}
+    .list-item span{
+      color:var(--text-mute);
+      font-size:14px;
+      line-height:1.85;
+    }
 
-.traffic-card .btn-row {
-  margin-top: 22px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+    .domain-grid{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
 
-.footer-wrap { padding-top: 28px; }
-.footer-panel { padding: 26px 28px; }
+    .domain{
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:18px;
+      padding:16px 16px 14px;
+      background:rgba(255,255,255,.02);
+    }
 
-.footer-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  flex-wrap: wrap;
-  margin-bottom: 18px;
-}
+    .domain h3{
+      color:var(--text);
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
 
-.footer-rule {
-  height: 1px;
-  background: linear-gradient(90deg, rgba(243,205,124,0.66), rgba(255,255,255,0.08), transparent 85%);
-  margin: 18px 0 16px;
-}
+    .domain p{
+      color:var(--text-mute);
+      font-size:14px;
+      line-height:1.8;
+    }
 
-.footer-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  font-family: "IBM Plex Mono", "Courier New", monospace;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
+    .rail{
+      display:grid;
+      gap:24px;
+    }
 
-@media (max-width: 1080px) {
-  .meta-grid,
-  .two-col,
-  .split-section { grid-template-columns: 1fr; }
-}
+    .mini-card{
+      border:1px solid rgba(255,255,255,.06);
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border-radius:22px;
+      padding:22px 20px;
+    }
 
-@media (max-width: 900px) {
-  .topbar-inner {
-    align-items: flex-start;
-    flex-direction: column;
-    padding-top: 16px;
-    padding-bottom: 16px;
-  }
-  .nav { justify-content: flex-start; gap: 18px; }
-  .hero-panel { padding: 40px 22px 24px; }
-  .meta-card,
-  .card,
-  .signal-card,
-  .process-card,
-  .traffic-card,
-  .footer-panel { padding: 22px 20px; }
-}
+    .mini-card h3{
+      font-family:"Cormorant Garamond", serif;
+      font-size:28px;
+      font-weight:600;
+      margin-bottom:12px;
+      color:var(--text);
+    }
 
-@media (max-width: 620px) {
-  .topbar-inner,
-  .shell { padding-left: 16px; padding-right: 16px; }
-  .hero { padding-top: 20px; }
-  .hero-title { font-size: 48px; }
-  .btn { width: 100%; }
-  .hero-actions,
-  .traffic-card .btn-row { display: grid; }
-  .nav { gap: 14px; }
-}
+    .mini-card p{
+      color:var(--text-soft);
+      font-size:14px;
+      line-height:1.85;
+    }
 
+    .signal-box{
+      margin-top:18px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      background:linear-gradient(180deg, rgba(214,168,76,.06), rgba(255,255,255,.02));
+    }
+
+    .signal-label{
+      color:var(--gold-2);
+      font-size:10px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
+
+    .signal-value{
+      color:var(--text);
+      font-size:14px;
+      line-height:1.85;
+    }
+
+    .cta{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:180px;
+      padding:14px 24px;
+      border-radius:14px;
+      text-decoration:none;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      transition:.22s ease;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
+
+    .btn-primary{
+      color:#140d05;
+      background:linear-gradient(145deg, #f1c766 0%, #d79d3a 12%, #a8641f 32%, #6e3f12 48%, #4e2b0b 56%, #8a5118 70%, #d89e3a 86%, #f3cd73 100%);
+      border:1px solid #7a4514;
+      box-shadow:
+        0 0 10px rgba(168,100,31,.22),
+        inset 0 1px 0 rgba(255,245,210,.18),
+        inset 0 -3px 10px rgba(0,0,0,.78);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-1px);
+      box-shadow:
+        0 0 16px rgba(168,100,31,.34),
+        inset 0 1px 0 rgba(255,245,210,.24),
+        inset 0 -3px 12px rgba(0,0,0,.82);
+    }
+
+    .btn-ghost{
+      color:var(--text);
+      background:rgba(255,255,255,.025);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .btn-ghost:hover{
+      background:rgba(255,255,255,.05);
+      border-color:var(--line-strong);
+    }
+
+    .footer{
+      padding:0 0 60px;
+      color:var(--text-mute);
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
+
+    @media (max-width: 980px){
+      .hero-meta,
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .topbar-inner{
+        min-height:auto;
+        padding:18px 0;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+    }
+
+    @media (max-width: 640px){
+      .wrap,
+      .topbar-inner{
+        width:min(calc(100% - 24px), var(--max));
+      }
+
+      .hero{
+        padding:42px 0 24px;
+      }
+
+      .hero-panel,
+      .card,
+      .mini-card{
+        padding:22px 18px;
+        border-radius:22px;
+      }
+
+      h1{
+        font-size:38px;
+      }
+
+      .card h2{
+        font-size:30px;
+      }
+
+      .brand-copy strong{
+        font-size:20px;
+      }
+
+      .topnav{
+        gap:14px;
+      }
+    }
   </style>
 </head>
 <body>
+
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="brand" href="index.html" aria-label="Rising Phoenix Enterprises Home">
-        <div class="brand-mark" aria-hidden="true"></div>
-        <div>
-          <div class="brand-overline">Rising Phoenix Enterprises</div>
-          <div class="brand-title">Institution</div>
+      <a class="brand" href="index.html">
+        <div class="brand-mark">
+          <img src="phoenix-os-logo.png" alt="RPE Mark">
+        </div>
+        <div class="brand-copy">
+          <small>Rising Phoenix Enterprises</small>
+          <strong>Institution</strong>
         </div>
       </a>
-      <nav class="nav" aria-label="Primary Navigation">
-        <a class="active" href="institution.html">Institution</a>
+
+      <nav class="topnav">
+        <a href="institution.html">Institution</a>
         <a href="#about">About</a>
         <a href="#pbs">Phoenix Business System</a>
-        <a href="#process">System Mechanics</a>
+        <a href="#process">How It Works</a>
         <a href="https://pbrs.risingphoenixhq.com">Begin PBRS</a>
       </nav>
     </div>
-  </header>  <main class="shell">
+  </header>
+
+  <main class="wrap">
     <section class="hero">
-      <div class="glass-panel hero-panel">
+      <div class="hero-panel">
         <div class="eyebrow">Institutional Surface</div>
-        <h1 class="hero-title">Structured systems for operators building serious businesses.</h1>
-        <p class="hero-sub">Rising Phoenix Enterprises operates the Phoenix Business System (PBS) — institutional execution infrastructure designed to identify structural gaps, stabilize operations, and guide organizations toward durable growth.</p>
+        <h1>Structured systems for operators building serious businesses.</h1>
+        <p class="hero-sub">
+          Rising Phoenix Enterprises operates the Phoenix Business System (PBS) — a structured execution framework designed to identify operational gaps, strengthen infrastructure, and guide organizations toward scalable growth.
+        </p>
+
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://pbrs.risingphoenixhq.com">Begin PBRS Evaluation</a>
+          <a class="btn btn-primary" href="https://pbrs.risingphoenixhq.com">Begin PBRS</a>
           <a class="btn btn-ghost" href="#process">Learn How PBS Works</a>
-        </div><div class="meta-grid">
-      <div class="meta-card">
-        <div class="meta-label">Operating Position</div>
-        <div class="meta-value">Institution First</div>
-        <div class="meta-copy">Organizations scale through structure, not momentum. We design systems for durability, not speed.</div>
-      </div>
-      <div class="meta-card">
-        <div class="meta-label">Primary System Surface</div>
-        <div class="meta-value">Phoenix Business System</div>
-        <div class="meta-copy">PBS is a controlled diagnostic and progression framework used to strengthen infrastructure and execution clarity.</div>
-      </div>
-      <div class="meta-card">
-        <div class="meta-label">Executive Frame</div>
-        <div class="meta-value">Order · Precision · Control</div>
-        <div class="meta-copy">Every outward layer reflects stability, discipline, and deliberate growth design.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <div class="two-col">
-    <div class="card">
-      <div class="section-tag">Institutional Statement</div>
-      <h2 class="display-title">Rising Phoenix Enterprises operates as structured infrastructure.</h2>
-      <p class="body-copy" style="margin-top:18px;">Rising Phoenix Enterprises is a systems-driven enterprise focused on helping serious operators <strong>structure</strong>, <strong>stabilize</strong>, and <strong>scale</strong> through disciplined execution frameworks.</p>
-      <p class="body-copy" style="margin-top:16px;">Our primary platform, the Phoenix Business System (PBS), identifies operational gaps, clarifies priorities, and guides organizations toward stronger infrastructure, cleaner execution, and durable growth.</p>
-      <p class="body-copy" style="margin-top:16px;">We do not operate as advisors or consultants. We operate as a structured system for operators building with intention.</p>
-    </div>
-
-    <div class="signal-card">
-      <h3>Operating Signal</h3>
-      <p>This page exists to clarify how we operate and who we serve. PBS is built for founders and leadership teams who want <strong>structure</strong>, <strong>accountability</strong>, and <strong>sustainable growth</strong> — not shortcuts.</p>
-      <div class="signal-state">
-        <div class="micro-label">Operating Condition</div>
-        <p>Clear structure. Controlled execution. Measurable progress.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="two-col">
-    <div class="card">
-      <div class="section-tag">About Rising Phoenix Enterprises</div>
-      <h2 class="display-title">A structured, multi-industry enterprise.</h2>
-      <p class="body-copy" style="margin-top:18px;">Rising Phoenix Enterprises is a structured, multi-industry enterprise focused on building disciplined operating systems across execution, capital readiness, and long-range infrastructure.</p>
-      <div class="bullet-stack">
-        <div class="bullet-item">
-          <div class="bullet-dot"></div>
-          <div>
-            <div class="step-title">Who We Serve</div>
-            <p class="bullet-copy">Founders, operators, and leadership teams building real businesses and preparing for disciplined growth.</p>
-          </div>
         </div>
-        <div class="bullet-item">
-          <div class="bullet-dot"></div>
-          <div>
-            <div class="step-title">Multi-Industry Reach</div>
-            <p class="bullet-copy">We support organizations across professional services, logistics, construction, healthcare-adjacent operations, technology-enabled businesses, education services, and emerging enterprise ventures.</p>
+
+        <div class="hero-meta">
+          <div class="meta-card">
+            <div class="meta-label">Operating Position</div>
+            <div class="meta-value">Institution First</div>
+            <div class="meta-copy">A controlled public front built to signal seriousness, durability, and long-horizon execution.</div>
           </div>
-        </div>
-        <div class="bullet-item">
-          <div class="bullet-dot"></div>
-          <div>
-            <div class="step-title">What We Do</div>
-            <p class="bullet-copy">We help organizations identify gaps, strengthen structure, improve execution discipline, align leadership flow, and prepare for scalable growth.</p>
+
+          <div class="meta-card">
+            <div class="meta-label">Primary System Surface</div>
+            <div class="meta-value">Phoenix Business System</div>
+            <div class="meta-copy">PBS is the structured entry point for operators seeking clarity, stronger execution, and scalable foundations.</div>
+          </div>
+
+          <div class="meta-card">
+            <div class="meta-label">Executive Frame</div>
+            <div class="meta-value">Order · Precision · Control</div>
+            <div class="meta-copy">Every outward layer is intended to reflect stability, discipline, and deliberate growth design.</div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="signal-card">
-      <h3>Who This System Is Built For</h3>
-      <div class="bullet-stack" style="margin-top:18px;">
-        <div class="bullet-item"><div class="bullet-dot"></div><div><p class="bullet-copy">Founders scaling beyond operator-led momentum.</p></div></div>
-        <div class="bullet-item"><div class="bullet-dot"></div><div><p class="bullet-copy">Leadership teams building long-horizon organizations.</p></div></div>
-        <div class="bullet-item"><div class="bullet-dot"></div><div><p class="bullet-copy">Firms requiring execution discipline, infrastructure maturity, and controlled progression.</p></div></div>
+    <section class="grid">
+      <div class="stack">
+
+        <article class="card" id="statement">
+          <div class="section-tag">01 · Institutional Statement</div>
+          <h2>Institutional Statement</h2>
+          <p>
+            Rising Phoenix Enterprises is a systems-driven enterprise focused on helping serious operators structure, stabilize, and scale their businesses through disciplined execution frameworks.
+          </p>
+          <p>
+            Our primary platform, the Phoenix Business System (PBS), is designed to identify operational gaps, clarify priorities, and guide organizations toward stronger infrastructure, cleaner execution, and long-term scalability.
+          </p>
+          <p>
+            We do not operate as advisors or consultants. We operate as a structured system for operators ready to build with intention.
+          </p>
+        </article>
+
+        <article class="card" id="about">
+          <div class="section-tag">02 · About Rising Phoenix Enterprises</div>
+          <h2>About Rising Phoenix Enterprises</h2>
+          <p>
+            Rising Phoenix Enterprises is a structured, multi-industry enterprise focused on building disciplined systems across operations, capital readiness, and long-range infrastructure.
+          </p>
+          <p>
+            We work with founders, operators, and leadership teams preparing for serious growth who need stronger structure, clearer execution, and scalable foundations.
+          </p>
+
+          <div class="list">
+            <div class="list-item">
+              <div class="dot"></div>
+              <div>
+                <strong>Who We Serve</strong>
+                <span>Founders, operators, and leadership teams building real businesses and preparing for disciplined growth.</span>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="dot"></div>
+              <div>
+                <strong>Multi-Industry Reach</strong>
+                <span>We support organizations across professional services, logistics, construction, healthcare-adjacent operations, technology-enabled businesses, education services, and emerging enterprise ventures.</span>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="dot"></div>
+              <div>
+                <strong>What We Do</strong>
+                <span>We help organizations identify gaps, strengthen structure, improve execution discipline, align leadership flow, and prepare for scalable growth.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" id="pbs">
+          <div class="section-tag">03 · Phoenix Business System</div>
+          <h2>Phoenix Business System</h2>
+          <p>
+            The Phoenix Business System (PBS) is a structured progression framework that evaluates readiness, identifies operational gaps, and guides organizations toward scalable growth through disciplined execution.
+          </p>
+
+          <div class="domain-grid">
+            <div class="domain">
+              <h3>Identify Operational Gaps</h3>
+              <p>PBS highlights where structure, execution, financial organization, leadership alignment, and internal consistency are limiting growth.</p>
+            </div>
+
+            <div class="domain">
+              <h3>Apply Internal Rating Logic</h3>
+              <p>PBS assigns an internal readiness rating used to benchmark current positioning and guide structured improvement.</p>
+            </div>
+
+            <div class="domain">
+              <h3>Guide Scalable Progression</h3>
+              <p>Organizations that follow PBS guidance improve clarity, infrastructure maturity, and execution stability over time.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" id="process">
+          <div class="section-tag">04 · How It Works</div>
+          <h2>How PBS Works</h2>
+          <p>
+            PBS is designed as a structured progression system that evaluates readiness, identifies operational gaps, and provides a clear path toward stronger infrastructure and scalable growth.
+          </p>
+
+          <div class="list">
+            <div class="list-item">
+              <div class="dot"></div>
+              <div>
+                <strong>Step 1 · PBRS Entry Point</strong>
+                <span>The Phoenix Business Readiness Snapshot (PBRS) serves as the system’s diagnostic entry point. It evaluates structure, execution flow, leadership alignment, financial organization, and operational consistency.</span>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="dot"></div>
+              <div>
+                <strong>Step 2 · Gap Identification and Rating</strong>
+                <span>PBS identifies operational gaps and assigns an internal readiness rating used to guide structured improvement. This rating functions as a working benchmark for progress, not a public score.</span>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="dot"></div>
+              <div>
+                <strong>Step 3 · Structured Progression</strong>
+                <span>Organizations that follow PBS guidance improve clarity, execution stability, and infrastructure maturity over time. Growth happens through sequencing and discipline, not speed alone.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
       </div>
-    </div>
-  </div>
-</section>
 
-<section class="section" id="pbs">
-  <div class="split-section">
-    <div class="process-card">
-      <div class="section-tag">Phoenix Business System</div>
-      <h2 class="display-title">The primary public system entry point.</h2>
-      <p style="margin-top:18px;">The Phoenix Business System (PBS) is a structured progression framework that evaluates readiness, identifies operational gaps, and guides organizations toward scalable growth through disciplined execution.</p>
-      <div class="process-stack">
-        <div class="card" style="padding:20px 22px; border-radius:18px;">
-          <div class="step-title">Identify Operational Gaps</div>
-          <p class="bullet-copy">PBS highlights where structure, execution flow, financial organization, leadership alignment, and internal consistency are limiting growth.</p>
-        </div>
-        <div class="card" style="padding:20px 22px; border-radius:18px;">
-          <div class="step-title">Apply Internal Rating Logic</div>
-          <p class="bullet-copy">PBS assigns an internal readiness rating used to benchmark positioning and guide structured progression.</p>
-        </div>
-        <div class="card" style="padding:20px 22px; border-radius:18px;">
-          <div class="step-title">Guide Scalable Progression</div>
-          <p class="bullet-copy">Organizations following PBS guidance improve clarity, execution stability, and infrastructure maturity over time.</p>
-        </div>
-      </div>
-    </div>
+      <aside class="rail">
 
-    <div class="traffic-card">
-      <h3>Primary Traffic Direction</h3>
-      <p style="margin-top:16px;">Our primary public entry point is the Phoenix Business System, beginning with the Phoenix Business Readiness Snapshot (PBRS). Organizations enter through PBRS to establish positioning and determine their next operational steps.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="https://pbrs.risingphoenixhq.com">Begin PBRS Evaluation</a>
-        <a class="btn btn-ghost" href="index.html">Return to Gate</a>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="mini-card">
+          <h3>Operating Signal</h3>
+          <p>
+            This page exists to clarify how we operate and who we serve. PBS is built for founders and leadership teams who want structure, accountability, and sustainable growth — not shortcuts.
+          </p>
 
-<section class="section" id="process">
-  <div class="two-col">
-    <div class="process-card">
-      <div class="section-tag">System Mechanics</div>
-      <h2 class="display-title">How PBS Works</h2>
-      <p style="margin-top:18px;">PBS is designed as a structured progression system that evaluates readiness, identifies operational gaps, and provides a clear path toward stronger infrastructure and scalable growth.</p>
-      <div class="process-stack">
-        <div class="process-step">
-          <div class="step-dot"></div>
-          <div>
-            <div class="step-title">Step 1 · PBRS Entry Point</div>
-            <p class="bullet-copy">The Phoenix Business Readiness Snapshot (PBRS) serves as the system’s diagnostic entry point. It evaluates structure, execution flow, leadership alignment, financial organization, and operational consistency.</p>
+          <div class="signal-box">
+            <div class="signal-label">Signal State</div>
+            <div class="signal-value">
+              Clear structure. Controlled execution. Measurable progress.
+            </div>
           </div>
         </div>
-        <div class="process-step">
-          <div class="step-dot"></div>
-          <div>
-            <div class="step-title">Step 2 · Gap Identification and Rating</div>
-            <p class="bullet-copy">PBS identifies operational gaps and assigns an internal readiness rating used to guide structured improvement. This rating functions as a working benchmark for progress, not a public ranking system.</p>
+
+        <div class="mini-card">
+          <h3>Primary Traffic Direction</h3>
+          <p>
+            Our primary public entry point is the Phoenix Business System, beginning with the Phoenix Business Readiness Snapshot (PBRS).
+          </p>
+          <p>
+            Organizations enter through PBRS to establish positioning and determine their next operational steps.
+          </p>
+
+          <div class="cta">
+            <a class="btn btn-primary" href="https://pbrs.risingphoenixhq.com">Begin PBRS</a>
+            <a class="btn btn-ghost" href="index.html">Return to Gate</a>
           </div>
         </div>
-        <div class="process-step">
-          <div class="step-dot"></div>
-          <div>
-            <div class="step-title">Step 3 · Structured Progression</div>
-            <p class="bullet-copy">Organizations that follow PBS guidance improve clarity, execution stability, and infrastructure maturity over time. Growth happens through sequencing and discipline, not speed alone.</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="signal-card">
-      <h3>Institutional Platforms</h3>
-      <div class="bullet-stack" style="margin-top:18px;">
-        <div class="bullet-item"><div class="bullet-dot"></div><div><div class="step-title">Phoenix Business System (PBS)</div><p class="bullet-copy">Operational diagnostics and execution infrastructure.</p></div></div>
-        <div class="bullet-item"><div class="bullet-dot"></div><div><div class="step-title">StatsCore™</div><p class="bullet-copy">Athletic intelligence and development system.</p></div></div>
-        <div class="bullet-item"><div class="bullet-dot"></div><div><div class="step-title">PHNX Sports</div><p class="bullet-copy">Sports ecosystem infrastructure and performance systems.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+      </aside>
+    </section>
 
-<section class="footer-wrap">
-  <div class="footer-panel">
-    <div class="footer-top">
-      <div>
-        <div class="section-tag">Institutional Closure</div>
-        <h2 class="footer-title" style="margin-top:14px;">Structured infrastructure for organizations building with intention.</h2>
-      </div>
-      <a class="btn btn-primary" href="https://pbrs.risingphoenixhq.com">Begin PBRS Evaluation</a>
+    <div class="footer">
+      Rising Phoenix Enterprises · Institutional Surface
     </div>
-    <p class="footer-copy">Rising Phoenix Enterprises operates as structured infrastructure for organizations building with intention. Primary system entry remains the Phoenix Business Readiness Snapshot (PBRS).</p>
-    <div class="footer-rule"></div>
-    <div class="footer-bottom">
-      <div>Rising Phoenix Enterprises · Institutional Surface</div>
-      <div style="display:flex; gap:18px; flex-wrap:wrap;">
-        <a href="index.html">Gate</a>
-        <a href="institution.html">Institution</a>
-        <a href="https://pbrs.risingphoenixhq.com">PBRS</a>
-      </div>
-    </div>
-  </div>
-</section>
-
   </main>
+
 </body>
 </html> 
