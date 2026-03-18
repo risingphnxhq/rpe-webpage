@@ -230,7 +230,7 @@
     }
 
     .hero-sub{
-      max-width:900px;
+      max-width:720px;
       color:var(--text-soft);
       font-size:16px;
       line-height:1.9;
@@ -257,6 +257,9 @@
       border-radius:20px;
       padding:20px 20px 18px;
       min-height:130px;
+      box-shadow:
+        0 10px 28px rgba(0,0,0,0.38),
+        inset 0 1px 0 rgba(255,255,255,0.05);
     }
 
     .meta-label{
@@ -303,7 +306,9 @@
       border-radius:26px;
       padding:28px 26px;
       overflow:hidden;
-      box-shadow:0 14px 50px rgba(0,0,0,.28);
+      box-shadow:
+        0 10px 28px rgba(0,0,0,0.38),
+        inset 0 1px 0 rgba(255,255,255,0.05);
     }
 
     .card::before{
@@ -416,6 +421,9 @@
       background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
       border-radius:22px;
       padding:22px 20px;
+      box-shadow:
+        0 10px 28px rgba(0,0,0,0.38),
+        inset 0 1px 0 rgba(255,255,255,0.05);
     }
 
     .mini-card h3{
@@ -471,14 +479,14 @@
       border-radius:14px;
       text-decoration:none;
       font-size:12px;
-      letter-spacing:.18em;
+      letter-spacing:.14em;
       text-transform:uppercase;
       transition:.22s ease;
       font-family:"IBM Plex Mono","Courier New",monospace;
     }
 
     .btn-primary{
-      color:#140d05;
+      color:#111111;
       background:linear-gradient(145deg, #f1c766 0%, #d79d3a 12%, #a8641f 32%, #6e3f12 48%, #4e2b0b 56%, #8a5118 70%, #d89e3a 86%, #f3cd73 100%);
       border:1px solid #7a4514;
       box-shadow:
@@ -488,11 +496,11 @@
     }
 
     .btn-primary:hover{
+      background:linear-gradient(145deg, #ffe08a 0%, #f7c955 45%, #edae2a 100%);
       transform:translateY(-1px);
       box-shadow:
-        0 0 16px rgba(168,100,31,.34),
-        inset 0 1px 0 rgba(255,245,210,.24),
-        inset 0 -3px 12px rgba(0,0,0,.82);
+        0 6px 16px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.35);
     }
 
     .btn-ghost{
@@ -504,6 +512,105 @@
     .btn-ghost:hover{
       background:rgba(255,255,255,.05);
       border-color:var(--line-strong);
+    }
+
+    /* ============================= */
+    /* SYSTEM ARCHITECTURE */
+    /* ============================= */
+
+    .system-architecture{
+      margin-top:8px;
+    }
+
+    .section-header{
+      text-align:center;
+      margin-bottom:34px;
+    }
+
+    .section-header .eyebrow{
+      margin-bottom:12px;
+    }
+
+    .section-header h2{
+      font-family:"Cormorant Garamond", serif;
+      font-size:34px;
+      font-weight:600;
+      color:var(--text);
+      margin-bottom:12px;
+      line-height:1;
+    }
+
+    .section-sub{
+      color:var(--text-mute);
+      max-width:720px;
+      margin:0 auto;
+      font-size:15px;
+      line-height:1.9;
+    }
+
+    .architecture-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+      gap:18px;
+    }
+
+    .arch-card{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:20px;
+      padding:22px 20px;
+      backdrop-filter:blur(12px);
+      transition:all .28s ease;
+      box-shadow:
+        0 10px 28px rgba(0,0,0,0.38),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .arch-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:radial-gradient(circle at top right, rgba(214,168,76,.10), transparent 30%);
+      opacity:.8;
+    }
+
+    .arch-card:hover{
+      transform:translateY(-4px);
+      border-color:var(--line-strong);
+    }
+
+    .arch-label{
+      font-size:11px;
+      color:var(--gold-2);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
+
+    .arch-card h3{
+      font-family:"Cormorant Garamond", serif;
+      font-size:26px;
+      line-height:1.05;
+      margin-bottom:12px;
+      color:var(--text);
+      font-weight:600;
+    }
+
+    .arch-capability{
+      color:var(--text-soft);
+      font-size:14px;
+      line-height:1.85;
+      margin-bottom:10px;
+    }
+
+    .arch-benefit{
+      color:var(--text-mute);
+      font-size:13px;
+      line-height:1.8;
     }
 
     .footer{
@@ -550,7 +657,8 @@
         font-size:38px;
       }
 
-      .card h2{
+      .card h2,
+      .section-header h2{
         font-size:30px;
       }
 
@@ -561,11 +669,19 @@
       .topnav{
         gap:14px;
       }
+
+      .hero-actions,
+      .cta{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
     }
   </style>
 </head>
 <body>
-
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="index.html">
@@ -626,7 +742,6 @@
 
     <section class="grid">
       <div class="stack">
-
         <article class="card" id="statement">
           <div class="section-tag">01 · Institutional Statement</div>
           <h2>Institutional Statement</h2>
@@ -737,10 +852,65 @@
           </div>
         </article>
 
+        <!-- SYSTEM ARCHITECTURE -->
+        <article class="card system-architecture" id="architecture">
+          <div class="section-header">
+            <div class="eyebrow">System Architecture</div>
+            <h2>Structured to Diagnose, Build, Sequence, and Scale</h2>
+            <p class="section-sub">
+              The Phoenix Business System (PBS) is not a single tool. It is a structured ecosystem designed to guide organizations from uncertainty to scalable execution.
+            </p>
+          </div>
+
+          <div class="architecture-grid">
+            <div class="arch-card">
+              <div class="arch-label">PBRS</div>
+              <h3>Phoenix Business Readiness Snapshot</h3>
+              <p class="arch-capability">
+                Evaluates operational readiness across structure, execution flow, financial organization, and leadership alignment.
+              </p>
+              <p class="arch-benefit">
+                Provides immediate clarity on what is limiting growth and where improvement must begin.
+              </p>
+            </div>
+
+            <div class="arch-card">
+              <div class="arch-label">PBB</div>
+              <h3>Phoenix Business Builder</h3>
+              <p class="arch-capability">
+                Applies structured execution systems to strengthen infrastructure, correct gaps, and improve operational stability.
+              </p>
+              <p class="arch-benefit">
+                Transforms identified weaknesses into structured improvements that support scalable growth.
+              </p>
+            </div>
+
+            <div class="arch-card">
+              <div class="arch-label">PBSeq</div>
+              <h3>Phoenix Business Sequence</h3>
+              <p class="arch-capability">
+                Governs the order, timing, and progression of operational improvements across the business.
+              </p>
+              <p class="arch-benefit">
+                Ensures growth occurs through structured sequencing, preventing instability and premature scaling.
+              </p>
+            </div>
+
+            <div class="arch-card">
+              <div class="arch-label">PNC</div>
+              <h3>Phoenix Nexus Capital</h3>
+              <p class="arch-capability">
+                Positions businesses for capital readiness and connects them with aligned funding pathways when appropriate.
+              </p>
+              <p class="arch-benefit">
+                Enables access to growth capital once operational readiness meets required thresholds.
+              </p>
+            </div>
+          </div>
+        </article>
       </div>
 
       <aside class="rail">
-
         <div class="mini-card">
           <h3>Operating Signal</h3>
           <p>
@@ -769,7 +939,6 @@
             <a class="btn btn-ghost" href="index.html">Return to Gate</a>
           </div>
         </div>
-
       </aside>
     </section>
 
@@ -777,6 +946,5 @@
       Rising Phoenix Enterprises · Institutional Surface
     </div>
   </main>
-
 </body>
 </html> 
