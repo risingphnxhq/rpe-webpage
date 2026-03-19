@@ -13,21 +13,23 @@
     :root{
       --bg:#050505;
       --bg-2:#0b0b0b;
-      --panel:rgba(255,255,255,.03);
-      --panel-2:rgba(255,255,255,.045);
-      --line:rgba(214,168,76,.18);
-      --line-strong:rgba(214,168,76,.38);
+      --panel:rgba(255,255,255,.025);
+      --panel-2:rgba(255,255,255,.04);
+      --line:rgba(214,168,76,.12);
+      --line-strong:rgba(214,168,76,.24);
 
-      /* Updated gold system */
-      --gold:#c89a3c;
-      --gold-2:#e2bc68;
-      --gold-deep:#7a4d16;
+      /* old money gold */
+      --gold:#b8892f;
+      --gold-2:#d9b866;
+      --gold-soft:#e4c679;
+      --gold-deep:#8a5a1c;
 
       --text:#f2e8d7;
       --text-soft:#d7ccba;
       --text-mute:#9f9484;
+
       --max:1220px;
-      --blur:18px;
+      --blur:16px;
     }
 
     *{
@@ -39,8 +41,8 @@
     html,body{
       min-height:100%;
       background:
-        radial-gradient(circle at 50% 15%, rgba(214,168,76,.08), transparent 26%),
-        radial-gradient(circle at 50% 0%, rgba(255,255,255,.035), transparent 20%),
+        radial-gradient(circle at 50% 12%, rgba(184,137,47,.06), transparent 24%),
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.025), transparent 18%),
         linear-gradient(180deg, #090909 0%, #040404 100%);
       color:var(--text);
       font-family:"Inter", Arial, sans-serif;
@@ -55,11 +57,11 @@
       inset:0;
       pointer-events:none;
       background:
-        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
-      background-size:40px 40px;
-      mask-image:radial-gradient(circle at center, black 38%, transparent 90%);
-      opacity:.16;
+        linear-gradient(rgba(255,255,255,.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px);
+      background-size:44px 44px;
+      mask-image:radial-gradient(circle at center, black 34%, transparent 88%);
+      opacity:.12;
     }
 
     .wrap{
@@ -73,8 +75,8 @@
       top:0;
       z-index:20;
       backdrop-filter:blur(16px);
-      background:linear-gradient(180deg, rgba(5,5,5,.86), rgba(5,5,5,.55));
-      border-bottom:1px solid rgba(255,255,255,.05);
+      background:linear-gradient(180deg, rgba(5,5,5,.9), rgba(5,5,5,.62));
+      border-bottom:1px solid rgba(255,255,255,.04);
     }
 
     .topbar-inner{
@@ -102,8 +104,9 @@
       border-radius:50%;
       display:grid;
       place-items:center;
-      background:radial-gradient(circle at 35% 30%, rgba(226,188,104,.18), rgba(200,154,60,.04) 45%, rgba(255,255,255,0) 70%);
-      box-shadow:0 0 24px rgba(200,154,60,.12);
+      background:
+        radial-gradient(circle at 35% 30%, rgba(217,184,102,.14), rgba(184,137,47,.03) 45%, rgba(255,255,255,0) 70%);
+      box-shadow:0 0 18px rgba(184,137,47,.08);
       overflow:hidden;
       flex-shrink:0;
     }
@@ -112,7 +115,7 @@
       width:26px;
       height:26px;
       object-fit:contain;
-      filter:drop-shadow(0 0 10px rgba(200,154,60,.25));
+      filter:drop-shadow(0 0 8px rgba(184,137,47,.18));
     }
 
     .brand-copy small{
@@ -149,6 +152,7 @@
       text-transform:uppercase;
       position:relative;
       font-family:"IBM Plex Mono","Courier New",monospace;
+      opacity:.92;
     }
 
     .topnav a::after{
@@ -179,16 +183,16 @@
     .hero-panel{
       position:relative;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.05);
       background:
-        linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02)),
-        radial-gradient(circle at 50% 0%, rgba(200,154,60,.12), transparent 38%);
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015)),
+        radial-gradient(circle at 50% 0%, rgba(184,137,47,.08), transparent 34%);
       backdrop-filter:blur(var(--blur));
       border-radius:28px;
       padding:52px 42px 34px;
       box-shadow:
-        0 20px 70px rgba(0,0,0,.45),
-        inset 0 1px 0 rgba(255,255,255,.05);
+        0 18px 54px rgba(0,0,0,.42),
+        inset 0 1px 0 rgba(255,255,255,.035);
     }
 
     .hero-panel::before{
@@ -197,8 +201,8 @@
       inset:0;
       pointer-events:none;
       background:
-        linear-gradient(120deg, transparent 0%, rgba(255,255,255,.03) 48%, transparent 52%);
-      opacity:.6;
+        linear-gradient(120deg, transparent 0%, rgba(255,255,255,.018) 48%, transparent 52%);
+      opacity:.45;
     }
 
     .eyebrow{
@@ -223,12 +227,12 @@
     h1{
       font-family:"Cormorant Garamond", serif;
       font-weight:600;
-      font-size:clamp(40px, 5.2vw, 64px);
-      letter-spacing:.015em;
+      font-size:clamp(40px, 5vw, 62px);
+      letter-spacing:.012em;
       line-height:.96;
       margin-bottom:18px;
       color:var(--text);
-      text-shadow:0 8px 30px rgba(0,0,0,.45);
+      text-shadow:0 8px 28px rgba(0,0,0,.42);
       max-width:900px;
     }
 
@@ -255,14 +259,14 @@
     }
 
     .meta-card{
-      border:1px solid rgba(255,255,255,.06);
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.05);
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.012));
       border-radius:20px;
       padding:20px 20px 18px;
       min-height:130px;
       box-shadow:
-        0 10px 28px rgba(0,0,0,.38),
-        inset 0 1px 0 rgba(255,255,255,.05);
+        0 10px 24px rgba(0,0,0,.34),
+        inset 0 1px 0 rgba(255,255,255,.035);
     }
 
     .meta-label{
@@ -302,16 +306,16 @@
 
     .card{
       position:relative;
-      border:1px solid rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.05);
       background:
-        linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+        linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012));
       backdrop-filter:blur(var(--blur));
       border-radius:26px;
       padding:28px 26px;
       overflow:hidden;
       box-shadow:
-        0 10px 28px rgba(0,0,0,0.38),
-        inset 0 1px 0 rgba(255,255,255,0.05);
+        0 10px 24px rgba(0,0,0,.34),
+        inset 0 1px 0 rgba(255,255,255,.035);
     }
 
     .card::before{
@@ -320,8 +324,8 @@
       inset:0;
       pointer-events:none;
       background:
-        radial-gradient(circle at top right, rgba(200,154,60,.10), transparent 28%);
-      opacity:.8;
+        radial-gradient(circle at top right, rgba(184,137,47,.08), transparent 28%);
+      opacity:.75;
     }
 
     .section-tag{
@@ -372,7 +376,7 @@
       border-radius:50%;
       background:radial-gradient(circle at 35% 35%, var(--gold-2), var(--gold-deep));
       margin-top:9px;
-      box-shadow:0 0 12px rgba(200,154,60,.35);
+      box-shadow:0 0 10px rgba(184,137,47,.24);
     }
 
     .list-item strong{
@@ -398,10 +402,10 @@
     }
 
     .domain{
-      border:1px solid rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.05);
       border-radius:18px;
       padding:16px 16px 14px;
-      background:rgba(255,255,255,.02);
+      background:rgba(255,255,255,.015);
     }
 
     .domain h3{
@@ -426,13 +430,14 @@
     }
 
     .mini-card{
-      border:1px solid rgba(255,255,255,.06);
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
       border-radius:22px;
       padding:22px 20px;
       box-shadow:
-        0 10px 28px rgba(0,0,0,.38),
-        inset 0 1px 0 rgba(255,255,255,.05);
+        0 10px 28px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.04);
     }
 
     .mini-card h3{
@@ -459,7 +464,7 @@
       border:1px solid var(--line);
       border-radius:18px;
       padding:16px;
-      background:linear-gradient(180deg, rgba(200,154,60,.06), rgba(255,255,255,.02));
+      background:linear-gradient(180deg, rgba(184,137,47,.05), rgba(255,255,255,.012));
     }
 
     .signal-label{
@@ -493,7 +498,7 @@
       border-radius:14px;
       text-decoration:none;
       font-size:12px;
-      letter-spacing:.16em;
+      letter-spacing:.14em;
       text-transform:uppercase;
       transition:.22s ease;
       font-family:"IBM Plex Mono","Courier New",monospace;
@@ -501,32 +506,29 @@
 
     .btn-primary{
       color:#1a1206;
-      background:linear-gradient(145deg, #e2bc68 0%, #c89a3c 38%, #9a6422 68%, #f0cf82 100%);
-      border:1px solid #7a4d16;
+      background:linear-gradient(145deg, #d9b866 0%, #b8892f 45%, #8a5a1c 85%);
+      border:1px solid rgba(217,184,102,.35);
       box-shadow:
-        0 0 10px rgba(168,100,31,.18),
-        inset 0 1px 0 rgba(255,245,210,.16),
-        inset 0 -3px 10px rgba(0,0,0,.72);
+        inset 0 1px 0 rgba(255,255,255,.08),
+        inset 0 -2px 6px rgba(0,0,0,.6);
       font-weight:600;
+      letter-spacing:.14em;
     }
 
     .btn-primary:hover{
       color:#120c04;
-      background:linear-gradient(145deg, #ecd08b 0%, #d4a94a 45%, #b17428 100%);
+      background:linear-gradient(145deg, #e4c679 0%, #c79a3f 50%, #9b6826 100%);
       transform:translateY(-1px);
-      box-shadow:
-        0 6px 16px rgba(0,0,0,0.30),
-        inset 0 1px 0 rgba(255,255,255,0.28);
     }
 
     .btn-ghost{
       color:var(--text);
-      background:rgba(255,255,255,.025);
+      background:rgba(255,255,255,.02);
       border:1px solid rgba(255,255,255,.08);
     }
 
     .btn-ghost:hover{
-      background:rgba(255,255,255,.05);
+      background:rgba(255,255,255,.04);
       border-color:var(--line-strong);
     }
 
@@ -570,15 +572,15 @@
     .arch-card{
       position:relative;
       overflow:hidden;
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      border:1px solid rgba(255,255,255,.06);
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.05);
       border-radius:20px;
       padding:22px 20px;
       backdrop-filter:blur(12px);
       transition:all .28s ease;
       box-shadow:
-        0 10px 28px rgba(0,0,0,0.38),
-        inset 0 1px 0 rgba(255,255,255,0.05);
+        0 10px 24px rgba(0,0,0,.34),
+        inset 0 1px 0 rgba(255,255,255,.035);
     }
 
     .arch-card::before{
@@ -586,8 +588,8 @@
       position:absolute;
       inset:0;
       pointer-events:none;
-      background:radial-gradient(circle at top right, rgba(200,154,60,.10), transparent 30%);
-      opacity:.8;
+      background:radial-gradient(circle at top right, rgba(184,137,47,.08), transparent 30%);
+      opacity:.75;
     }
 
     .arch-card:hover{
@@ -727,8 +729,8 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://pbrs.risingphoenixhq.com">Begin PBRS</a>
-          <a class="btn btn-ghost" href="#process">Learn How PBS Works</a>
+          <a class="btn btn-primary" href="https://pbrs.risingphoenixhq.com">Enter System</a>
+          <a class="btn btn-ghost" href="#process">View System Flow</a>
         </div>
 
         <div class="hero-meta">
@@ -938,7 +940,7 @@
         </div>
 
         <div class="mini-card">
-          <h3>Primary Traffic Direction</h3>
+          <h3>System Entry Protocol</h3>
           <p>
             Our primary public entry point is the Phoenix Business System, beginning with the Phoenix Business Readiness Snapshot (PBRS).
           </p>
@@ -947,7 +949,7 @@
           </p>
 
           <div class="cta">
-            <a class="btn btn-primary" href="https://pbrs.risingphoenixhq.com">Begin PBRS</a>
+            <a class="btn btn-primary" href="https://pbrs.risingphoenixhq.com">Enter System</a>
             <a class="btn btn-ghost" href="index.html">Return to Gate</a>
           </div>
         </div>
