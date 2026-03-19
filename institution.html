@@ -401,6 +401,30 @@
       margin-bottom:0;
     }
 
+    .institutional-note{
+      margin-top:20px;
+      padding:18px 18px 16px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#0b0b0b;
+    }
+
+    .institutional-note-label{
+      color:var(--gold-2);
+      font-size:10px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+    }
+
+    .institutional-note p{
+      color:var(--text-mute);
+      font-size:14px;
+      line-height:1.85;
+      margin:0;
+    }
+
     .rail{
       display:grid;
       gap:28px;
@@ -456,6 +480,26 @@
       color:var(--text);
       font-size:14px;
       line-height:1.85;
+    }
+
+    .sector-line{
+      margin-top:18px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.05);
+      color:var(--text-mute);
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    .sector-line strong{
+      color:var(--gold-2);
+      font-weight:500;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-family:"IBM Plex Mono","Courier New",monospace;
+      font-size:10px;
+      display:block;
+      margin-bottom:6px;
     }
 
     .cta{
@@ -532,7 +576,7 @@
 
     .section-sub{
       color:var(--text-mute);
-      max-width:720px;
+      max-width:760px;
       margin:0 auto;
       font-size:15px;
       line-height:1.9;
@@ -805,6 +849,13 @@
               <p>Organizations that follow PBS guidance improve clarity, infrastructure maturity, and execution stability over time.</p>
             </div>
           </div>
+
+          <div class="institutional-note">
+            <div class="institutional-note-label">Institutional Position</div>
+            <p>
+              PBS does not operate as a one-time service layer. It functions as a structured business system designed to diagnose, strengthen, sequence, and position serious operators for controlled growth.
+            </p>
+          </div>
         </article>
 
         <article class="card" id="process">
@@ -911,6 +962,11 @@
               Clear structure. Controlled execution. Measurable progress.
             </div>
           </div>
+
+          <div class="sector-line">
+            <strong>Used Across</strong>
+            Professional Services · Logistics · Construction · Education · Technology
+          </div>
         </div>
 
         <div class="mini-card">
@@ -921,6 +977,13 @@
           <p>
             Organizations enter through PBRS to establish positioning and determine their next operational steps.
           </p>
+
+          <div class="signal-box">
+            <div class="signal-label">Access Layer</div>
+            <div class="signal-value">
+              Entry occurs through structured diagnostic review. Not all entities are advanced beyond initial assessment.
+            </div>
+          </div>
 
           <div class="cta">
             <a class="btn btn-primary" href="https://pbrs.risingphoenixhq.com">Enter System</a>
