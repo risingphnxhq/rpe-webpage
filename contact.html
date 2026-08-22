@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rising Phoenix Enterprises | Contact</title>
+<meta name="description" content="Corporate contact and inquiry routing for Rising Phoenix Enterprises.">
+<meta name="theme-color" content="#050505">
+<style>
+:root{
+--black:#050505;--black2:#0a0a0b;--paper:#f4f4f1;--ink:#171717;
+--muted:#686864;--gold:#c99a3a;--goldHi:#efc967;--goldDeep:#765218;
+--lineD:rgba(255,255,255,.12);--lineL:rgba(0,0,0,.12);--max:1360px;
+--ease:cubic-bezier(.22,.61,.36,1)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}.shell{width:min(var(--max),calc(100% - 84px));margin:auto}
+.site-header{position:sticky;top:0;z-index:80;background:rgba(5,5,5,.96);backdrop-filter:blur(18px);color:#fff;border-bottom:1px solid var(--lineD)}
+.header-inner{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.brand{display:flex;align-items:center;gap:14px;min-width:290px}.brand img{width:44px;height:44px;object-fit:contain}
+.brand-top{font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:var(--goldHi);font-weight:700;margin-bottom:6px}
+.brand-main{font-family:Georgia,"Times New Roman",serif;font-size:18px}
+.nav{display:flex;gap:25px;align-items:center;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#d7d7d3}
+.nav a{position:relative;padding:32px 0 27px}.nav a:after{content:"";position:absolute;left:0;right:100%;bottom:19px;height:1px;background:var(--gold);transition:right .25s var(--ease)}
+.nav a:hover,.nav a.active{color:#fff}.nav a:hover:after,.nav a.active:after{right:0}
+.hero{background:radial-gradient(circle at 78% 42%,rgba(201,154,58,.10),transparent 27%),linear-gradient(120deg,#060606,#0b0b0c 58%,#050505);color:#fff;border-bottom:1px solid rgba(201,154,58,.3)}
+.hero-grid{min-height:405px;display:grid;grid-template-columns:210px 1fr 340px;gap:54px;align-items:center;padding:54px 0}
+.page-index{align-self:start;margin-top:12px;border-top:1px solid var(--gold);padding-top:11px;color:var(--goldHi);font-size:8px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.eyebrow{display:block;margin-bottom:10px;color:var(--goldHi);font-size:8px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+.hero h1{margin:0 0 15px;font:400 44px/1.08 Georgia,"Times New Roman",serif;letter-spacing:-.02em}
+.hero p{margin:0;max-width:760px;color:#c6c6c2;font-size:15px;line-height:1.82}
+.hero-side{border-left:1px solid rgba(201,154,58,.34);padding-left:26px}.hero-side small{display:block;margin-bottom:9px;color:var(--goldHi);font-size:8px;letter-spacing:.16em;text-transform:uppercase}
+.hero-side strong{display:block;font:400 21px/1.4 Georgia,"Times New Roman",serif}
+.section{padding:78px 0;border-bottom:1px solid var(--lineL)}.section.dark{background:var(--black2);color:#fff;border-color:var(--lineD)}
+.section-grid{display:grid;grid-template-columns:210px 1fr;gap:54px}
+.label{border-top:1px solid var(--gold);padding-top:10px;font-size:8px;letter-spacing:.19em;text-transform:uppercase;color:var(--goldDeep);font-weight:700}.dark .label{color:var(--goldHi)}
+.section h2{margin:0 0 15px;font:400 31px/1.18 Georgia,"Times New Roman",serif}.section p{margin:0;max-width:920px;color:var(--muted);font-size:15px;line-height:1.82}.dark p{color:#b9b9b4}
+.routes{margin-top:34px;border-top:1px solid var(--lineL)}
+.route{display:grid;grid-template-columns:220px 1fr auto;gap:30px;align-items:center;padding:22px 0;border-bottom:1px solid var(--lineL)}
+.route small{color:var(--goldDeep);font-size:8px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.route h3{margin:0 0 5px;font:400 20px/1.3 Georgia,"Times New Roman",serif}.route p{font-size:13px;line-height:1.65}
+.route .status{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#777;white-space:nowrap}
+.protocol{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--lineD);border:1px solid var(--lineD)}
+.protocol article{background:var(--black2);padding:25px 26px}.protocol small{display:block;color:var(--goldHi);font-size:8px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.protocol h3{margin:0 0 8px;font:400 20px/1.3 Georgia,"Times New Roman",serif}.protocol p{font-size:13px;line-height:1.7}
+.contact-panel{margin-top:32px;border:1px solid var(--lineL);display:grid;grid-template-columns:1fr 1fr}
+.contact-copy{padding:31px}.contact-copy h3{margin:0 0 10px;font:400 24px/1.25 Georgia,"Times New Roman",serif}.contact-copy p{font-size:13px;line-height:1.7}
+.contact-action{padding:31px;border-left:1px solid var(--lineL);display:flex;flex-direction:column;justify-content:center}
+.contact-action small{display:block;margin-bottom:8px;color:var(--goldDeep);font-size:8px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.contact-action a{font:400 21px/1.4 Georgia,"Times New Roman",serif;border-bottom:1px solid var(--gold);padding-bottom:8px;width:max-content;max-width:100%;word-break:break-word}
+.notice{margin-top:16px;color:#85857f!important;font-size:11px!important;line-height:1.65!important}
+.closing{background:#070707;color:#fff;border-top:1px solid rgba(201,154,58,.3);padding:58px 0}.closing-grid{display:grid;grid-template-columns:210px 1fr;gap:54px}
+.closing h2{margin:0;max-width:940px;font:400 27px/1.42 Georgia,"Times New Roman",serif}
+.footer{background:#030303;color:#888883;border-top:1px solid rgba(255,255,255,.08);padding:32px 0;font-size:9px;letter-spacing:.11em;text-transform:uppercase}.footer .shell{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(14px);transition:.65s var(--ease)}.reveal.on{opacity:1;transform:none}
+@media(max-width:1000px){.nav{display:none}.hero-grid,.section-grid,.closing-grid{grid-template-columns:1fr}.hero-side{border-left:0;border-top:1px solid rgba(201,154,58,.3);padding:20px 0 0}.protocol{grid-template-columns:1fr}.route{grid-template-columns:1fr;gap:7px}.contact-panel{grid-template-columns:1fr}.contact-action{border-left:0;border-top:1px solid var(--lineL)}}
+@media(max-width:720px){.shell{width:calc(100% - 34px)}.header-inner{min-height:76px}.brand img{width:40px;height:40px}.brand-main{font-size:16px}.hero-grid{min-height:auto;padding:44px 0}.hero h1{font-size:35px}.section{padding:58px 0}.section h2{font-size:27px}}
+</style>
+</head>
+<body>
+<header class="site-header">
+<div class="shell header-inner">
+  <a class="brand" href="index.html">
+   <img src="phoenix-os-logo.png" alt="Rising Phoenix Enterprises">
+   <div><div class="brand-top">Rising Phoenix Enterprises</div><div class="brand-main">Global Systems Enterprise</div></div>
+  </a>
+  <nav class="nav" aria-label="Corporate Navigation">
+   <a href="institution.html">Institution</a><a href="phoenix-os.html">Phoenix OS</a><a href="industries.html">Industries</a><a href="systems.html">Systems</a><a href="enterprise.html">Enterprise</a><a href="contact.html" class="active">Contact</a>
+  </nav>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<div class="shell hero-grid reveal">
+  <div class="page-index">06 · Contact</div>
+  <div>
+   <span class="eyebrow">Corporate Communications</span>
+   <h1>Direct the inquiry to the right part of the enterprise.</h1>
+   <p>Rising Phoenix Enterprises maintains a corporate contact point for institutional, commercial, media, and other legitimate enterprise inquiries. Product and system-specific matters should be directed through the appropriate operating system whenever possible.</p>
+  </div>
+  <aside class="hero-side">
+   <small>Contact Position</small>
+   <strong>Clear routing. Appropriate context. Direct communication with the relevant enterprise function.</strong>
+  </aside>
+</div>
+</section>
+
+<section class="section">
+<div class="shell section-grid reveal">
+  <div class="label">Inquiry Routing</div>
+  <div>
+   <h2>Different inquiries belong in different operating environments.</h2>
+   <p>The corporate contact point is intended for matters concerning Rising Phoenix Enterprises as an institution. Questions involving a specific RPE system should use that system's public or authorized contact environment when one is available.</p>
+
+   <div class="routes">
+    <div class="route"><small>Corporate</small><div><h3>Institutional & enterprise inquiries</h3><p>General corporate matters, enterprise relationships, institutional correspondence, and matters concerning Rising Phoenix Enterprises itself.</p></div><span class="status">Corporate Route</span></div>
+    <div class="route"><small>Commercial</small><div><h3>Business & strategic inquiries</h3><p>Potential commercial relationships, market opportunities, supplier or business discussions, and other legitimate enterprise-level proposals.</p></div><span class="status">Corporate Route</span></div>
+    <div class="route"><small>Media</small><div><h3>Press & public information</h3><p>Media requests, public-information inquiries, interview requests, and communications concerning RPE's publicly stated activities.</p></div><span class="status">Corporate Route</span></div>
+    <div class="route"><small>Systems</small><div><h3>Product & operating-system matters</h3><p>Support, account, user, operational, or system-specific questions should be handled within the relevant RPE system rather than through corporate headquarters.</p></div><span class="status">System Route</span></div>
+   </div>
+  </div>
+</div>
+</section>
+
+<section class="section dark">
+<div class="shell section-grid reveal">
+  <div class="label">Communication Standard</div>
+  <div>
+   <h2>Corporate communication should arrive with enough context to be routed correctly.</h2>
+   <p>Concise identification of the organization, subject, and purpose of an inquiry helps RPE distinguish legitimate enterprise correspondence from product support, unsolicited promotion, and unrelated requests.</p>
+   <div class="protocol">
+    <article><small>01 · Identify</small><h3>State who is contacting RPE.</h3><p>Include your name, organization where applicable, and an appropriate return contact method.</p></article>
+    <article><small>02 · Context</small><h3>State the subject clearly.</h3><p>Identify the relevant system, market, business matter, media request, or institutional subject.</p></article>
+    <article><small>03 · Purpose</small><h3>State the requested action.</h3><p>Explain what you are requesting from RPE so the correspondence can be evaluated and routed appropriately.</p></article>
+   </div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="shell section-grid reveal">
+  <div class="label">Corporate Contact</div>
+  <div>
+   <h2>Rising Phoenix Enterprises corporate correspondence.</h2>
+   <p>This page is designed to expose one controlled public corporate channel rather than publish internal personnel directories, private operating contacts, or proprietary organizational structure.</p>
+   <div class="contact-panel">
+    <div class="contact-copy">
+     <h3>Corporate Headquarters</h3>
+     <p>For legitimate institutional, commercial, strategic, media, or general corporate correspondence concerning Rising Phoenix Enterprises.</p>
+     <p class="notice">This address is the public corporate contact point for Rising Phoenix Enterprises. System-specific support and user matters should continue through the relevant system environment whenever available.</p>
+    </div>
+    <div class="contact-action">
+     <small>Public Corporate Email</small>
+     <a href="mailto:contact@risingphoenixhq.com">contact@risingphoenixhq.com</a>
+    </div>
+   </div>
+  </div>
+</div>
+</section>
+
+<section class="closing">
+<div class="shell closing-grid reveal">
+  <div class="label">Rising Phoenix Enterprises</div>
+  <h2>Corporate access should be simple without making the internal enterprise public. RPE remains reachable while preserving the separation between public communication and private operations.</h2>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+<div class="shell"><span>© 2026 Rising Phoenix Enterprises</span><span>Corporate Communications · United States</span></div>
+</footer>
+
+<script>
+const els=document.querySelectorAll(".reveal");
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.12});
+els.forEach(e=>io.observe(e));
+</script>
+</body>
+</html> 
