@@ -1,9 +1,572 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>RPE | Enterprise</title><link rel="stylesheet" href="css/rpe-corporate.css"></head><body>
-<div class="topline"><div class="wrap">Rising Phoenix Enterprises · Institutional Headquarters</div></div>
-<header class="masthead"><div class="wrap"><a class="brand" href="index.html"><div class="brand-mark">RPE</div><div><div class="brand-kicker">Rising Phoenix Enterprises</div><div class="brand-name">Institutional Headquarters</div></div></a><nav><a href="institution.html">Institution</a><a href="phoenix-os.html">Phoenix OS</a><a href="industries.html">Industries</a><a href="enterprise.html">Enterprise</a><a href="contact.html">Contact</a></nav></div></header>
-<main><section class="titleband"><div class="wrap"><div class="page-no">04 · Enterprise</div><div><h1>Enterprise Direction</h1><p class="lead">RPE is designed to create, operate, learn from, and strengthen systems across multiple industries over time.</p></div></div></section>
-<section><div class="wrap grid"><div class="label">Enterprise Philosophy</div><div><h2>RPE is designed for institutional learning.</h2><p>Individual systems are not treated as isolated efforts. Each successful system should create knowledge, experience, operational discipline, and reusable enterprise strength that improves the company’s ability to develop future systems.</p></div></div></section>
-<section class="dark"><div class="wrap grid"><div class="label">Enterprise Cycle</div><div><h2>Opportunity becomes system. System becomes experience. Experience becomes enterprise strength.</h2><p>RPE’s long-term value is built through repeated movement from opportunity identification into system development, commercial operation, evidence, learning, and future expansion.</p><div class="capabilities"><article><small>Discovery</small><h3>Opportunity</h3><p>Identify markets and burdens where stronger infrastructure can create material improvement.</p></article><article><small>Development</small><h3>Systems</h3><p>Create purpose-built systems serving clearly defined operating environments.</p></article><article><small>Commercialization</small><h3>Market</h3><p>Bring systems to market through clear positioning, access, subscriptions, and relationships.</p></article><article><small>Operations</small><h3>Continuity</h3><p>Operate, improve, and learn from systems as they serve real markets.</p></article></div></div></div></section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rising Phoenix Enterprises | Enterprise</title>
+<meta name="description" content="The long-range enterprise direction of Rising Phoenix Enterprises: a multi-industry systems institution building durable technology assets across markets." />
+<meta name="theme-color" content="#050505" />
+
+<style>
+:root{
+  --black:#050505;
+  --black2:#0a0a0b;
+  --black3:#111113;
+  --paper:#f4f4f1;
+  --ink:#151515;
+  --muted:#686864;
+  --gold:#c99a3a;
+  --gold-hi:#efc967;
+  --gold-deep:#765218;
+  --line-dark:rgba(255,255,255,.12);
+  --line-light:rgba(0,0,0,.12);
+  --max:1360px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.shell{width:min(var(--max),calc(100% - 84px));margin:0 auto}
+
+/* HEADER */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:80;
+  background:rgba(5,5,5,.96);
+  backdrop-filter:blur(18px);
+  color:#fff;
+  border-bottom:1px solid var(--line-dark);
+}
+.header-inner{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:290px;
+}
+.brand img{width:44px;height:44px;object-fit:contain}
+.brand-copy{line-height:1}
+.brand-top{
+  font-size:8px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--gold-hi);
+  font-weight:700;
+  margin-bottom:6px;
+}
+.brand-main{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:18px;
+  font-weight:400;
+}
+.nav{
+  display:flex;
+  align-items:center;
+  gap:25px;
+  font-size:9px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#d7d7d3;
+}
+.nav a{
+  position:relative;
+  padding:32px 0 27px;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:100%;
+  bottom:19px;
+  height:1px;
+  background:var(--gold);
+  transition:right .25s var(--ease);
+}
+.nav a:hover,.nav a.active{color:#fff}
+.nav a:hover::after,.nav a.active::after{right:0}
+
+/* HERO */
+.hero{
+  background:
+    radial-gradient(circle at 76% 40%,rgba(201,154,58,.11),transparent 25%),
+    linear-gradient(120deg,#060606 0%,#0b0b0c 58%,#050505 100%);
+  color:#fff;
+  border-bottom:1px solid rgba(201,154,58,.30);
+}
+.hero-grid{
+  min-height:405px;
+  display:grid;
+  grid-template-columns:210px 1fr 340px;
+  gap:54px;
+  align-items:center;
+  padding:54px 0;
+}
+.page-index{
+  align-self:start;
+  margin-top:12px;
+  border-top:1px solid var(--gold);
+  padding-top:11px;
+  color:var(--gold-hi);
+  font-size:8px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.hero-copy small{
+  display:block;
+  margin-bottom:10px;
+  color:var(--gold-hi);
+  font-size:8px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.hero-copy h1{
+  margin:0 0 15px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:44px;
+  line-height:1.08;
+  font-weight:400;
+  letter-spacing:-.02em;
+}
+.hero-copy p{
+  margin:0;
+  max-width:760px;
+  color:#c6c6c2;
+  font-size:15px;
+  line-height:1.82;
+}
+.hero-side{
+  border-left:1px solid rgba(201,154,58,.34);
+  padding-left:26px;
+}
+.hero-side small{
+  display:block;
+  margin-bottom:9px;
+  color:var(--gold-hi);
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.hero-side strong{
+  display:block;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:21px;
+  line-height:1.4;
+  font-weight:400;
+}
+
+/* SECTIONS */
+.section{
+  padding:78px 0;
+  border-bottom:1px solid var(--line-light);
+}
+.section.dark{
+  background:var(--black2);
+  color:#fff;
+  border-color:var(--line-dark);
+}
+.section-grid{
+  display:grid;
+  grid-template-columns:210px 1fr;
+  gap:54px;
+}
+.section-label{
+  border-top:1px solid var(--gold);
+  padding-top:10px;
+  font-size:8px;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  font-weight:700;
+}
+.dark .section-label{color:var(--gold-hi)}
+.section h2{
+  margin:0 0 16px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:31px;
+  line-height:1.18;
+  font-weight:400;
+  letter-spacing:-.01em;
+}
+.section p{
+  margin:0;
+  max-width:920px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.84;
+}
+.dark p{color:#b9b9b4}
+
+/* ENTERPRISE HORIZON */
+.horizon-grid{
+  margin-top:34px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line-light);
+  border-bottom:1px solid var(--line-light);
+}
+.horizon{
+  padding:24px 26px 26px 0;
+  border-right:1px solid var(--line-light);
+}
+.horizon + .horizon{padding-left:26px}
+.horizon:last-child{border-right:0}
+.horizon small{
+  display:block;
+  margin-bottom:8px;
+  color:var(--gold-deep);
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.horizon h3{
+  margin:0 0 8px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:21px;
+  font-weight:400;
+}
+.horizon p{font-size:13px;line-height:1.7}
+
+/* LONG RANGE */
+.long-range{
+  margin-top:32px;
+  border-top:1px solid rgba(255,255,255,.13);
+}
+.long-row{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:34px;
+  padding:21px 0;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.long-row small{
+  color:var(--gold-hi);
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.long-row h3{
+  margin:0 0 5px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:21px;
+  font-weight:400;
+}
+.long-row p{font-size:13px;line-height:1.72}
+
+/* SCALE POSTURE */
+.scale-grid{
+  margin-top:32px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  background:var(--line-light);
+  border:1px solid var(--line-light);
+}
+.scale{
+  background:var(--paper);
+  padding:25px 27px;
+}
+.scale small{
+  display:block;
+  margin-bottom:8px;
+  color:var(--gold-deep);
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.scale h3{
+  margin:0 0 8px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:21px;
+  font-weight:400;
+}
+.scale p{font-size:13px;line-height:1.7}
+
+/* CLOSING */
+.closing{
+  background:
+    radial-gradient(circle at 15% 30%,rgba(201,154,58,.08),transparent 30%),
+    #070707;
+  color:#fff;
+  border-top:1px solid rgba(201,154,58,.30);
+  padding:58px 0;
+}
+.closing-grid{
+  display:grid;
+  grid-template-columns:210px 1fr;
+  gap:54px;
+}
+.closing h2{
+  margin:0;
+  max-width:950px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:27px;
+  line-height:1.42;
+  font-weight:400;
+}
+
+/* FOOTER */
+.footer{
+  background:#030303;
+  color:#888883;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:32px 0;
+  font-size:9px;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.footer .shell{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+/* REVEAL */
+.reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .65s var(--ease),transform .65s var(--ease);
+}
+.reveal.on{opacity:1;transform:none}
+
+@media(max-width:1000px){
+  .nav{display:none}
+  .hero-grid,.section-grid,.closing-grid{grid-template-columns:1fr}
+  .hero-side{border-left:0;border-top:1px solid rgba(201,154,58,.30);padding:20px 0 0}
+  .horizon-grid,.scale-grid{grid-template-columns:1fr}
+  .horizon,.horizon + .horizon{padding:20px 0;border-right:0;border-bottom:1px solid var(--line-light)}
+  .horizon:last-child{border-bottom:0}
+}
+@media(max-width:720px){
+  .shell{width:min(var(--max),calc(100% - 34px))}
+  .header-inner{min-height:76px}
+  .brand img{width:40px;height:40px}
+  .brand-main{font-size:16px}
+  .hero-grid{min-height:auto;padding:44px 0}
+  .hero-copy h1{font-size:35px}
+  .section{padding:58px 0}
+  .section h2{font-size:27px}
+  .long-row{grid-template-columns:1fr;gap:7px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="index.html">
+      <img src="phoenix-os-logo.png" alt="Rising Phoenix Enterprises">
+      <div class="brand-copy">
+        <div class="brand-top">Rising Phoenix Enterprises</div>
+        <div class="brand-main">Global Systems Enterprise</div>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Corporate Navigation">
+      <a href="institution.html">Institution</a>
+      <a href="phoenix-os.html">Phoenix OS</a>
+      <a href="industries.html">Industries</a>
+      <a href="systems.html">Systems</a>
+      <a href="enterprise.html" class="active">Enterprise</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="shell hero-grid reveal">
+    <div class="page-index">05 · Enterprise</div>
+
+    <div class="hero-copy">
+      <small>Long-Range Institutional Direction</small>
+      <h1>Built to become more capable with every system brought to market.</h1>
+      <p>
+        Rising Phoenix Enterprises is being developed as a durable multi-industry institution whose value is intended to expand through system ownership, market experience, accumulated knowledge, and long-range enterprise growth.
+      </p>
+    </div>
+
+    <aside class="hero-side">
+      <small>Enterprise Position</small>
+      <strong>Not a collection of projects. An expanding institution built around enduring system ownership.</strong>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell section-grid reveal">
+    <div class="section-label">Enterprise Horizon</div>
+
+    <div>
+      <h2>RPE is designed for expansion beyond its current portfolio.</h2>
+      <p>
+        Current systems represent the beginning of the enterprise rather than its limit. RPE intends to expand across additional industries, markets, and geographies where purpose-built systems can create meaningful improvement and long-range institutional value.
+      </p>
+
+      <div class="horizon-grid">
+        <article class="horizon">
+          <small>Markets</small>
+          <h3>Broader industry reach.</h3>
+          <p>Future systems may extend RPE into additional human, commercial, institutional, information, and infrastructure environments.</p>
+        </article>
+
+        <article class="horizon">
+          <small>Geography</small>
+          <h3>National and international scope.</h3>
+          <p>RPE's long-range direction includes operating across domestic and international markets where its systems are relevant.</p>
+        </article>
+
+        <article class="horizon">
+          <small>Portfolio</small>
+          <h3>More systems over time.</h3>
+          <p>The enterprise intends to accumulate specialized systems rather than depend upon one product for its institutional identity.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="shell section-grid reveal">
+    <div class="section-label">Long-Range Enterprise Model</div>
+
+    <div>
+      <h2>Each successful system should strengthen the enterprise that follows it.</h2>
+      <p>
+        RPE's long-range value is not limited to the commercial performance of any single system. Experience, market knowledge, operating capability, business relationships, and validated technology assets may strengthen the enterprise's ability to enter future markets with greater capability and lower uncertainty.
+      </p>
+
+      <div class="long-range">
+        <div class="long-row">
+          <small>System Ownership</small>
+          <div>
+            <h3>Durable enterprise assets.</h3>
+            <p>RPE intends to retain long-range value through ownership and operation of purpose-built systems serving distinct markets.</p>
+          </div>
+        </div>
+
+        <div class="long-row">
+          <small>Market Learning</small>
+          <div>
+            <h3>Experience accumulates.</h3>
+            <p>Operating systems in real markets creates institutional knowledge that can strengthen future enterprise decisions and expansion.</p>
+          </div>
+        </div>
+
+        <div class="long-row">
+          <small>Portfolio Strength</small>
+          <div>
+            <h3>Diversification through purpose.</h3>
+            <p>Multiple systems across materially different markets reduce dependence on a single sector while expanding the enterprise's long-range reach.</p>
+          </div>
+        </div>
+
+        <div class="long-row">
+          <small>Institutional Continuity</small>
+          <div>
+            <h3>The enterprise outlasts the product cycle.</h3>
+            <p>Individual technologies and market conditions may evolve while the parent institution continues to own, operate, expand, and adapt its portfolio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell section-grid reveal">
+    <div class="section-label">Scale Posture</div>
+
+    <div>
+      <h2>Growth is treated as institutional expansion, not visual theater.</h2>
+      <p>
+        RPE's public corporate position distinguishes current operating reality from long-range direction. The enterprise may communicate where it intends to go without representing future scale, customers, revenue, facilities, partnerships, or market position as established fact before the evidence exists.
+      </p>
+
+      <div class="scale-grid">
+        <article class="scale">
+          <small>Current Reality</small>
+          <h3>State what exists.</h3>
+          <p>Current systems, industries, capabilities, and operating positions should be described according to their actual status.</p>
+        </article>
+
+        <article class="scale">
+          <small>Long-Range Direction</small>
+          <h3>State what is intended.</h3>
+          <p>Future markets and enterprise ambitions may be communicated clearly as direction without presenting them as completed achievements.</p>
+        </article>
+
+        <article class="scale">
+          <small>Institutional Identity</small>
+          <h3>Remain larger than one product.</h3>
+          <p>RPE's corporate identity is designed to remain coherent as new systems and industries enter the portfolio over time.</p>
+        </article>
+
+        <article class="scale">
+          <small>Enterprise Standard</small>
+          <h3>Quiet authority over promotional excess.</h3>
+          <p>The corporate presence exists to identify the institution, its systems, its markets, and its direction rather than depend on exaggerated claims for credibility.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="shell closing-grid reveal">
+    <div class="section-label">Enterprise Direction</div>
+    <h2>
+      Rising Phoenix Enterprises is being built as an enduring systems institution: one capable of expanding across markets, preserving long-range ownership, and increasing its productive capacity as the portfolio grows.
+    </h2>
+  </div>
+</section>
+
 </main>
-<footer class="footer"><div class="wrap"><div>© 2026 Rising Phoenix Enterprises</div><div>Institution · Phoenix OS · Enterprise Systems</div></div></footer>
-</body></html>
+
+<footer class="footer">
+  <div class="shell">
+    <span>© 2026 Rising Phoenix Enterprises</span>
+    <span>Enterprise · Long-Range Institutional Direction</span>
+  </div>
+</footer>
+
+<script>
+const revealItems=document.querySelectorAll(".reveal");
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("on");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+revealItems.forEach(item=>observer.observe(item));
+</script>
+
+</body>
+</html>
+
+ 
