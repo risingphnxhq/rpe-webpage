@@ -1,173 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Rising Phoenix Enterprises | Institution</title>
-<link rel="stylesheet" href="css/rpe-corporate-shell.css">
+<meta name="description" content="Rising Phoenix Enterprises — institutional profile, corporate philosophy, industries, and enterprise systems." />
+
+<style>
+:root{
+  --black:#070707;
+  --black2:#0d0d0e;
+  --white:#ffffff;
+  --white2:#f6f6f3;
+  --gold:#c89b3c;
+  --gold2:#f0c96a;
+  --gold3:#8b6421;
+  --muted:#a7a7a2;
+  --line:rgba(255,255,255,.12);
+  --lineGold:rgba(200,155,60,.42);
+  --max:1260px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.shell{width:min(var(--max),calc(100% - 72px));margin:0 auto}
+
+/* HEADER */
+.header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(7,7,7,.96);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.header::after{
+  content:"";
+  display:block;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:.55;
+}
+.header-inner{
+  min-height:94px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+}
+.identity{
+  display:flex;
+  align-items:center;
+  gap:17px;
+}
+.identity img{
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  filter:drop-shadow(0 0 12px rgba(200,155,60,.16));
+}
+.identity-copy{line-height:1}
+.identity-kicker{
+  font-size:9px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold2);
+  font-weight:700;
+  margin-bottom:7px;
+}
+.identity-name{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:23px;
+  font-weight:400;
+}
+.nav{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  font-size:10px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#d1d1cd;
+}
+.nav a{
+  position:relative;
+  padding:36px 0 32px;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:100%;
+  bottom:22px;
+  height:1px;
+  background:var(--gold);
+  transition:.2s ease;
+}
+.nav a:hover,
+.nav a.active{color:#fff}
+.nav a:hover::after,
+.nav a.active::after{right:0}
+
+/* OPENING */
+.opening{
+  min-height:560px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  background:
+    radial-gradient(circle at 78% 30%,rgba(200,155,60,.10),transparent 28%),
+    linear-gradient(180deg,#0b0b0c 0%,#070707 100%);
+}
+.opening::after{
+  content:"";
+  position:absolute;
+  right:3%;
+  top:50%;
+  transform:translateY(-50%);
+  width:430px;
+  height:430px;
+  background:url("phoenix-os-logo.png") center/contain no-repeat;
+  opacity:.05;
+  pointer-events:none;
+}
+.opening-grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:250px 1fr;
+  gap:76px;
+  align-items:end;
+  padding:110px 0 100px;
+}
+.page-index{
+  align-self:start;
+  border-top:1px solid var(--gold);
+  padding-top:14px;
+  font-size:9px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold2);
+  font-weight:700;
+}
+.opening h1{
+  margin:0;
+  max-width:920px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(62px,7vw,98px);
+  line-height:.98;
+  font-weight:400;
+  letter-spacing:-.035em;
+}
+.opening p{
+  margin:28px 0 0;
+  max-width:790px;
+  font-size:18px;
+  line-height:1.82;
+  color:#c9c9c4;
+}
+
+/* SECTION */
+.section{
+  padding:104px 0;
+  border-top:1px solid var(--line);
+}
+.section.white{
+  background:var(--white2);
+  color:#101010;
+}
+.section.goldfield{
+  background:linear-gradient(110deg,#0a0a0a,#11100d 65%,#171106);
+}
+.section-grid{
+  display:grid;
+  grid-template-columns:250px 1fr;
+  gap:76px;
+}
+.section-label{
+  align-self:start;
+  border-top:1px solid var(--gold);
+  padding-top:13px;
+  font-size:9px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:700;
+}
+.section h2{
+  margin:0 0 24px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(40px,4vw,58px);
+  line-height:1.08;
+  font-weight:400;
+  letter-spacing:-.02em;
+}
+.section p{
+  margin:0;
+  max-width:890px;
+  font-size:16px;
+  line-height:1.9;
+  color:#b8b8b4;
+}
+.section.white p{color:#505050}
+
+/* PURPOSE STRIP */
+.purpose-strip{
+  margin-top:50px;
+  border-top:1px solid rgba(200,155,60,.32);
+  border-bottom:1px solid rgba(200,155,60,.32);
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+.purpose{
+  min-height:190px;
+  padding:31px 34px 34px 0;
+  border-right:1px solid rgba(200,155,60,.20);
+}
+.purpose + .purpose{padding-left:34px}
+.purpose:last-child{border-right:0}
+.purpose small{
+  display:block;
+  margin-bottom:10px;
+  font-size:9px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--gold3);
+  font-weight:700;
+}
+.purpose h3{
+  margin:0 0 10px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:27px;
+  font-weight:400;
+}
+.purpose p{
+  font-size:14px;
+  line-height:1.75;
+}
+
+/* REGISTRY */
+.registry{
+  margin-top:48px;
+  border-top:1px solid rgba(255,255,255,.14);
+}
+.registry-row{
+  display:grid;
+  grid-template-columns:240px 1fr;
+  gap:38px;
+  padding:26px 0;
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+.registry-key{
+  font-size:9px;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  color:var(--gold2);
+  font-weight:700;
+}
+.registry-value h3{
+  margin:0 0 7px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:28px;
+  font-weight:400;
+}
+.registry-value p{
+  max-width:760px;
+  font-size:14px;
+  line-height:1.75;
+}
+
+/* CORPORATE PORTFOLIO PREVIEW */
+.portfolio-preview{
+  margin-top:50px;
+  border-top:1px solid rgba(0,0,0,.15);
+}
+.portfolio-row{
+  display:grid;
+  grid-template-columns:250px 1fr;
+  gap:40px;
+  padding:30px 0;
+  border-bottom:1px solid rgba(0,0,0,.15);
+}
+.portfolio-row small{
+  font-size:9px;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  color:var(--gold3);
+  font-weight:700;
+}
+.portfolio-row h3{
+  margin:0 0 8px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:29px;
+  font-weight:400;
+}
+.portfolio-row p{
+  max-width:800px;
+  font-size:14px;
+  line-height:1.76;
+}
+
+/* FOOTER */
+.footer{
+  background:#050505;
+  border-top:1px solid var(--line);
+  padding:40px 0;
+  color:#8c8c88;
+  font-size:10px;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.footer .shell{
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+
+body{animation:pageIn .45s ease both}
+@keyframes pageIn{
+  from{opacity:0;transform:translateY(4px)}
+  to{opacity:1;transform:none}
+}
+
+@media(max-width:1000px){
+  .nav{display:none}
+  .opening-grid,.section-grid{grid-template-columns:1fr;gap:30px}
+  .opening::after{opacity:.025}
+  .purpose-strip{grid-template-columns:1fr}
+  .purpose,.purpose + .purpose{
+    padding:26px 0;
+    border-right:0;
+    border-bottom:1px solid rgba(200,155,60,.20);
+  }
+  .purpose:last-child{border-bottom:0}
+}
+@media(max-width:700px){
+  .shell{width:min(100% - 32px,var(--max))}
+  .header-inner{min-height:84px}
+  .identity img{width:50px;height:50px}
+  .identity-name{font-size:18px}
+  .opening-grid{padding:68px 0}
+  .opening h1{font-size:50px}
+  .section{padding:72px 0}
+  .registry-row,.portfolio-row{grid-template-columns:1fr;gap:9px}
+}
+</style>
 </head>
+
 <body>
 
-<div class="site-top">
-  <div class="shell">
-    <span>Rising Phoenix Enterprises</span>
-    <span>Corporate Headquarters</span>
-  </div>
-</div>
-
 <header class="header">
-  <div class="shell">
-    <a href="index.html" class="brand">
+  <div class="shell header-inner">
+
+    <a class="identity" href="index.html">
       <img src="phoenix-os-logo.png" alt="Rising Phoenix Enterprises">
-      <div>
-        <div class="brand-eyebrow">Rising Phoenix Enterprises</div>
-        <div class="brand-name">Institutional Headquarters</div>
+      <div class="identity-copy">
+        <div class="identity-kicker">Rising Phoenix Enterprises</div>
+        <div class="identity-name">Corporate Headquarters</div>
       </div>
     </a>
 
-    <nav class="nav">
-      <a href="institution.html">Institution</a>
+    <nav class="nav" aria-label="Corporate Navigation">
+      <a href="institution.html" class="active">Institution</a>
       <a href="phoenix-os.html">Phoenix OS</a>
       <a href="industries.html">Industries</a>
+      <a href="systems.html">Systems</a>
       <a href="enterprise.html">Enterprise</a>
       <a href="contact.html">Contact</a>
     </nav>
+
   </div>
 </header>
 
 <main>
 
-<section class="intro">
-  <div class="shell">
-    <div class="intro-label">01 · Institutional Profile</div>
+<section class="opening">
+  <div class="shell opening-grid">
+
+    <div class="page-index">01 · Institution</div>
+
     <div>
       <h1>Rising Phoenix Enterprises</h1>
       <p>
-        Rising Phoenix Enterprises is a multi-industry systems enterprise developing purpose-built technologies for markets where stronger infrastructure can materially improve human, organizational, and commercial activity.
+        A multi-industry systems enterprise developing purpose-built technologies for markets where stronger infrastructure can materially improve human, organizational, and commercial activity.
       </p>
     </div>
+
   </div>
 </section>
 
-<section class="section">
+<section class="section white">
   <div class="shell section-grid">
-    <div class="section-index">Corporate Philosophy</div>
+
+    <div class="section-label">Corporate Philosophy</div>
+
     <div>
-      <h2>Built for long-range institutional value.</h2>
+      <h2>Built beyond a single product or market.</h2>
+
       <p>
-        RPE is not defined by one application, one industry, or one market cycle. The enterprise identifies persistent operating problems and develops systems intended to improve continuity, clarity, access, and performance within the environments they serve.
+        Rising Phoenix Enterprises is an independent enterprise organized around long-term system ownership rather than one application, one industry, or one market cycle. The company develops systems intended to reduce recurring complexity, improve continuity, and strengthen the operating capacity of the people and organizations they serve.
       </p>
 
-      <div class="principles">
-        <article class="principle">
-          <small>Mission</small>
+      <div class="purpose-strip">
+
+        <article class="purpose">
+          <small>Purpose</small>
           <h3>Increase capacity.</h3>
-          <p>Technology should reduce unnecessary burden and strengthen the ability of people and organizations to function effectively.</p>
+          <p>
+            RPE develops technology intended to reduce unnecessary burden and improve how people and organizations function within complex environments.
+          </p>
         </article>
-        <article class="principle">
+
+        <article class="purpose">
           <small>Position</small>
-          <h3>Multi-industry by design.</h3>
-          <p>RPE develops systems across distinct markets rather than organizing the enterprise around a single sector.</p>
+          <h3>Multi-industry.</h3>
+          <p>
+            The enterprise is intentionally not confined to one market. Systems are developed for distinct industries where meaningful improvement can be created.
+          </p>
         </article>
-        <article class="principle">
+
+        <article class="purpose">
           <small>Direction</small>
-          <h3>Build for permanence.</h3>
-          <p>Each system is treated as a long-term enterprise asset with its own market purpose and operating identity.</p>
+          <h3>Long-range.</h3>
+          <p>
+            Current systems represent the beginning of a broader national and international enterprise portfolio intended to expand over time.
+          </p>
         </article>
+
       </div>
     </div>
+
   </div>
 </section>
 
-<section class="section alt">
+<section class="section goldfield">
   <div class="shell section-grid">
-    <div class="section-index">Current Industries</div>
-    <div>
-      <h2>Systems already taking shape across distinct markets.</h2>
-      <p>RPE’s current portfolio reflects implementation and development across several industries with materially different operating needs.</p>
 
-      <div class="industry-list">
-        <div class="industry-row">
-          <strong>Sports & Athlete Development</strong>
-          <div><h3>STATS-CORE™</h3><p>Athlete Lifecycle System focused on organized athlete identity, development, performance evidence, academics, eligibility, recruiting, exposure, communication, and long-term athlete intelligence.</p></div>
-        </div>
-        <div class="industry-row">
-          <strong>International Business & Commerce</strong>
-          <div><h3>Phoenix Back Office</h3><p>Global Business Infrastructure focused on business relationships, supplier discovery, qualification, quotations, records, workflows, and transaction continuity.</p></div>
-        </div>
-        <div class="industry-row">
-          <strong>Business Development</strong>
-          <div><h3>Phoenix Business System</h3><p>Business operating infrastructure focused on organizational readiness, operating clarity, and structured business progression.</p></div>
-        </div>
-        <div class="industry-row">
-          <strong>Digital Media & Entertainment</strong>
-          <div><h3>PHNX Media</h3><p>Digital media infrastructure being developed for structured creation, production, quality control, and distribution.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="section-label">Institutional Position</div>
 
-<section class="section dark">
-  <div class="shell section-grid">
-    <div class="section-index">Selected Systems</div>
     <div>
-      <h2>Purpose-built systems. Independent operating environments.</h2>
+      <h2>Quiet authority. Clear purpose.</h2>
+
       <p>
-        The RPE corporate website identifies the company’s systems but does not contain their operating environments. Each system is entered through its own independent gate.
+        RPE's public corporate presence exists to identify the institution, its systems, the markets those systems serve, and the company's long-term direction. Proprietary internal methods and system-construction knowledge remain private enterprise information.
       </p>
 
-      <div class="portfolio">
-        <a class="product" href="https://stats-core.com" target="_blank" rel="noopener">
-          <div class="product-logo">STATS-CORE™</div>
+      <div class="registry">
+
+        <div class="registry-row">
+          <div class="registry-key">Enterprise</div>
+          <div class="registry-value">
+            <h3>Rising Phoenix Enterprises</h3>
+            <p>Multi-industry systems enterprise.</p>
+          </div>
+        </div>
+
+        <div class="registry-row">
+          <div class="registry-key">Technology Foundation</div>
+          <div class="registry-value">
+            <h3>Phoenix OS</h3>
+            <p>The proprietary technology foundation supporting Rising Phoenix Enterprises' growing portfolio of specialized systems.</p>
+          </div>
+        </div>
+
+        <div class="registry-row">
+          <div class="registry-key">Orientation</div>
+          <div class="registry-value">
+            <h3>National & International</h3>
+            <p>RPE develops systems with long-range application across domestic and global markets.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section white">
+  <div class="shell section-grid">
+
+    <div class="section-label">Current Portfolio</div>
+
+    <div>
+      <h2>Distinct systems for distinct operating environments.</h2>
+
+      <p>
+        The company's current portfolio reflects active system implementation and development across multiple industries. Each system has its own market identity and independent operating environment.
+      </p>
+
+      <div class="portfolio-preview">
+
+        <div class="portfolio-row">
+          <small>Sports & Athlete Development</small>
           <div>
-            <small>Sports & Athlete Development</small>
             <h3>STATS-CORE™ Athlete Lifecycle System</h3>
-            <p>Structured athlete lifecycle infrastructure supporting development, evidence, academic and eligibility awareness, recruiting, exposure, and long-term athlete intelligence.</p>
+            <p>
+              Structured athlete lifecycle infrastructure focused on identity, development, evidence, academics, eligibility, recruiting, exposure, communication, and long-term athlete intelligence.
+            </p>
           </div>
-          <div class="product-action">Enter →</div>
-        </a>
+        </div>
 
-        <a class="product" href="#" target="_blank">
-          <div class="product-logo">PBO</div>
+        <div class="portfolio-row">
+          <small>International Business & Commerce</small>
           <div>
-            <small>International Business & Commerce</small>
             <h3>Phoenix Back Office</h3>
-            <p>Global Business Infrastructure supporting business relationships, supplier engagement, qualification, quotations, records, workflows, and transaction continuity.</p>
+            <p>
+              Global Business Infrastructure focused on commercial relationships, supplier engagement, qualification, quotations, records, workflows, and transaction continuity.
+            </p>
           </div>
-          <div class="product-action">Enter →</div>
-        </a>
+        </div>
 
-        <a class="product" href="#" target="_blank">
-          <div class="product-logo">PBS</div>
+        <div class="portfolio-row">
+          <small>Business Development</small>
           <div>
-            <small>Business Development</small>
             <h3>Phoenix Business System</h3>
-            <p>Business operating infrastructure focused on readiness, organizational clarity, and structured business progression.</p>
+            <p>
+              Business operating infrastructure focused on organizational readiness, operating clarity, and structured business progression.
+            </p>
           </div>
-          <div class="product-action">Enter →</div>
-        </a>
+        </div>
+
+        <div class="portfolio-row">
+          <small>Digital Media & Entertainment</small>
+          <div>
+            <h3>PHNX Media</h3>
+            <p>
+              Digital media infrastructure for structured creation, production, quality control, and distribution.
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="shell section-grid">
-    <div class="section-index">Enterprise Horizons</div>
-    <div>
-      <h2>Long-range multi-industry expansion.</h2>
-      <p>
-        RPE intends to continue developing systems in industries where fragmented operations, recurring information burdens, or weak continuity create meaningful opportunities for stronger infrastructure.
-      </p>
-
-      <div class="horizons">
-        <article class="horizon"><small>Future Horizon</small><h3>Healthcare-Adjacent Operations</h3></article>
-        <article class="horizon"><small>Future Horizon</small><h3>Education & Workforce</h3></article>
-        <article class="horizon"><small>Future Horizon</small><h3>Hospitality & Property</h3></article>
-        <article class="horizon"><small>Future Horizon</small><h3>Logistics & Financial Infrastructure</h3></article>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -175,8 +553,8 @@
 
 <footer class="footer">
   <div class="shell">
-    <div>© 2026 Rising Phoenix Enterprises</div>
-    <div>Institution · Phoenix OS · Industries · Enterprise</div>
+    <span>© 2026 Rising Phoenix Enterprises</span>
+    <span>Corporate Headquarters · National & International</span>
   </div>
 </footer>
 
