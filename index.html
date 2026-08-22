@@ -4,297 +4,811 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Rising Phoenix Enterprises</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<meta name="description" content="Rising Phoenix Enterprises is a multi-industry technology and systems enterprise developing purpose-built infrastructure across sports, global commerce, business operations, digital media, and future markets." />
+<meta name="theme-color" content="#050505" />
 
 <style>
-
 :root{
-  --bg:#000;
-  --ivory:#f1e6d2;
+  --black:#050505;
+  --black2:#0a0a0b;
+  --black3:#111113;
+  --white:#ffffff;
+  --paper:#f4f4f1;
+  --ink:#161616;
+  --muted:#6a6a66;
+  --gold:#c99a3a;
+  --gold-hi:#efc967;
+  --gold-deep:#765218;
+  --line-dark:rgba(255,255,255,.12);
+  --line-light:rgba(0,0,0,.12);
+  --max:1360px;
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
 
-/* RESET */
-
-*{
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
   margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html,body{
-  height:100%;
-  background:var(--bg);
-  color:var(--ivory);
-  font-family:"IBM Plex Mono","Courier New",monospace;
+  background:var(--black);
+  color:var(--white);
+  font-family:Inter, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
+  overflow-x:hidden;
 }
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit}
+.shell{width:min(var(--max),calc(100% - 84px));margin:0 auto}
 
-/* HERO */
+/* ---------- TOP BAR ---------- */
+.site-header{
+  position:fixed;
+  inset:0 0 auto 0;
+  z-index:80;
+  transition:background .35s ease,border-color .35s ease;
+  border-bottom:1px solid transparent;
+}
+.site-header.scrolled{
+  background:rgba(5,5,5,.92);
+  backdrop-filter:blur(18px);
+  border-color:var(--line-dark);
+}
+.header-inner{
+  min-height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:34px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  min-width:290px;
+}
+.brand img{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  filter:drop-shadow(0 0 12px rgba(201,154,58,.14));
+}
+.brand-copy{line-height:1}
+.brand-top{
+  font-size:8px;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--gold-hi);
+  font-weight:700;
+  margin-bottom:7px;
+}
+.brand-main{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:19px;
+  font-weight:400;
+  letter-spacing:.01em;
+}
+.nav{
+  display:flex;
+  align-items:center;
+  gap:26px;
+  font-size:9px;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  color:#d5d5d1;
+}
+.nav a{
+  position:relative;
+  padding:35px 0 30px;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:100%;
+  bottom:22px;
+  height:1px;
+  background:var(--gold);
+  transition:right .28s var(--ease);
+}
+.nav a:hover{color:#fff}
+.nav a:hover::after{right:0}
 
+/* ---------- HERO ---------- */
 .hero{
   position:relative;
-  height:70vh;
+  min-height:760px;
   display:flex;
-  align-items:flex-end;
-  justify-content:center;
+  align-items:center;
   overflow:hidden;
   background:
-    radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0) 24%),
-    radial-gradient(circle at center, rgba(0,0,0,.10), #000 72%);
+    radial-gradient(circle at 77% 38%,rgba(201,154,58,.11),transparent 25%),
+    radial-gradient(circle at 72% 65%,rgba(255,255,255,.035),transparent 24%),
+    linear-gradient(125deg,#070707 0%,#090909 55%,#040404 100%);
 }
-
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background:url("phoenix-os-logo.png") center 40% / 520px no-repeat;
-  opacity:0;
-  filter:
-    drop-shadow(0 22px 54px rgba(0,0,0,.60))
-    drop-shadow(0 0 22px rgba(168,116,34,.15));
-  animation:heroFade 1.4s ease forwards;
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
   background:
-    radial-gradient(circle at center, rgba(168,116,34,.10) 0%, rgba(168,116,34,0) 36%);
-  mix-blend-mode:screen;
-  opacity:.42;
-  animation:glowPulse 4.8s ease-in-out infinite;
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:linear-gradient(to right,rgba(0,0,0,.35),transparent 75%);
+  pointer-events:none;
 }
-
-/* CONTENT */
-
-.content{
-  height:30vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
-  padding-top:30px;
-  text-align:center;
-}
-
-/* TITLE */
-
-.title{
-  font-size:clamp(18px,1.45vw,22px);
-  letter-spacing:.26em;
-  text-transform:uppercase;
-  margin-bottom:30px;
-  min-height:1.5em;
-
-  color:#f1e6d2;
-
-  text-shadow:
-    0 0 2px rgba(255,255,255,.25),
-    0 0 10px rgba(168,116,34,.18),
-    0 2px 6px rgba(0,0,0,.85);
-
-  opacity:0;
-  animation:titleFade .7s ease .9s forwards;
-}
-
-.cursor{
-  display:inline-block;
-  width:2px;
-  height:1em;
-  background:#a87422;
-  margin-left:5px;
-  animation:blink .9s infinite;
-}
-
-/* FORGED METAL BUTTON */
-
-.enter{
+.hero-grid{
   position:relative;
-  overflow:hidden;
-
+  z-index:2;
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(430px,.95fr);
+  gap:92px;
+  align-items:center;
+  padding:152px 0 92px;
+}
+.eyebrow{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin-bottom:24px;
+  font-size:9px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold-hi);
+  font-weight:700;
+}
+.eyebrow::before{
+  content:"";
+  width:44px;
+  height:1px;
+  background:var(--gold);
+}
+.hero h1{
+  margin:0;
+  max-width:760px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(42px,4.25vw,60px);
+  line-height:1.06;
+  font-weight:400;
+  letter-spacing:-.025em;
+}
+.hero-lead{
+  margin:25px 0 0;
+  max-width:690px;
+  color:#c8c8c3;
+  font-size:16px;
+  line-height:1.82;
+}
+.hero-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:34px;
+}
+.btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-width:210px;
-  margin-top:10px;
-  padding:14px 44px;
-
-  font-size:14px;
-  letter-spacing:.18em;
+  min-height:46px;
+  padding:0 23px;
+  border:1px solid rgba(255,255,255,.25);
+  font-size:9px;
+  letter-spacing:.17em;
   text-transform:uppercase;
-  text-decoration:none;
-  color:#f1edd2;
-
-  text-shadow:0 1px 2px rgba(0,0,0,.75);
-
-  background:
-    linear-gradient(
-      145deg,
-      #f1c766 0%,
-      #d79d3a 12%,
-      #a8641f 32%,
-      #6e3f12 48%,
-      #4e2b0b 56%,
-      #8a5118 70%,
-      #d89e3a 86%,
-      #f3cd73 100%
-    );
-
-  border:1px solid #7a4514;
-  border-radius:2px;
-
-  box-shadow:
-    0 0 8px rgba(168,100,31,.25),
-    inset 0 1px 0 rgba(255,240,200,.20),
-    inset 0 -4px 12px rgba(0,0,0,.78);
-
-  opacity:0;
-  transform:translateY(8px);
-  animation:enterFade .8s ease 2.5s forwards;
-  transition:all .25s ease;
+  transition:.25s var(--ease);
+}
+.btn.gold{
+  border-color:var(--gold);
+  background:linear-gradient(120deg,var(--gold-deep),var(--gold),var(--gold-hi));
+  color:#111;
+  font-weight:800;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn.outline:hover{
+  border-color:var(--gold);
+  color:var(--gold-hi);
 }
 
-/* TOP METAL EDGE */
-
-.enter::before{
+/* HERO CORPORATE OBJECT */
+.hero-object{
+  position:relative;
+  min-height:495px;
+  border:1px solid rgba(255,255,255,.11);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.008));
+  overflow:hidden;
+}
+.hero-object::before{
   content:"";
   position:absolute;
   inset:0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,245,210,.20) 0%,
-      rgba(255,245,210,.05) 18%,
-      rgba(255,255,255,0) 45%,
-      rgba(0,0,0,.12) 100%
-    );
-  pointer-events:none;
+  background:url("phoenix-os-logo.png") 55% 42% / 62% no-repeat;
+  opacity:.23;
+  filter:drop-shadow(0 0 30px rgba(201,154,58,.18));
 }
-
-/* HOT METAL SWEEP */
-
-.enter::after{
+.hero-object::after{
   content:"";
   position:absolute;
-  top:-55%;
-  left:-70%;
-  width:46%;
-  height:220%;
-  background:linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,244,210,.12) 35%,
-    rgba(255,244,210,.55) 50%,
-    rgba(255,244,210,.12) 65%,
-    rgba(255,255,255,0) 100%
-  );
-  transform:rotate(16deg);
-  opacity:.22;
-  animation:shineSweep 5.4s linear infinite;
-  pointer-events:none;
+  inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.8) 100%);
+}
+.object-top{
+  position:relative;
+  z-index:3;
+  display:flex;
+  justify-content:space-between;
+  padding:24px 26px;
+  border-bottom:1px solid rgba(255,255,255,.09);
+  font-size:8px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.object-top span:first-child{color:var(--gold-hi)}
+.object-top span:last-child{color:#969692}
+.object-foot{
+  position:absolute;
+  z-index:4;
+  left:26px;
+  right:26px;
+  bottom:25px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+}
+.object-stat{
+  padding-top:13px;
+  border-top:1px solid rgba(201,154,58,.44);
+}
+.object-stat small{
+  display:block;
+  margin-bottom:7px;
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gold-hi);
+}
+.object-stat strong{
+  display:block;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:19px;
+  font-weight:400;
+  line-height:1.35;
 }
 
-.enter:hover{
-  transform:translateY(-1px);
+/* ---------- MARKET STRIP ---------- */
+.market-strip{
+  background:#000;
+  border-top:1px solid rgba(201,154,58,.35);
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+.market-inner{
+  min-height:80px;
+  display:grid;
+  grid-template-columns:180px 1fr;
+  align-items:center;
+  gap:32px;
+}
+.market-label{
+  font-size:8px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--gold-hi);
+  font-weight:700;
+}
+.market-list{
+  display:flex;
+  align-items:center;
+  gap:0;
+  overflow:hidden;
+}
+.market-list span{
+  padding:0 25px;
+  border-left:1px solid rgba(255,255,255,.12);
+  font-size:10px;
+  letter-spacing:.08em;
+  color:#d4d4d0;
+  white-space:nowrap;
+}
+.market-list span:first-child{padding-left:0;border-left:0}
+
+/* ---------- INTRO ---------- */
+.section{
+  position:relative;
+  padding:88px 0;
+}
+.section.paper{
+  background:var(--paper);
+  color:var(--ink);
+}
+.section.dark{
+  background:var(--black2);
+  color:#fff;
+}
+.section-grid{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:70px;
+}
+.section-label{
+  border-top:1px solid var(--gold);
+  padding-top:11px;
+  font-size:8px;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  font-weight:700;
+}
+.dark .section-label{color:var(--gold-hi)}
+.section h2{
+  margin:0 0 18px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:34px;
+  line-height:1.18;
+  font-weight:400;
+  letter-spacing:-.015em;
+}
+.section p{
+  margin:0;
+  max-width:900px;
+  font-size:15px;
+  line-height:1.85;
+  color:#5c5c58;
+}
+.dark p{color:#b9b9b4}
+
+/* THREE PRINCIPLES */
+.principles{
+  margin-top:36px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line-light);
+  border-bottom:1px solid var(--line-light);
+}
+.principle{
+  padding:25px 28px 28px 0;
+  border-right:1px solid var(--line-light);
+}
+.principle + .principle{padding-left:28px}
+.principle:last-child{border-right:0}
+.principle small{
+  display:block;
+  margin-bottom:8px;
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  font-weight:700;
+}
+.principle h3{
+  margin:0 0 8px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:22px;
+  font-weight:400;
+}
+.principle p{font-size:13px;line-height:1.7}
+
+/* PHOENIX OS FEATURE */
+.os-feature{
+  display:grid;
+  grid-template-columns:1fr 340px;
+  gap:72px;
+  align-items:center;
+}
+.os-copy .micro{
+  color:var(--gold-hi);
+  font-size:8px;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:13px;
+}
+.os-copy h2{
+  max-width:760px;
+}
+.os-object{
+  min-height:300px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(255,255,255,.11);
+  background:
+    radial-gradient(circle at center,rgba(201,154,58,.13),transparent 50%);
+}
+.os-object img{
+  width:220px;
+  max-height:220px;
+  object-fit:contain;
+  opacity:.92;
+  filter:drop-shadow(0 16px 38px rgba(0,0,0,.5));
 }
 
-.enter:active{
-  transform:translateY(1px);
-  box-shadow:
-    inset 0 4px 16px rgba(0,0,0,.85);
+/* SYSTEMS */
+.systems-head{
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+  align-items:end;
+  margin-bottom:30px;
+}
+.systems-head p{max-width:600px}
+.system-list{
+  border-top:1px solid rgba(255,255,255,.14);
+}
+.system-row{
+  display:grid;
+  grid-template-columns:190px 1fr 125px;
+  gap:36px;
+  align-items:center;
+  min-height:122px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  transition:background .25s ease,padding .25s ease;
+}
+.system-row:hover{
+  background:rgba(255,255,255,.022);
+  padding-left:10px;
+  padding-right:10px;
+}
+.system-mark{
+  min-height:76px;
+  display:flex;
+  align-items:center;
+}
+.system-mark img{
+  max-width:160px;
+  max-height:62px;
+  object-fit:contain;
+}
+.fallback{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:19px;
+}
+.system-copy small{
+  display:block;
+  margin-bottom:6px;
+  color:var(--gold-hi);
+  font-size:8px;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+.system-copy h3{
+  margin:0 0 5px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:22px;
+  font-weight:400;
+}
+.system-copy p{font-size:13px;line-height:1.7}
+.system-link{
+  justify-self:end;
+  font-size:8px;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  color:var(--gold-hi);
+  border-bottom:1px solid var(--gold-deep);
+  padding-bottom:4px;
 }
 
-/* ANIMATIONS */
-
-@keyframes heroFade{
-  from{opacity:0; transform:scale(.985);}
-  to{opacity:1; transform:scale(1);}
+/* DIRECTION */
+.direction{
+  background:
+    radial-gradient(circle at 20% 20%,rgba(201,154,58,.08),transparent 28%),
+    #070707;
+  border-top:1px solid rgba(201,154,58,.32);
+}
+.direction-grid{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:70px;
+}
+.direction h2{
+  margin:0;
+  max-width:900px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:29px;
+  line-height:1.4;
+  font-weight:400;
 }
 
-@keyframes glowPulse{
-  0%,100%{opacity:.34;}
-  50%{opacity:.58;}
+/* FOOTER */
+.footer{
+  background:#030303;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:34px 0;
+  color:#898984;
+  font-size:9px;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.footer .shell{
+  display:flex;
+  justify-content:space-between;
+  gap:22px;
+  flex-wrap:wrap;
 }
 
-@keyframes titleFade{
-  from{opacity:0; transform:translateY(6px);}
-  to{opacity:1; transform:translateY(0);}
+/* REVEAL */
+.reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .7s var(--ease),transform .7s var(--ease);
+}
+.reveal.on{
+  opacity:1;
+  transform:none;
 }
 
-@keyframes enterFade{
-  to{opacity:1; transform:translateY(0);}
+/* RESPONSIVE */
+@media(max-width:1050px){
+  .nav{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .hero-object{min-height:420px}
+  .section-grid,.direction-grid{grid-template-columns:1fr;gap:28px}
+  .os-feature{grid-template-columns:1fr}
+  .os-object{max-width:500px}
+  .market-inner{grid-template-columns:1fr;padding:22px 0;gap:14px}
+  .market-list{flex-wrap:wrap;gap:12px}
+  .market-list span{border-left:0;padding:0 16px 0 0}
 }
-
-@keyframes blink{
-  0%,50%,100%{opacity:1;}
-  25%,75%{opacity:0;}
+@media(max-width:720px){
+  .shell{width:min(var(--max),calc(100% - 34px))}
+  .header-inner{min-height:78px}
+  .brand img{width:43px;height:43px}
+  .brand-main{font-size:17px}
+  .hero{min-height:auto}
+  .hero-grid{padding:125px 0 62px}
+  .hero h1{font-size:38px}
+  .hero-lead{font-size:15px}
+  .hero-object{min-height:360px}
+  .object-foot{grid-template-columns:1fr}
+  .principles{grid-template-columns:1fr}
+  .principle,.principle + .principle{padding:20px 0;border-right:0;border-bottom:1px solid var(--line-light)}
+  .principle:last-child{border-bottom:0}
+  .section{padding:64px 0}
+  .section h2{font-size:29px}
+  .systems-head{display:block}
+  .system-row{grid-template-columns:1fr;gap:8px;padding:22px 0}
+  .system-row:hover{padding-left:0;padding-right:0}
+  .system-link{justify-self:start}
 }
-
-@keyframes shineSweep{
-  from{left:-70%;}
-  to{left:140%;}
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.hero{height:65vh;}
-
-.hero::before{
-background:url("phoenix-os-logo.png") center 38% / 320px no-repeat;
-}
-
-.content{height:35vh; padding-top:22px;}
-
-.enter{
-min-width:180px;
-padding:12px 28px;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
-<section class="hero"></section>
+<header class="site-header" id="siteHeader">
+  <div class="shell header-inner">
+    <a class="brand" href="index.html" aria-label="Rising Phoenix Enterprises home">
+      <img src="phoenix-os-logo.png" alt="Rising Phoenix Enterprises">
+      <div class="brand-copy">
+        <div class="brand-top">Rising Phoenix Enterprises</div>
+        <div class="brand-main">Global Systems Enterprise</div>
+      </div>
+    </a>
 
-<section class="content">
+    <nav class="nav" aria-label="Corporate Navigation">
+      <a href="institution.html">Institution</a>
+      <a href="phoenix-os.html">Phoenix OS</a>
+      <a href="industries.html">Industries</a>
+      <a href="systems.html">Systems</a>
+      <a href="enterprise.html">Enterprise</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-<h1 class="title">
-<span id="typed"></span><span class="cursor"></span>
-</h1>
+<main>
 
-<a href="institution.html" class="enter">ENTER</a>
+<section class="hero">
+  <div class="shell hero-grid">
 
+    <div class="hero-copy reveal">
+      <div class="eyebrow">Rising Phoenix Enterprises</div>
+
+      <h1>Purpose-built systems for a changing world.</h1>
+
+      <p class="hero-lead">
+        Rising Phoenix Enterprises develops technology infrastructure for complex human, organizational, and commercial environments across multiple industries and international markets.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn gold" href="systems.html">Explore Systems</a>
+        <a class="btn outline" href="institution.html">About RPE</a>
+      </div>
+    </div>
+
+    <aside class="hero-object reveal" aria-label="RPE enterprise position">
+      <div class="object-top">
+        <span>Enterprise Portfolio</span>
+        <span>RPE · 2026</span>
+      </div>
+
+      <div class="object-foot">
+        <div class="object-stat">
+          <small>Enterprise Foundation</small>
+          <strong>Phoenix OS</strong>
+        </div>
+        <div class="object-stat">
+          <small>Market Orientation</small>
+          <strong>National &amp; International</strong>
+        </div>
+      </div>
+    </aside>
+
+  </div>
 </section>
 
+<section class="market-strip">
+  <div class="shell market-inner">
+    <div class="market-label">Current Market Domains</div>
+    <div class="market-list">
+      <span>Sports & Athlete Development</span>
+      <span>International Business & Commerce</span>
+      <span>Business Operations</span>
+      <span>Digital Media & Entertainment</span>
+    </div>
+  </div>
+</section>
+
+<section class="section paper">
+  <div class="shell section-grid reveal">
+    <div class="section-label">The Institution</div>
+
+    <div>
+      <h2>A multi-industry enterprise by design.</h2>
+
+      <p>
+        RPE is not organized around one application, one market, or one technology cycle. The company identifies persistent operating problems and develops systems intended to improve continuity, access, clarity, coordination, and performance within the environments they serve.
+      </p>
+
+      <div class="principles">
+        <article class="principle">
+          <small>Purpose</small>
+          <h3>Increase capacity.</h3>
+          <p>Reduce recurring complexity and strengthen the ability of people and organizations to function effectively.</p>
+        </article>
+
+        <article class="principle">
+          <small>Position</small>
+          <h3>Build across industries.</h3>
+          <p>Develop distinct systems for distinct operating environments rather than confining the enterprise to one sector.</p>
+        </article>
+
+        <article class="principle">
+          <small>Direction</small>
+          <h3>Think long-range.</h3>
+          <p>Build an enduring portfolio capable of serving expanding domestic and international markets.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="shell os-feature reveal">
+    <div class="os-copy">
+      <div class="micro">Enterprise Technology Foundation</div>
+      <h2>Phoenix OS supports the systems RPE brings to market.</h2>
+      <p>
+        Phoenix OS is the proprietary technology foundation of Rising Phoenix Enterprises. It supports the company's expanding portfolio while each RPE system maintains its own identity, market purpose, and operating environment.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn outline" href="phoenix-os.html">Understand Phoenix OS</a>
+      </div>
+    </div>
+
+    <div class="os-object">
+      <img src="phoenix-os-logo.png" alt="Phoenix OS">
+    </div>
+  </div>
+</section>
+
+<section class="section dark" style="padding-top:12px">
+  <div class="shell reveal">
+
+    <div class="systems-head">
+      <div>
+        <div class="section-label" style="width:190px;margin-bottom:20px">Enterprise Systems</div>
+        <h2>Selected RPE systems.</h2>
+      </div>
+      <p>
+        Purpose-built systems serving materially different industries while remaining part of one enterprise portfolio.
+      </p>
+    </div>
+
+    <div class="system-list">
+
+      <a class="system-row" href="https://stats-core.com" target="_blank" rel="noopener">
+        <div class="system-mark">
+          <img src="stats-core-logo.png" alt="STATS-CORE" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="fallback" style="display:none">STATS-CORE™</span>
+        </div>
+        <div class="system-copy">
+          <small>Sports & Athlete Development</small>
+          <h3>STATS-CORE™ Athlete Lifecycle System</h3>
+          <p>Infrastructure for the athlete lifecycle, including development, evidence, academics, eligibility, recruiting, exposure, communication, and long-term athlete intelligence.</p>
+        </div>
+        <div class="system-link">Enter System →</div>
+      </a>
+
+      <a class="system-row" href="#" target="_blank" rel="noopener">
+        <div class="system-mark">
+          <img src="pbo_logo.png" alt="Phoenix Back Office" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="fallback" style="display:none">Phoenix Back Office</span>
+        </div>
+        <div class="system-copy">
+          <small>International Business & Commerce</small>
+          <h3>Phoenix Back Office</h3>
+          <p>Global Business Infrastructure supporting business relationships, supplier engagement, qualification, quotations, records, workflows, and transaction continuity.</p>
+        </div>
+        <div class="system-link">Enter System →</div>
+      </a>
+
+      <a class="system-row" href="#" target="_blank" rel="noopener">
+        <div class="system-mark"><span class="fallback">Phoenix Business System</span></div>
+        <div class="system-copy">
+          <small>Business Operations</small>
+          <h3>Phoenix Business System</h3>
+          <p>Business infrastructure focused on organizational readiness, operating clarity, and structured enterprise progression.</p>
+        </div>
+        <div class="system-link">Enter System →</div>
+      </a>
+
+      <a class="system-row" href="#" target="_blank" rel="noopener">
+        <div class="system-mark"><span class="fallback">PHNX Media</span></div>
+        <div class="system-copy">
+          <small>Digital Media & Entertainment</small>
+          <h3>PHNX Media</h3>
+          <p>Digital media infrastructure supporting structured creation, production, quality control, and distribution.</p>
+        </div>
+        <div class="system-link">Enter System →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="section direction">
+  <div class="shell direction-grid reveal">
+    <div class="section-label">Enterprise Direction</div>
+    <h2>
+      RPE is building an expanding portfolio of systems intended to strengthen how people, organizations, and markets operate — across industries, borders, and future technology environments.
+    </h2>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <span>© 2026 Rising Phoenix Enterprises</span>
+    <span>Global Systems Enterprise · National & International</span>
+  </div>
+</footer>
+
 <script>
+const header = document.getElementById("siteHeader");
 
-const text="Rising Phoenix Enterprises";
-const typed=document.getElementById("typed");
-
-let i=0;
-
-function typeEffect(){
-if(i<text.length){
-typed.textContent+=text.charAt(i);
-i++;
-setTimeout(typeEffect,55);
+function updateHeader(){
+  if(window.scrollY > 24){
+    header.classList.add("scrolled");
+  }else{
+    header.classList.remove("scrolled");
+  }
 }
-}
+updateHeader();
+window.addEventListener("scroll", updateHeader, {passive:true});
 
-window.addEventListener("load",()=>{
-setTimeout(typeEffect,850);
-});
+const revealItems = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("on");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
 
+revealItems.forEach(item=>observer.observe(item));
 </script>
 
 </body>
