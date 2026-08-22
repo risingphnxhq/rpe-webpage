@@ -1,9 +1,493 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>RPE | Phoenix OS</title><link rel="stylesheet" href="css/rpe-corporate.css"></head><body>
-<div class="topline"><div class="wrap">Rising Phoenix Enterprises · Institutional Headquarters</div></div>
-<header class="masthead"><div class="wrap"><a class="brand" href="index.html"><div class="brand-mark">RPE</div><div><div class="brand-kicker">Rising Phoenix Enterprises</div><div class="brand-name">Institutional Headquarters</div></div></a><nav><a href="institution.html">Institution</a><a href="phoenix-os.html">Phoenix OS</a><a href="industries.html">Industries</a><a href="enterprise.html">Enterprise</a><a href="contact.html">Contact</a></nav></div></header>
-<main><section class="titleband"><div class="wrap"><div class="page-no">02 · Phoenix OS</div><div><h1>Phoenix OS</h1><p class="lead">The proprietary enterprise foundation supporting Rising Phoenix Enterprises systems across multiple industries.</p></div></div></section>
-<section><div class="wrap grid"><div class="label">Phoenix OS</div><div><h2>Proprietary enterprise foundation.</h2><p>Phoenix OS is Rising Phoenix Enterprises’ proprietary technology environment supporting the company’s growing portfolio of specialized systems across multiple industries. It reflects RPE’s long-term commitment to developing technology that reduces complexity, improves continuity, and strengthens the ability of people and organizations to operate effectively.</p><div class="three"><article><small>Role</small><h3>Foundation.</h3><p>Phoenix OS supports RPE systems without being presented as a public product environment.</p></article><article><small>Purpose</small><h3>Continuity.</h3><p>It allows RPE to maintain consistent institutional direction across systems serving different markets.</p></article><article><small>Scope</small><h3>Portfolio support.</h3><p>It supports current systems and future industry expansion without exposing internal construction methods.</p></article></div></div></div></section>
-<section class="dark"><div class="wrap grid"><div class="label">System Lineage</div><div><h2>Different industries. One enterprise foundation.</h2><p>STATS-CORE, Phoenix Back Office, Phoenix Business System, and future RPE systems each serve different markets. Phoenix OS is the proprietary foundation beneath that portfolio.</p></div></div></section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rising Phoenix Enterprises | Phoenix OS</title>
+<meta name="description" content="Phoenix OS — the proprietary technology foundation supporting Rising Phoenix Enterprises systems across multiple industries." />
+
+<style>
+:root{
+  --black:#070707;
+  --black2:#0d0d0e;
+  --white:#ffffff;
+  --white2:#f6f6f3;
+  --gold:#c89b3c;
+  --gold2:#f0c96a;
+  --gold3:#8b6421;
+  --muted:#a7a7a2;
+  --line:rgba(255,255,255,.12);
+  --max:1260px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  animation:pageIn .45s ease both;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.shell{width:min(var(--max),calc(100% - 72px));margin:0 auto}
+
+/* HEADER */
+.header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(7,7,7,.96);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.header::after{
+  content:"";
+  display:block;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:.55;
+}
+.header-inner{
+  min-height:94px;
+  display:flex;align-items:center;justify-content:space-between;gap:28px;
+}
+.identity{display:flex;align-items:center;gap:17px}
+.identity img{
+  width:60px;height:60px;object-fit:contain;
+  filter:drop-shadow(0 0 12px rgba(200,155,60,.16));
+}
+.identity-copy{line-height:1}
+.identity-kicker{
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold2);font-weight:700;margin-bottom:7px;
+}
+.identity-name{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:23px;font-weight:400;
+}
+.nav{
+  display:flex;gap:25px;align-items:center;
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#d1d1cd;
+}
+.nav a{position:relative;padding:36px 0 32px}
+.nav a::after{
+  content:"";position:absolute;left:0;right:100%;bottom:22px;height:1px;
+  background:var(--gold);transition:.2s ease;
+}
+.nav a:hover,.nav a.active{color:#fff}
+.nav a:hover::after,.nav a.active::after{right:0}
+
+/* OPENING */
+.opening{
+  min-height:560px;
+  position:relative;overflow:hidden;display:flex;align-items:center;
+  background:
+    radial-gradient(circle at 78% 30%,rgba(200,155,60,.12),transparent 28%),
+    linear-gradient(180deg,#0b0b0c 0%,#070707 100%);
+}
+.opening::after{
+  content:"";position:absolute;right:5%;top:50%;transform:translateY(-50%);
+  width:440px;height:440px;
+  background:url("phoenix-os-logo.png") center/contain no-repeat;
+  opacity:.075;pointer-events:none;
+}
+.opening-grid{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:250px 1fr;gap:76px;align-items:end;
+  padding:110px 0 100px;
+}
+.page-index{
+  align-self:start;border-top:1px solid var(--gold);padding-top:14px;
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold2);font-weight:700;
+}
+.opening h1{
+  margin:0;max-width:920px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(62px,7vw,98px);
+  line-height:.98;font-weight:400;letter-spacing:-.035em;
+}
+.opening p{
+  margin:28px 0 0;max-width:790px;
+  font-size:18px;line-height:1.82;color:#c9c9c4;
+}
+
+/* SECTIONS */
+.section{padding:104px 0;border-top:1px solid var(--line)}
+.section.white{background:var(--white2);color:#101010}
+.section.goldfield{background:linear-gradient(110deg,#0a0a0a,#11100d 65%,#171106)}
+.section-grid{display:grid;grid-template-columns:250px 1fr;gap:76px}
+.section-label{
+  align-self:start;border-top:1px solid var(--gold);padding-top:13px;
+  font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;
+}
+.section h2{
+  margin:0 0 24px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(40px,4vw,58px);
+  line-height:1.08;font-weight:400;letter-spacing:-.02em;
+}
+.section p{
+  margin:0;max-width:890px;font-size:16px;line-height:1.9;color:#b8b8b4;
+}
+.section.white p{color:#505050}
+
+/* RELATIONSHIP BAND */
+.relationship{
+  margin-top:48px;
+  display:grid;
+  grid-template-columns:1fr 74px 1fr;
+  align-items:center;
+  gap:28px;
+}
+.relationship-card{
+  min-height:210px;
+  border:1px solid rgba(200,155,60,.30);
+  padding:30px;
+  background:rgba(255,255,255,.025);
+}
+.relationship-card small{
+  display:block;margin-bottom:10px;
+  font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold2);font-weight:700;
+}
+.relationship-card h3{
+  margin:0 0 10px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:29px;font-weight:400;
+}
+.relationship-card p{font-size:14px;line-height:1.76}
+.relationship-arrow{
+  text-align:center;
+  color:var(--gold2);
+  font-size:26px;
+}
+
+/* PUBLIC ROLE */
+.role-list{
+  margin-top:46px;
+  border-top:1px solid rgba(0,0,0,.14);
+}
+.role-row{
+  display:grid;
+  grid-template-columns:250px 1fr;
+  gap:40px;
+  padding:28px 0;
+  border-bottom:1px solid rgba(0,0,0,.14);
+}
+.role-row small{
+  font-size:9px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--gold3);font-weight:700;
+}
+.role-row h3{
+  margin:0 0 8px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:28px;font-weight:400;
+}
+.role-row p{font-size:14px;line-height:1.75}
+
+/* SYSTEM LINEAGE */
+.lineage{
+  margin-top:48px;
+  border-top:1px solid rgba(255,255,255,.14);
+}
+.lineage-row{
+  display:grid;
+  grid-template-columns:240px 1fr 110px;
+  gap:36px;
+  align-items:center;
+  min-height:132px;
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+.lineage-mark{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:23px;
+}
+.lineage-copy small{
+  display:block;margin-bottom:6px;
+  font-size:9px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--gold2);
+}
+.lineage-copy h3{
+  margin:0 0 8px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:27px;font-weight:400;
+}
+.lineage-copy p{font-size:14px;line-height:1.75}
+.lineage-action{
+  justify-self:end;
+  font-size:9px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--gold2);
+  border-bottom:1px solid var(--gold3);
+  padding-bottom:4px;
+}
+
+/* PUBLIC DISCLOSURE */
+.disclosure{
+  margin-top:44px;
+  border-left:2px solid var(--gold);
+  padding:20px 0 20px 28px;
+  max-width:900px;
+}
+.disclosure strong{
+  display:block;
+  margin-bottom:8px;
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2);
+}
+.disclosure p{font-size:14px;line-height:1.8}
+
+/* FOOTER */
+.footer{
+  background:#050505;border-top:1px solid var(--line);
+  padding:40px 0;color:#8c8c88;
+  font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+}
+.footer .shell{
+  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+@keyframes pageIn{
+  from{opacity:0;transform:translateY(4px)}
+  to{opacity:1;transform:none}
+}
+@media(max-width:1000px){
+  .nav{display:none}
+  .opening-grid,.section-grid{grid-template-columns:1fr;gap:30px}
+  .opening::after{opacity:.03}
+  .relationship{grid-template-columns:1fr}
+  .relationship-arrow{transform:rotate(90deg)}
+}
+@media(max-width:700px){
+  .shell{width:min(100% - 32px,var(--max))}
+  .header-inner{min-height:84px}
+  .identity img{width:50px;height:50px}
+  .identity-name{font-size:18px}
+  .opening-grid{padding:68px 0}
+  .opening h1{font-size:50px}
+  .section{padding:72px 0}
+  .role-row,.lineage-row{grid-template-columns:1fr;gap:9px;padding:24px 0}
+  .lineage-action{justify-self:start}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="shell header-inner">
+
+    <a class="identity" href="index.html">
+      <img src="phoenix-os-logo.png" alt="Rising Phoenix Enterprises">
+      <div class="identity-copy">
+        <div class="identity-kicker">Rising Phoenix Enterprises</div>
+        <div class="identity-name">Corporate Headquarters</div>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Corporate Navigation">
+      <a href="institution.html">Institution</a>
+      <a href="phoenix-os.html" class="active">Phoenix OS</a>
+      <a href="industries.html">Industries</a>
+      <a href="systems.html">Systems</a>
+      <a href="enterprise.html">Enterprise</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+<section class="opening">
+  <div class="shell opening-grid">
+
+    <div class="page-index">02 · Phoenix OS</div>
+
+    <div>
+      <h1>Phoenix OS</h1>
+      <p>
+        The proprietary technology foundation supporting Rising Phoenix Enterprises and its growing portfolio of specialized systems across multiple industries.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section white">
+  <div class="shell section-grid">
+
+    <div class="section-label">Public Position</div>
+
+    <div>
+      <h2>The foundation beneath the RPE systems portfolio.</h2>
+
+      <p>
+        Phoenix OS supports the development and operation of Rising Phoenix Enterprises systems across distinct markets. It reflects RPE's long-term commitment to technology that reduces complexity, improves continuity, and strengthens the ability of people and organizations to function effectively.
+      </p>
+
+      <div class="role-list">
+
+        <div class="role-row">
+          <small>Enterprise Role</small>
+          <div>
+            <h3>Common technology foundation.</h3>
+            <p>
+              Phoenix OS provides a consistent enterprise foundation beneath systems serving different industries and operating environments.
+            </p>
+          </div>
+        </div>
+
+        <div class="role-row">
+          <small>Portfolio Relationship</small>
+          <div>
+            <h3>One institution. Distinct systems.</h3>
+            <p>
+              Each RPE system maintains its own market identity and purpose while remaining part of a broader enterprise portfolio.
+            </p>
+          </div>
+        </div>
+
+        <div class="role-row">
+          <small>Long-Range Purpose</small>
+          <div>
+            <h3>Support future expansion.</h3>
+            <p>
+              Phoenix OS supports RPE's continued development of specialized systems as the enterprise enters additional industries and geographic markets.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section goldfield">
+  <div class="shell section-grid">
+
+    <div class="section-label">Enterprise Relationship</div>
+
+    <div>
+      <h2>Phoenix OS sits beneath the products, not beside them.</h2>
+
+      <p>
+        Phoenix OS is not presented as another operating product in the RPE portfolio. It is the proprietary enterprise foundation supporting the systems the company develops and operates.
+      </p>
+
+      <div class="relationship">
+
+        <article class="relationship-card">
+          <small>Institution</small>
+          <h3>Rising Phoenix Enterprises</h3>
+          <p>
+            The parent enterprise that owns, develops, operates, and expands a growing portfolio of specialized systems.
+          </p>
+        </article>
+
+        <div class="relationship-arrow">→</div>
+
+        <article class="relationship-card">
+          <small>Enterprise Foundation</small>
+          <h3>Phoenix OS</h3>
+          <p>
+            The proprietary technology foundation supporting the RPE portfolio across multiple industries.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="disclosure">
+        <strong>Public Information Boundary</strong>
+        <p>
+          RPE publicly explains the role and purpose of Phoenix OS. Proprietary architecture, internal methods, governance structures, engineering processes, and system-construction knowledge remain private enterprise information.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell section-grid">
+
+    <div class="section-label">Systems Supported</div>
+
+    <div>
+      <h2>Different markets. One enterprise lineage.</h2>
+
+      <p>
+        Phoenix OS supports systems serving materially different operating environments. The systems themselves provide the clearest public demonstration of the breadth of Rising Phoenix Enterprises.
+      </p>
+
+      <div class="lineage">
+
+        <a class="lineage-row" href="https://stats-core.com" target="_blank" rel="noopener">
+          <div class="lineage-mark">STATS-CORE™</div>
+          <div class="lineage-copy">
+            <small>Sports & Athlete Development</small>
+            <h3>STATS-CORE™ Athlete Lifecycle System</h3>
+            <p>
+              Athlete lifecycle infrastructure focused on identity, development, evidence, academics, eligibility, recruiting, exposure, communication, and long-term athlete intelligence.
+            </p>
+          </div>
+          <div class="lineage-action">Enter →</div>
+        </a>
+
+        <a class="lineage-row" href="#" target="_blank" rel="noopener">
+          <div class="lineage-mark">PBO</div>
+          <div class="lineage-copy">
+            <small>International Business & Commerce</small>
+            <h3>Phoenix Back Office</h3>
+            <p>
+              Global Business Infrastructure focused on commercial relationships, supplier engagement, qualification, quotations, records, workflows, and transaction continuity.
+            </p>
+          </div>
+          <div class="lineage-action">Enter →</div>
+        </a>
+
+        <a class="lineage-row" href="#" target="_blank" rel="noopener">
+          <div class="lineage-mark">PBS</div>
+          <div class="lineage-copy">
+            <small>Business Development</small>
+            <h3>Phoenix Business System</h3>
+            <p>
+              Business operating infrastructure focused on organizational readiness, operating clarity, and structured business progression.
+            </p>
+          </div>
+          <div class="lineage-action">Enter →</div>
+        </a>
+
+        <a class="lineage-row" href="#" target="_blank" rel="noopener">
+          <div class="lineage-mark">PHNX Media</div>
+          <div class="lineage-copy">
+            <small>Digital Media & Entertainment</small>
+            <h3>PHNX Media</h3>
+            <p>
+              Digital media infrastructure for structured creation, production, quality control, and distribution.
+            </p>
+          </div>
+          <div class="lineage-action">Enter →</div>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 </main>
-<footer class="footer"><div class="wrap"><div>© 2026 Rising Phoenix Enterprises</div><div>Institution · Phoenix OS · Enterprise Systems</div></div></footer>
-</body></html> 
+
+<footer class="footer">
+  <div class="shell">
+    <span>© 2026 Rising Phoenix Enterprises</span>
+    <span>Corporate Headquarters · Phoenix OS</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
+ 
