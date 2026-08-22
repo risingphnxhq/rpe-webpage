@@ -1,33 +1,673 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rising Phoenix Enterprises | Systems</title>
+<meta name="description" content="The enterprise systems portfolio of Rising Phoenix Enterprises across sports, global commerce, business operations, digital media, and future markets." />
+<meta name="theme-color" content="#050505" />
 
-<title>System Access</title>
+<style>
+:root{
+  --black:#050505;
+  --black2:#0a0a0b;
+  --black3:#111113;
+  --paper:#f4f4f1;
+  --ink:#151515;
+  --muted:#686864;
+  --gold:#c99a3a;
+  --gold-hi:#efc967;
+  --gold-deep:#765218;
+  --line-dark:rgba(255,255,255,.12);
+  --line-light:rgba(0,0,0,.12);
+  --max:1360px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.shell{width:min(var(--max),calc(100% - 84px));margin:0 auto}
 
-<link rel="stylesheet" href="shared.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+/* HEADER */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:80;
+  background:rgba(5,5,5,.96);
+  backdrop-filter:blur(18px);
+  color:#fff;
+  border-bottom:1px solid var(--line-dark);
+}
+.header-inner{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:290px;
+}
+.brand img{width:44px;height:44px;object-fit:contain}
+.brand-copy{line-height:1}
+.brand-top{
+  font-size:8px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--gold-hi);
+  font-weight:700;
+  margin-bottom:6px;
+}
+.brand-main{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:18px;
+  font-weight:400;
+}
+.nav{
+  display:flex;
+  align-items:center;
+  gap:25px;
+  font-size:9px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#d7d7d3;
+}
+.nav a{
+  position:relative;
+  padding:32px 0 27px;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:100%;
+  bottom:19px;
+  height:1px;
+  background:var(--gold);
+  transition:right .25s var(--ease);
+}
+.nav a:hover,.nav a.active{color:#fff}
+.nav a:hover::after,.nav a.active::after{right:0}
 
+/* HERO */
+.hero{
+  background:
+    radial-gradient(circle at 76% 40%,rgba(201,154,58,.10),transparent 26%),
+    linear-gradient(120deg,#060606 0%,#0b0b0c 58%,#050505 100%);
+  color:#fff;
+  border-bottom:1px solid rgba(201,154,58,.30);
+}
+.hero-grid{
+  min-height:390px;
+  display:grid;
+  grid-template-columns:210px 1fr 340px;
+  gap:54px;
+  align-items:center;
+  padding:54px 0;
+}
+.page-index{
+  align-self:start;
+  margin-top:12px;
+  border-top:1px solid var(--gold);
+  padding-top:11px;
+  color:var(--gold-hi);
+  font-size:8px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.hero-copy small{
+  display:block;
+  margin-bottom:10px;
+  color:var(--gold-hi);
+  font-size:8px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.hero-copy h1{
+  margin:0 0 15px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:44px;
+  line-height:1.08;
+  font-weight:400;
+  letter-spacing:-.02em;
+}
+.hero-copy p{
+  margin:0;
+  max-width:760px;
+  color:#c6c6c2;
+  font-size:15px;
+  line-height:1.82;
+}
+.hero-side{
+  border-left:1px solid rgba(201,154,58,.34);
+  padding-left:26px;
+}
+.hero-side small{
+  display:block;
+  margin-bottom:9px;
+  color:var(--gold-hi);
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.hero-side strong{
+  display:block;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:21px;
+  line-height:1.4;
+  font-weight:400;
+}
+
+/* SECTION */
+.section{
+  padding:78px 0;
+  border-bottom:1px solid var(--line-light);
+}
+.section.dark{
+  background:var(--black2);
+  color:#fff;
+  border-color:var(--line-dark);
+}
+.section-grid{
+  display:grid;
+  grid-template-columns:210px 1fr;
+  gap:54px;
+}
+.section-label{
+  border-top:1px solid var(--gold);
+  padding-top:10px;
+  font-size:8px;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  font-weight:700;
+}
+.dark .section-label{color:var(--gold-hi)}
+.section h2{
+  margin:0 0 16px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:31px;
+  line-height:1.18;
+  font-weight:400;
+  letter-spacing:-.01em;
+}
+.section p{
+  margin:0;
+  max-width:920px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.84;
+}
+.dark p{color:#b9b9b4}
+
+/* PORTFOLIO */
+.portfolio{
+  margin-top:36px;
+  border-top:1px solid var(--line-light);
+}
+.system{
+  display:grid;
+  grid-template-columns:220px 1fr 150px;
+  gap:38px;
+  align-items:center;
+  min-height:154px;
+  padding:24px 0;
+  border-bottom:1px solid var(--line-light);
+  transition:background .25s var(--ease),padding .25s var(--ease);
+}
+.system:hover{
+  background:rgba(0,0,0,.018);
+  padding-left:10px;
+  padding-right:10px;
+}
+.logo-bay{
+  min-height:92px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+}
+.logo-bay img{
+  max-width:185px;
+  max-height:72px;
+  object-fit:contain;
+}
+.wordmark{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:22px;
+  line-height:1.25;
+}
+.system-copy small{
+  display:block;
+  margin-bottom:7px;
+  color:var(--gold-deep);
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.system-copy h3{
+  margin:0 0 7px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:23px;
+  font-weight:400;
+}
+.system-copy p{
+  font-size:13px;
+  line-height:1.72;
+}
+.system-meta{
+  justify-self:end;
+  text-align:right;
+}
+.system-meta span{
+  display:block;
+  margin-bottom:11px;
+  color:#777772;
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.enter-link{
+  display:inline-block;
+  color:var(--gold-deep);
+  font-size:8px;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--gold);
+  padding-bottom:4px;
+}
+
+/* PORTFOLIO PRINCIPLE */
+.principles{
+  margin-top:32px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.12);
+}
+.principle{
+  background:var(--black2);
+  padding:25px 27px;
+}
+.principle small{
+  display:block;
+  margin-bottom:8px;
+  color:var(--gold-hi);
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.principle h3{
+  margin:0 0 8px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:21px;
+  font-weight:400;
+}
+.principle p{
+  font-size:13px;
+  line-height:1.7;
+}
+
+/* FUTURE SYSTEMS */
+.future-list{
+  margin-top:32px;
+  border-top:1px solid var(--line-light);
+}
+.future-row{
+  display:grid;
+  grid-template-columns:210px 1fr;
+  gap:34px;
+  padding:20px 0;
+  border-bottom:1px solid var(--line-light);
+}
+.future-row small{
+  color:var(--gold-deep);
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.future-row h3{
+  margin:0 0 6px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:20px;
+  font-weight:400;
+}
+.future-row p{
+  font-size:13px;
+  line-height:1.7;
+}
+
+/* CLOSING */
+.closing{
+  background:
+    radial-gradient(circle at 15% 30%,rgba(201,154,58,.08),transparent 30%),
+    #070707;
+  color:#fff;
+  border-top:1px solid rgba(201,154,58,.30);
+  padding:58px 0;
+}
+.closing-grid{
+  display:grid;
+  grid-template-columns:210px 1fr;
+  gap:54px;
+}
+.closing h2{
+  margin:0;
+  max-width:920px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:27px;
+  line-height:1.42;
+  font-weight:400;
+}
+
+/* FOOTER */
+.footer{
+  background:#030303;
+  color:#888883;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:32px 0;
+  font-size:9px;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.footer .shell{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+/* REVEAL */
+.reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .65s var(--ease),transform .65s var(--ease);
+}
+.reveal.on{opacity:1;transform:none}
+
+@media(max-width:1000px){
+  .nav{display:none}
+  .hero-grid,.section-grid,.closing-grid{grid-template-columns:1fr}
+  .hero-side{border-left:0;border-top:1px solid rgba(201,154,58,.30);padding:20px 0 0}
+  .principles{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  .shell{width:min(var(--max),calc(100% - 34px))}
+  .header-inner{min-height:76px}
+  .brand img{width:40px;height:40px}
+  .brand-main{font-size:16px}
+  .hero-grid{min-height:auto;padding:44px 0}
+  .hero-copy h1{font-size:35px}
+  .section{padding:58px 0}
+  .section h2{font-size:27px}
+  .system{grid-template-columns:1fr;gap:10px}
+  .system:hover{padding-left:0;padding-right:0}
+  .system-meta{justify-self:start;text-align:left}
+  .future-row{grid-template-columns:1fr;gap:7px}
+}
+</style>
 </head>
+
 <body>
 
-<main class="section">
-<div class="system-shell">
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="index.html">
+      <img src="phoenix-os-logo.png" alt="Rising Phoenix Enterprises">
+      <div class="brand-copy">
+        <div class="brand-top">Rising Phoenix Enterprises</div>
+        <div class="brand-main">Global Systems Enterprise</div>
+      </div>
+    </a>
 
-<h2 class="h2 serif">System Access</h2>
+    <nav class="nav" aria-label="Corporate Navigation">
+      <a href="institution.html">Institution</a>
+      <a href="phoenix-os.html">Phoenix OS</a>
+      <a href="industries.html">Industries</a>
+      <a href="systems.html" class="active">Systems</a>
+      <a href="enterprise.html">Enterprise</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-<div style="margin-top:36px;display:flex;flex-direction:column;gap:18px;">
+<main>
 
-<a href="pbrs.html" class="underline-link serif">Phoenix Business Readiness Snapshot</a>
-<a href="#" class="underline-link serif">Phoenix Business Builder</a>
-<a href="#" class="underline-link serif">Phoenix Nexus Capital</a>
-<a href="#" class="underline-link serif">Phoenix Business System</a>
+<section class="hero">
+  <div class="shell hero-grid reveal">
+    <div class="page-index">04 · Systems</div>
 
-</div>
+    <div class="hero-copy">
+      <small>Enterprise Portfolio</small>
+      <h1>Purpose-built systems. Independent market identities.</h1>
+      <p>
+        Rising Phoenix Enterprises develops specialized systems for distinct operating environments. Each system serves its own market while remaining part of the broader RPE enterprise portfolio.
+      </p>
+    </div>
 
-</div>
+    <aside class="hero-side">
+      <small>Portfolio Position</small>
+      <strong>One institution. Multiple systems. Each built for a defined market purpose.</strong>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell section-grid reveal">
+    <div class="section-label">Current Portfolio</div>
+
+    <div>
+      <h2>Systems currently represented across the RPE enterprise.</h2>
+      <p>
+        The corporate site identifies each system at a public business level. System operating environments remain independent and are entered through their own designated gates.
+      </p>
+
+      <div class="portfolio">
+
+        <a class="system" href="https://stats-core.com" target="_blank" rel="noopener">
+          <div class="logo-bay">
+            <img src="stats-core-logo.png" alt="STATS-CORE" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="wordmark" style="display:none">STATS-CORE™</span>
+          </div>
+
+          <div class="system-copy">
+            <small>Sports & Athlete Development</small>
+            <h3>STATS-CORE™ Athlete Lifecycle System</h3>
+            <p>
+              Athlete lifecycle infrastructure supporting athlete identity, development, performance evidence, academics, eligibility, recruiting, exposure, communication, and long-term athlete intelligence.
+            </p>
+          </div>
+
+          <div class="system-meta">
+            <span>Market-Facing System</span>
+            <div class="enter-link">Enter System →</div>
+          </div>
+        </a>
+
+        <a class="system" href="#" target="_blank" rel="noopener">
+          <div class="logo-bay">
+            <img src="pbo_logo.png" alt="Phoenix Back Office" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="wordmark" style="display:none">Phoenix Back Office</span>
+          </div>
+
+          <div class="system-copy">
+            <small>International Business & Commerce</small>
+            <h3>Phoenix Back Office</h3>
+            <p>
+              Global Business Infrastructure supporting business relationships, supplier engagement, qualification, quotations, records, workflows, and transaction continuity.
+            </p>
+          </div>
+
+          <div class="system-meta">
+            <span>Market-Facing System</span>
+            <div class="enter-link">Enter System →</div>
+          </div>
+        </a>
+
+        <a class="system" href="#" target="_blank" rel="noopener">
+          <div class="logo-bay">
+            <span class="wordmark">Phoenix Business System</span>
+          </div>
+
+          <div class="system-copy">
+            <small>Business Operations</small>
+            <h3>Phoenix Business System</h3>
+            <p>
+              Business infrastructure focused on organizational readiness, operating clarity, and structured enterprise progression.
+            </p>
+          </div>
+
+          <div class="system-meta">
+            <span>Enterprise System</span>
+            <div class="enter-link">Enter System →</div>
+          </div>
+        </a>
+
+        <a class="system" href="#" target="_blank" rel="noopener">
+          <div class="logo-bay">
+            <span class="wordmark">PHNX Media</span>
+          </div>
+
+          <div class="system-copy">
+            <small>Digital Media & Entertainment</small>
+            <h3>PHNX Media</h3>
+            <p>
+              Digital media infrastructure supporting structured creation, production, quality control, asset continuity, and distribution.
+            </p>
+          </div>
+
+          <div class="system-meta">
+            <span>Enterprise System</span>
+            <div class="enter-link">Enter System →</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="shell section-grid reveal">
+    <div class="section-label">Portfolio Principle</div>
+
+    <div>
+      <h2>The corporate portfolio is unified by ownership, not by sameness.</h2>
+      <p>
+        RPE systems do not need to share the same visual identity, customer experience, or market proposition. Their common relationship is institutional: they are developed and operated as part of the Rising Phoenix Enterprises portfolio and supported by the Phoenix OS technology foundation.
+      </p>
+
+      <div class="principles">
+        <article class="principle">
+          <small>Independent Identity</small>
+          <h3>Each system stands on its own.</h3>
+          <p>Every RPE system may maintain its own brand, presentation, operating environment, and market position.</p>
+        </article>
+
+        <article class="principle">
+          <small>Enterprise Relationship</small>
+          <h3>One institutional parent.</h3>
+          <p>Rising Phoenix Enterprises remains the parent institution above the systems in its portfolio.</p>
+        </article>
+
+        <article class="principle">
+          <small>Shared Foundation</small>
+          <h3>Phoenix OS beneath the portfolio.</h3>
+          <p>Phoenix OS supports RPE's system portfolio without becoming a market-facing substitute for those individual systems.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell section-grid reveal">
+    <div class="section-label">Future Portfolio</div>
+
+    <div>
+      <h2>Additional systems will enter the portfolio as RPE expands.</h2>
+      <p>
+        Future additions will reflect the same enterprise position: distinct systems for distinct markets, introduced as their business purpose and operating environments become ready for public representation.
+      </p>
+
+      <div class="future-list">
+        <div class="future-row">
+          <small>Human Systems</small>
+          <div>
+            <h3>Health, education, care, and human-capacity environments.</h3>
+            <p>Potential future systems may address continuity, information, coordination, and access across human-centered sectors.</p>
+          </div>
+        </div>
+
+        <div class="future-row">
+          <small>Enterprise Systems</small>
+          <div>
+            <h3>Finance, logistics, operations, and commercial infrastructure.</h3>
+            <p>RPE may expand where fragmented processes and recurring operational burdens create meaningful market opportunity.</p>
+          </div>
+        </div>
+
+        <div class="future-row">
+          <small>Information Systems</small>
+          <div>
+            <h3>Intelligence, communication, and digital production environments.</h3>
+            <p>Additional systems may support how information is created, organized, understood, coordinated, and distributed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="shell closing-grid reveal">
+    <div class="section-label">Enterprise Portfolio Position</div>
+    <h2>
+      Rising Phoenix Enterprises is not a single-product company. Its systems portfolio is intended to grow across industries while preserving distinct market identities beneath one enduring enterprise institution.
+    </h2>
+  </div>
+</section>
+
 </main>
 
+<footer class="footer">
+  <div class="shell">
+    <span>© 2026 Rising Phoenix Enterprises</span>
+    <span>Systems · Enterprise Portfolio</span>
+  </div>
+</footer>
+
+<script>
+const revealItems=document.querySelectorAll(".reveal");
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("on");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+revealItems.forEach(item=>observer.observe(item));
+</script>
+
 </body>
-</html> 
+</html>
+
+ 
