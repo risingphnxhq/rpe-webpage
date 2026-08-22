@@ -4,371 +4,392 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Rising Phoenix Enterprises | Institution</title>
-<meta name="description" content="Rising Phoenix Enterprises — institutional profile, corporate philosophy, industries, and enterprise systems." />
+<meta name="description" content="Rising Phoenix Enterprises institutional profile, philosophy, mission, enterprise position, and long-range direction." />
+<meta name="theme-color" content="#050505" />
 
 <style>
 :root{
-  --black:#070707;
-  --black2:#0d0d0e;
+  --black:#050505;
+  --black2:#0a0a0b;
+  --black3:#111113;
   --white:#ffffff;
-  --white2:#f6f6f3;
-  --gold:#c89b3c;
-  --gold2:#f0c96a;
-  --gold3:#8b6421;
-  --muted:#a7a7a2;
-  --line:rgba(255,255,255,.12);
-  --lineGold:rgba(200,155,60,.42);
-  --max:1260px;
+  --paper:#f4f4f1;
+  --ink:#161616;
+  --muted:#696965;
+  --gold:#c99a3a;
+  --gold-hi:#efc967;
+  --gold-deep:#765218;
+  --line-dark:rgba(255,255,255,.12);
+  --line-light:rgba(0,0,0,.12);
+  --max:1360px;
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  background:var(--black);
-  color:var(--white);
-  font-family:Arial,Helvetica,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,"Helvetica Neue",Arial,sans-serif;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-.shell{width:min(var(--max),calc(100% - 72px));margin:0 auto}
+.shell{width:min(var(--max),calc(100% - 84px));margin:0 auto}
 
-/* HEADER */
-.header{
+/* GLOBAL CORPORATE HEADER */
+.site-header{
   position:sticky;
   top:0;
-  z-index:50;
-  background:rgba(7,7,7,.96);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-}
-.header::after{
-  content:"";
-  display:block;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  opacity:.55;
+  z-index:80;
+  background:rgba(5,5,5,.96);
+  backdrop-filter:blur(18px);
+  color:#fff;
+  border-bottom:1px solid var(--line-dark);
 }
 .header-inner{
-  min-height:94px;
+  min-height:82px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:28px;
+  gap:32px;
 }
-.identity{
+.brand{
   display:flex;
   align-items:center;
-  gap:17px;
+  gap:14px;
+  min-width:290px;
 }
-.identity img{
-  width:60px;
-  height:60px;
+.brand img{
+  width:44px;
+  height:44px;
   object-fit:contain;
-  filter:drop-shadow(0 0 12px rgba(200,155,60,.16));
 }
-.identity-copy{line-height:1}
-.identity-kicker{
-  font-size:9px;
-  letter-spacing:.22em;
+.brand-copy{line-height:1}
+.brand-top{
+  font-size:8px;
+  letter-spacing:.25em;
   text-transform:uppercase;
-  color:var(--gold2);
+  color:var(--gold-hi);
   font-weight:700;
-  margin-bottom:7px;
+  margin-bottom:6px;
 }
-.identity-name{
+.brand-main{
   font-family:Georgia,"Times New Roman",serif;
-  font-size:23px;
+  font-size:18px;
   font-weight:400;
 }
 .nav{
   display:flex;
-  gap:25px;
   align-items:center;
-  font-size:10px;
+  gap:25px;
+  font-size:9px;
   letter-spacing:.16em;
   text-transform:uppercase;
-  color:#d1d1cd;
+  color:#d7d7d3;
 }
 .nav a{
   position:relative;
-  padding:36px 0 32px;
+  padding:32px 0 27px;
 }
 .nav a::after{
   content:"";
   position:absolute;
   left:0;
   right:100%;
-  bottom:22px;
+  bottom:19px;
   height:1px;
   background:var(--gold);
-  transition:.2s ease;
+  transition:right .25s var(--ease);
 }
 .nav a:hover,
 .nav a.active{color:#fff}
 .nav a:hover::after,
 .nav a.active::after{right:0}
 
-/* OPENING */
-.opening{
-  min-height:560px;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
+/* PAGE INTRO */
+.page-intro{
   background:
-    radial-gradient(circle at 78% 30%,rgba(200,155,60,.10),transparent 28%),
-    linear-gradient(180deg,#0b0b0c 0%,#070707 100%);
+    radial-gradient(circle at 80% 38%,rgba(201,154,58,.09),transparent 25%),
+    linear-gradient(125deg,#070707 0%,#0b0b0c 60%,#050505 100%);
+  color:#fff;
+  border-bottom:1px solid rgba(201,154,58,.30);
 }
-.opening::after{
-  content:"";
-  position:absolute;
-  right:3%;
-  top:50%;
-  transform:translateY(-50%);
-  width:430px;
-  height:430px;
-  background:url("phoenix-os-logo.png") center/contain no-repeat;
-  opacity:.05;
-  pointer-events:none;
-}
-.opening-grid{
-  position:relative;
-  z-index:2;
+.intro-grid{
+  min-height:330px;
   display:grid;
-  grid-template-columns:250px 1fr;
-  gap:76px;
-  align-items:end;
-  padding:110px 0 100px;
+  grid-template-columns:210px 1fr 320px;
+  gap:54px;
+  align-items:center;
+  padding:52px 0;
 }
-.page-index{
+.intro-index{
   align-self:start;
+  margin-top:10px;
   border-top:1px solid var(--gold);
-  padding-top:14px;
-  font-size:9px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--gold2);
-  font-weight:700;
-}
-.opening h1{
-  margin:0;
-  max-width:920px;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(62px,7vw,98px);
-  line-height:.98;
-  font-weight:400;
-  letter-spacing:-.035em;
-}
-.opening p{
-  margin:28px 0 0;
-  max-width:790px;
-  font-size:18px;
-  line-height:1.82;
-  color:#c9c9c4;
-}
-
-/* SECTION */
-.section{
-  padding:104px 0;
-  border-top:1px solid var(--line);
-}
-.section.white{
-  background:var(--white2);
-  color:#101010;
-}
-.section.goldfield{
-  background:linear-gradient(110deg,#0a0a0a,#11100d 65%,#171106);
-}
-.section-grid{
-  display:grid;
-  grid-template-columns:250px 1fr;
-  gap:76px;
-}
-.section-label{
-  align-self:start;
-  border-top:1px solid var(--gold);
-  padding-top:13px;
-  font-size:9px;
+  padding-top:11px;
+  font-size:8px;
   letter-spacing:.2em;
   text-transform:uppercase;
-  color:var(--gold);
+  color:var(--gold-hi);
   font-weight:700;
 }
-.section h2{
-  margin:0 0 24px;
+.intro-copy h1{
+  margin:0 0 14px;
   font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(40px,4vw,58px);
+  font-size:44px;
   line-height:1.08;
   font-weight:400;
   letter-spacing:-.02em;
 }
-.section p{
+.intro-copy p{
   margin:0;
-  max-width:890px;
-  font-size:16px;
-  line-height:1.9;
-  color:#b8b8b4;
+  max-width:760px;
+  color:#c7c7c2;
+  font-size:15px;
+  line-height:1.8;
 }
-.section.white p{color:#505050}
-
-/* PURPOSE STRIP */
-.purpose-strip{
-  margin-top:50px;
-  border-top:1px solid rgba(200,155,60,.32);
-  border-bottom:1px solid rgba(200,155,60,.32);
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
+.intro-side{
+  border-left:1px solid rgba(201,154,58,.32);
+  padding-left:26px;
 }
-.purpose{
-  min-height:190px;
-  padding:31px 34px 34px 0;
-  border-right:1px solid rgba(200,155,60,.20);
-}
-.purpose + .purpose{padding-left:34px}
-.purpose:last-child{border-right:0}
-.purpose small{
+.intro-side small{
   display:block;
   margin-bottom:10px;
-  font-size:9px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--gold3);
-  font-weight:700;
-}
-.purpose h3{
-  margin:0 0 10px;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:27px;
-  font-weight:400;
-}
-.purpose p{
-  font-size:14px;
-  line-height:1.75;
-}
-
-/* REGISTRY */
-.registry{
-  margin-top:48px;
-  border-top:1px solid rgba(255,255,255,.14);
-}
-.registry-row{
-  display:grid;
-  grid-template-columns:240px 1fr;
-  gap:38px;
-  padding:26px 0;
-  border-bottom:1px solid rgba(255,255,255,.14);
-}
-.registry-key{
-  font-size:9px;
+  font-size:8px;
   letter-spacing:.17em;
   text-transform:uppercase;
-  color:var(--gold2);
+  color:var(--gold-hi);
+}
+.intro-side strong{
+  display:block;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:21px;
+  line-height:1.4;
+  font-weight:400;
+}
+
+/* SECTION */
+.section{
+  padding:78px 0;
+  border-bottom:1px solid var(--line-light);
+}
+.section.dark{
+  background:var(--black2);
+  color:#fff;
+  border-color:var(--line-dark);
+}
+.section-grid{
+  display:grid;
+  grid-template-columns:210px 1fr;
+  gap:54px;
+}
+.section-label{
+  border-top:1px solid var(--gold);
+  padding-top:10px;
+  font-size:8px;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+  color:var(--gold-deep);
   font-weight:700;
 }
-.registry-value h3{
+.dark .section-label{color:var(--gold-hi)}
+.section h2{
+  margin:0 0 16px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:31px;
+  line-height:1.18;
+  font-weight:400;
+  letter-spacing:-.01em;
+}
+.section p{
+  margin:0;
+  max-width:920px;
+  font-size:15px;
+  line-height:1.84;
+  color:var(--muted);
+}
+.dark p{color:#b9b9b4}
+
+/* PRINCIPLES */
+.principles{
+  margin-top:32px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line-light);
+  border-bottom:1px solid var(--line-light);
+}
+.principle{
+  padding:23px 26px 25px 0;
+  border-right:1px solid var(--line-light);
+}
+.principle + .principle{padding-left:26px}
+.principle:last-child{border-right:0}
+.principle small{
+  display:block;
+  margin-bottom:7px;
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  font-weight:700;
+}
+.principle h3{
   margin:0 0 7px;
   font-family:Georgia,"Times New Roman",serif;
-  font-size:28px;
+  font-size:21px;
   font-weight:400;
 }
-.registry-value p{
-  max-width:760px;
-  font-size:14px;
-  line-height:1.75;
+.principle p{
+  font-size:13px;
+  line-height:1.7;
 }
 
-/* CORPORATE PORTFOLIO PREVIEW */
-.portfolio-preview{
-  margin-top:50px;
-  border-top:1px solid rgba(0,0,0,.15);
+/* ENTERPRISE POSITION */
+.position-list{
+  margin-top:30px;
+  border-top:1px solid rgba(255,255,255,.13);
 }
-.portfolio-row{
+.position-row{
   display:grid;
-  grid-template-columns:250px 1fr;
-  gap:40px;
-  padding:30px 0;
-  border-bottom:1px solid rgba(0,0,0,.15);
+  grid-template-columns:220px 1fr;
+  gap:34px;
+  padding:21px 0;
+  border-bottom:1px solid rgba(255,255,255,.12);
 }
-.portfolio-row small{
-  font-size:9px;
-  letter-spacing:.17em;
+.position-row small{
+  font-size:8px;
+  letter-spacing:.16em;
   text-transform:uppercase;
-  color:var(--gold3);
+  color:var(--gold-hi);
   font-weight:700;
 }
-.portfolio-row h3{
-  margin:0 0 8px;
+.position-row h3{
+  margin:0 0 5px;
   font-family:Georgia,"Times New Roman",serif;
-  font-size:29px;
+  font-size:21px;
   font-weight:400;
 }
-.portfolio-row p{
-  max-width:800px;
-  font-size:14px;
-  line-height:1.76;
+.position-row p{font-size:13px;line-height:1.72}
+
+/* SYSTEM DOMAINS */
+.domain-grid{
+  margin-top:34px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  background:var(--line-light);
+  border:1px solid var(--line-light);
+}
+.domain{
+  background:var(--paper);
+  padding:25px 27px;
+}
+.domain small{
+  display:block;
+  margin-bottom:8px;
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  font-weight:700;
+}
+.domain h3{
+  margin:0 0 8px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:22px;
+  font-weight:400;
+}
+.domain p{
+  font-size:13px;
+  line-height:1.7;
+}
+
+/* CLOSING */
+.closing{
+  background:#050505;
+  color:#fff;
+  padding:58px 0;
+  border-top:1px solid rgba(201,154,58,.34);
+}
+.closing-grid{
+  display:grid;
+  grid-template-columns:210px 1fr;
+  gap:54px;
+}
+.closing h2{
+  margin:0;
+  max-width:900px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:27px;
+  line-height:1.42;
+  font-weight:400;
 }
 
 /* FOOTER */
 .footer{
-  background:#050505;
-  border-top:1px solid var(--line);
-  padding:40px 0;
-  color:#8c8c88;
-  font-size:10px;
+  background:#030303;
+  color:#888883;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:32px 0;
+  font-size:9px;
   letter-spacing:.11em;
   text-transform:uppercase;
 }
 .footer .shell{
   display:flex;
   justify-content:space-between;
-  gap:24px;
+  gap:20px;
   flex-wrap:wrap;
 }
 
-body{animation:pageIn .45s ease both}
-@keyframes pageIn{
-  from{opacity:0;transform:translateY(4px)}
-  to{opacity:1;transform:none}
+/* REVEAL */
+.reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .65s var(--ease),transform .65s var(--ease);
+}
+.reveal.on{
+  opacity:1;
+  transform:none;
 }
 
 @media(max-width:1000px){
   .nav{display:none}
-  .opening-grid,.section-grid{grid-template-columns:1fr;gap:30px}
-  .opening::after{opacity:.025}
-  .purpose-strip{grid-template-columns:1fr}
-  .purpose,.purpose + .purpose{
-    padding:26px 0;
-    border-right:0;
-    border-bottom:1px solid rgba(200,155,60,.20);
-  }
-  .purpose:last-child{border-bottom:0}
+  .intro-grid,
+  .section-grid,
+  .closing-grid{grid-template-columns:1fr}
+  .intro-side{border-left:0;border-top:1px solid rgba(201,154,58,.30);padding:20px 0 0}
+  .principles{grid-template-columns:1fr}
+  .principle,.principle + .principle{padding:20px 0;border-right:0;border-bottom:1px solid var(--line-light)}
+  .principle:last-child{border-bottom:0}
 }
-@media(max-width:700px){
-  .shell{width:min(100% - 32px,var(--max))}
-  .header-inner{min-height:84px}
-  .identity img{width:50px;height:50px}
-  .identity-name{font-size:18px}
-  .opening-grid{padding:68px 0}
-  .opening h1{font-size:50px}
-  .section{padding:72px 0}
-  .registry-row,.portfolio-row{grid-template-columns:1fr;gap:9px}
+@media(max-width:720px){
+  .shell{width:min(var(--max),calc(100% - 34px))}
+  .header-inner{min-height:76px}
+  .brand img{width:40px;height:40px}
+  .brand-main{font-size:16px}
+  .intro-grid{min-height:auto;padding:45px 0}
+  .intro-copy h1{font-size:35px}
+  .section{padding:58px 0}
+  .section h2{font-size:27px}
+  .position-row{grid-template-columns:1fr;gap:7px}
+  .domain-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
-<header class="header">
+<header class="site-header">
   <div class="shell header-inner">
-
-    <a class="identity" href="index.html">
+    <a class="brand" href="index.html">
       <img src="phoenix-os-logo.png" alt="Rising Phoenix Enterprises">
-      <div class="identity-copy">
-        <div class="identity-kicker">Rising Phoenix Enterprises</div>
-        <div class="identity-name">Corporate Headquarters</div>
+      <div class="brand-copy">
+        <div class="brand-top">Rising Phoenix Enterprises</div>
+        <div class="brand-main">Global Systems Enterprise</div>
       </div>
     </a>
 
@@ -380,172 +401,146 @@ body{animation:pageIn .45s ease both}
       <a href="enterprise.html">Enterprise</a>
       <a href="contact.html">Contact</a>
     </nav>
-
   </div>
 </header>
 
 <main>
 
-<section class="opening">
-  <div class="shell opening-grid">
+<section class="page-intro">
+  <div class="shell intro-grid reveal">
+    <div class="intro-index">01 · Institution</div>
 
-    <div class="page-index">01 · Institution</div>
-
-    <div>
+    <div class="intro-copy">
       <h1>Rising Phoenix Enterprises</h1>
       <p>
-        A multi-industry systems enterprise developing purpose-built technologies for markets where stronger infrastructure can materially improve human, organizational, and commercial activity.
+        An independent multi-industry technology and systems enterprise focused on developing purpose-built infrastructure for markets where stronger systems can materially improve human, organizational, and commercial activity.
       </p>
     </div>
 
+    <aside class="intro-side">
+      <small>Institutional Position</small>
+      <strong>One enterprise. Multiple industries. Long-range system ownership.</strong>
+    </aside>
   </div>
 </section>
 
-<section class="section white">
-  <div class="shell section-grid">
-
+<section class="section">
+  <div class="shell section-grid reveal">
     <div class="section-label">Corporate Philosophy</div>
 
     <div>
       <h2>Built beyond a single product or market.</h2>
-
       <p>
-        Rising Phoenix Enterprises is an independent enterprise organized around long-term system ownership rather than one application, one industry, or one market cycle. The company develops systems intended to reduce recurring complexity, improve continuity, and strengthen the operating capacity of the people and organizations they serve.
+        RPE is not organized around one application, one market, or one technology cycle. The enterprise identifies persistent operating problems and develops systems intended to improve continuity, access, clarity, coordination, and performance within the environments they serve.
       </p>
 
-      <div class="purpose-strip">
-
-        <article class="purpose">
+      <div class="principles">
+        <article class="principle">
           <small>Purpose</small>
           <h3>Increase capacity.</h3>
-          <p>
-            RPE develops technology intended to reduce unnecessary burden and improve how people and organizations function within complex environments.
-          </p>
+          <p>Reduce recurring complexity and strengthen the ability of people and organizations to function effectively.</p>
         </article>
 
-        <article class="purpose">
+        <article class="principle">
           <small>Position</small>
-          <h3>Multi-industry.</h3>
-          <p>
-            The enterprise is intentionally not confined to one market. Systems are developed for distinct industries where meaningful improvement can be created.
-          </p>
+          <h3>Multi-industry by design.</h3>
+          <p>Develop distinct systems for distinct operating environments rather than confining the enterprise to one sector.</p>
         </article>
 
-        <article class="purpose">
+        <article class="principle">
           <small>Direction</small>
-          <h3>Long-range.</h3>
-          <p>
-            Current systems represent the beginning of a broader national and international enterprise portfolio intended to expand over time.
-          </p>
+          <h3>Think long-range.</h3>
+          <p>Build an enduring portfolio capable of serving expanding domestic and international markets.</p>
         </article>
-
       </div>
     </div>
-
   </div>
 </section>
 
-<section class="section goldfield">
-  <div class="shell section-grid">
-
-    <div class="section-label">Institutional Position</div>
+<section class="section dark">
+  <div class="shell section-grid reveal">
+    <div class="section-label">Enterprise Position</div>
 
     <div>
-      <h2>Quiet authority. Clear purpose.</h2>
-
+      <h2>A parent institution above its systems.</h2>
       <p>
-        RPE's public corporate presence exists to identify the institution, its systems, the markets those systems serve, and the company's long-term direction. Proprietary internal methods and system-construction knowledge remain private enterprise information.
+        Rising Phoenix Enterprises exists as the institutional layer above its individual systems. Each system maintains its own market identity, operating purpose, and user environment while remaining part of the broader RPE portfolio.
       </p>
 
-      <div class="registry">
-
-        <div class="registry-row">
-          <div class="registry-key">Enterprise</div>
-          <div class="registry-value">
+      <div class="position-list">
+        <div class="position-row">
+          <small>Institution</small>
+          <div>
             <h3>Rising Phoenix Enterprises</h3>
-            <p>Multi-industry systems enterprise.</p>
+            <p>Owns, develops, operates, and expands a growing portfolio of specialized systems.</p>
           </div>
         </div>
 
-        <div class="registry-row">
-          <div class="registry-key">Technology Foundation</div>
-          <div class="registry-value">
+        <div class="position-row">
+          <small>Technology Foundation</small>
+          <div>
             <h3>Phoenix OS</h3>
-            <p>The proprietary technology foundation supporting Rising Phoenix Enterprises' growing portfolio of specialized systems.</p>
+            <p>The proprietary technology foundation supporting RPE systems across multiple industries.</p>
           </div>
         </div>
 
-        <div class="registry-row">
-          <div class="registry-key">Orientation</div>
-          <div class="registry-value">
-            <h3>National & International</h3>
+        <div class="position-row">
+          <small>Market Orientation</small>
+          <div>
+            <h3>National &amp; International</h3>
             <p>RPE develops systems with long-range application across domestic and global markets.</p>
           </div>
         </div>
-
       </div>
     </div>
-
   </div>
 </section>
 
-<section class="section white">
-  <div class="shell section-grid">
-
-    <div class="section-label">Current Portfolio</div>
+<section class="section">
+  <div class="shell section-grid reveal">
+    <div class="section-label">Current Enterprise Domains</div>
 
     <div>
-      <h2>Distinct systems for distinct operating environments.</h2>
-
+      <h2>Distinct systems serving distinct environments.</h2>
       <p>
-        The company's current portfolio reflects active system implementation and development across multiple industries. Each system has its own market identity and independent operating environment.
+        RPE's current portfolio already establishes enterprise positions across several materially different markets.
       </p>
 
-      <div class="portfolio-preview">
-
-        <div class="portfolio-row">
+      <div class="domain-grid">
+        <article class="domain">
           <small>Sports & Athlete Development</small>
-          <div>
-            <h3>STATS-CORE™ Athlete Lifecycle System</h3>
-            <p>
-              Structured athlete lifecycle infrastructure focused on identity, development, evidence, academics, eligibility, recruiting, exposure, communication, and long-term athlete intelligence.
-            </p>
-          </div>
-        </div>
+          <h3>STATS-CORE™</h3>
+          <p>Athlete lifecycle infrastructure focused on development, evidence, academics, eligibility, recruiting, exposure, communication, and long-term athlete intelligence.</p>
+        </article>
 
-        <div class="portfolio-row">
+        <article class="domain">
           <small>International Business & Commerce</small>
-          <div>
-            <h3>Phoenix Back Office</h3>
-            <p>
-              Global Business Infrastructure focused on commercial relationships, supplier engagement, qualification, quotations, records, workflows, and transaction continuity.
-            </p>
-          </div>
-        </div>
+          <h3>Phoenix Back Office</h3>
+          <p>Global Business Infrastructure supporting commercial relationships, supplier engagement, qualification, quotations, records, workflows, and transaction continuity.</p>
+        </article>
 
-        <div class="portfolio-row">
-          <small>Business Development</small>
-          <div>
-            <h3>Phoenix Business System</h3>
-            <p>
-              Business operating infrastructure focused on organizational readiness, operating clarity, and structured business progression.
-            </p>
-          </div>
-        </div>
+        <article class="domain">
+          <small>Business Operations</small>
+          <h3>Phoenix Business System</h3>
+          <p>Business infrastructure focused on organizational readiness, operating clarity, and structured enterprise progression.</p>
+        </article>
 
-        <div class="portfolio-row">
+        <article class="domain">
           <small>Digital Media & Entertainment</small>
-          <div>
-            <h3>PHNX Media</h3>
-            <p>
-              Digital media infrastructure for structured creation, production, quality control, and distribution.
-            </p>
-          </div>
-        </div>
-
+          <h3>PHNX Media</h3>
+          <p>Digital media infrastructure supporting structured creation, production, quality control, and distribution.</p>
+        </article>
       </div>
     </div>
+  </div>
+</section>
 
+<section class="closing">
+  <div class="shell closing-grid reveal">
+    <div class="section-label">Public Corporate Position</div>
+    <h2>
+      RPE publicly explains what it creates, the markets it serves, and why those systems matter. The proprietary methods by which those systems are conceived, constructed, operated, and expanded remain private enterprise knowledge.
+    </h2>
   </div>
 </section>
 
@@ -554,9 +549,22 @@ body{animation:pageIn .45s ease both}
 <footer class="footer">
   <div class="shell">
     <span>© 2026 Rising Phoenix Enterprises</span>
-    <span>Corporate Headquarters · National & International</span>
+    <span>Global Systems Enterprise · National & International</span>
   </div>
 </footer>
+
+<script>
+const revealItems=document.querySelectorAll(".reveal");
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("on");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+revealItems.forEach(item=>observer.observe(item));
+</script>
 
 </body>
 </html>
